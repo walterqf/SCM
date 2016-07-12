@@ -9,7 +9,7 @@
 
     Private Sub guardar()
         Dim gestores As New Entity.tbl_gestor_ordenes_Entity
-        gestores.Nitsolicitanteorden = txt_nombre_gestor.Text
+        gestores.Nombresolicitanteorden = txt_nombre_gestor.Text
         gestores.Nombrecomercialsolicitanteorden = txt_nombre_comercial_gestor.Text
         gestores.Idtipogestor = cmb_tipos.SelectedValue
         gestores.Nitsolicitanteorden = txt_nit_gestor.Text

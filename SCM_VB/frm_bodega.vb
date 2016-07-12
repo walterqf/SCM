@@ -124,6 +124,7 @@
         txt_direccion.Text = ""
         lbl_usuario.Text = ""
         txt_id_usuario.Text = 0
+        txt_encargado.Text = ""
     End Sub
 
     Private Sub btn_acciones(ByVal estado As Integer)

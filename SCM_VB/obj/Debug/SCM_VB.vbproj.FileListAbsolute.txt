@@ -42,3 +42,4 @@ C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM\SCM_VB\obj\Debug\SCM_VB
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM\SCM_VB\obj\Debug\SCM_VB.frm_bodega.resources
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM\SCM_VB\obj\Debug\SCM_VB.frm_medidas.resources
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM\SCM_VB\obj\Debug\SCM_VB.frm_monedas.resources
+C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM\SCM_VB\obj\Debug\SCM_VB.frm_orden_egreso.resources

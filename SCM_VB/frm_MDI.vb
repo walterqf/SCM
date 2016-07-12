@@ -97,4 +97,8 @@ Public Class frm_MDI
     Private Sub MonedasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MonedasToolStripMenuItem.Click
         iniciar_frm(frm_monedas)
     End Sub
+
+    Private Sub CreacionDeOrdenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CreacionDeOrdenToolStripMenuItem.Click
+        iniciar_frm(frm_orden_egreso)
+    End Sub
 End Class

@@ -123,6 +123,12 @@
     <Compile Include="frm_monedas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm_orden_egreso.Designer.vb">
+      <DependentUpon>frm_orden_egreso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_orden_egreso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_tipo_gestor.Designer.vb">
       <DependentUpon>frm_tipo_gestor.vb</DependentUpon>
     </Compile>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_monedas.resx">
       <DependentUpon>frm_monedas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_orden_egreso.resx">
+      <DependentUpon>frm_orden_egreso.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_tipo_gestor.resx">
       <DependentUpon>frm_tipo_gestor.vb</DependentUpon>

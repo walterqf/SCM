@@ -35,18 +35,17 @@ Partial Class frm_MDI
         Me.EmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IngresoDeUsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Procesos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OrdenesDeEgresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CreacionDeOrdenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AutorizacionDeOrdenDeEgresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Reportes = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lst_tool_empresa = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.OrdenesDeEgresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CreacionDeOrdenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RevisionDeOrdenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AutorizacionDeOrdenDeEgresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IngresoDeProductosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -62,7 +61,7 @@ Partial Class frm_MDI
         '
         'Catalogos
         '
-        Me.Catalogos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresoDeProductosToolStripMenuItem, Me.BodegaToolStripMenuItem, Me.TiposMedidasToolStripMenuItem, Me.TipoDeGestoresToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.EmpresasToolStripMenuItem, Me.IngresoDeUsuariosToolStripMenuItem})
+        Me.Catalogos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresoDeProductosToolStripMenuItem, Me.BodegaToolStripMenuItem, Me.TiposMedidasToolStripMenuItem, Me.TipoDeGestoresToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.EmpresasToolStripMenuItem, Me.IngresoDeUsuariosToolStripMenuItem, Me.IngresoDeProductosToolStripMenuItem1})
         Me.Catalogos.Name = "Catalogos"
         Me.Catalogos.Size = New System.Drawing.Size(72, 20)
         Me.Catalogos.Text = "&Catalogos"
@@ -116,6 +115,25 @@ Partial Class frm_MDI
         Me.Procesos.Size = New System.Drawing.Size(66, 20)
         Me.Procesos.Text = "&Procesos"
         '
+        'OrdenesDeEgresoToolStripMenuItem
+        '
+        Me.OrdenesDeEgresoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CreacionDeOrdenToolStripMenuItem, Me.AutorizacionDeOrdenDeEgresoToolStripMenuItem})
+        Me.OrdenesDeEgresoToolStripMenuItem.Name = "OrdenesDeEgresoToolStripMenuItem"
+        Me.OrdenesDeEgresoToolStripMenuItem.Size = New System.Drawing.Size(172, 22)
+        Me.OrdenesDeEgresoToolStripMenuItem.Text = "Ordenes de egreso"
+        '
+        'CreacionDeOrdenToolStripMenuItem
+        '
+        Me.CreacionDeOrdenToolStripMenuItem.Name = "CreacionDeOrdenToolStripMenuItem"
+        Me.CreacionDeOrdenToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
+        Me.CreacionDeOrdenToolStripMenuItem.Text = "Creacion orden de egreso"
+        '
+        'AutorizacionDeOrdenDeEgresoToolStripMenuItem
+        '
+        Me.AutorizacionDeOrdenDeEgresoToolStripMenuItem.Name = "AutorizacionDeOrdenDeEgresoToolStripMenuItem"
+        Me.AutorizacionDeOrdenDeEgresoToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
+        Me.AutorizacionDeOrdenDeEgresoToolStripMenuItem.Text = "Autorizacion orden de egreso"
+        '
         'Reportes
         '
         Me.Reportes.Name = "Reportes"
@@ -137,56 +155,29 @@ Partial Class frm_MDI
         '
         'StatusStrip
         '
-        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel, Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel2})
+        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lst_tool_empresa, Me.ToolStripStatusLabel2})
         Me.StatusStrip.Location = New System.Drawing.Point(0, 431)
         Me.StatusStrip.Name = "StatusStrip"
         Me.StatusStrip.Size = New System.Drawing.Size(632, 22)
         Me.StatusStrip.TabIndex = 7
         Me.StatusStrip.Text = "StatusStrip"
         '
-        'ToolStripStatusLabel
+        'lst_tool_empresa
         '
-        Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
-        Me.ToolStripStatusLabel.Size = New System.Drawing.Size(42, 17)
-        Me.ToolStripStatusLabel.Text = "Estado"
-        '
-        'ToolStripStatusLabel1
-        '
-        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(82, 17)
-        Me.ToolStripStatusLabel1.Text = "Empresa: 1002"
+        Me.lst_tool_empresa.Name = "lst_tool_empresa"
+        Me.lst_tool_empresa.Size = New System.Drawing.Size(0, 17)
         '
         'ToolStripStatusLabel2
         '
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(73, 17)
-        Me.ToolStripStatusLabel2.Text = "eamagnaniq"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(0, 17)
         Me.ToolStripStatusLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'OrdenesDeEgresoToolStripMenuItem
+        'IngresoDeProductosToolStripMenuItem1
         '
-        Me.OrdenesDeEgresoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CreacionDeOrdenToolStripMenuItem, Me.RevisionDeOrdenToolStripMenuItem, Me.AutorizacionDeOrdenDeEgresoToolStripMenuItem})
-        Me.OrdenesDeEgresoToolStripMenuItem.Name = "OrdenesDeEgresoToolStripMenuItem"
-        Me.OrdenesDeEgresoToolStripMenuItem.Size = New System.Drawing.Size(172, 22)
-        Me.OrdenesDeEgresoToolStripMenuItem.Text = "Ordenes de egreso"
-        '
-        'CreacionDeOrdenToolStripMenuItem
-        '
-        Me.CreacionDeOrdenToolStripMenuItem.Name = "CreacionDeOrdenToolStripMenuItem"
-        Me.CreacionDeOrdenToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
-        Me.CreacionDeOrdenToolStripMenuItem.Text = "Creacion orden de egreso"
-        '
-        'RevisionDeOrdenToolStripMenuItem
-        '
-        Me.RevisionDeOrdenToolStripMenuItem.Name = "RevisionDeOrdenToolStripMenuItem"
-        Me.RevisionDeOrdenToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
-        Me.RevisionDeOrdenToolStripMenuItem.Text = "Revision orden de egreso"
-        '
-        'AutorizacionDeOrdenDeEgresoToolStripMenuItem
-        '
-        Me.AutorizacionDeOrdenDeEgresoToolStripMenuItem.Name = "AutorizacionDeOrdenDeEgresoToolStripMenuItem"
-        Me.AutorizacionDeOrdenDeEgresoToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
-        Me.AutorizacionDeOrdenDeEgresoToolStripMenuItem.Text = "Autorizacion orden de egreso"
+        Me.IngresoDeProductosToolStripMenuItem1.Name = "IngresoDeProductosToolStripMenuItem1"
+        Me.IngresoDeProductosToolStripMenuItem1.Size = New System.Drawing.Size(212, 22)
+        Me.IngresoDeProductosToolStripMenuItem1.Text = "Ingreso de productos"
         '
         'frm_MDI
         '
@@ -216,7 +207,6 @@ Partial Class frm_MDI
     Friend WithEvents HelpMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
-    Friend WithEvents ToolStripStatusLabel As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents StatusStrip As System.Windows.Forms.StatusStrip
     Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
     Friend WithEvents Catalogos As System.Windows.Forms.ToolStripMenuItem
@@ -224,7 +214,7 @@ Partial Class frm_MDI
     Friend WithEvents Reportes As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents IngresoDeUsuariosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents IngresoDeProductosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
+    Friend WithEvents lst_tool_empresa As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
     Friend WithEvents TipoDeGestoresToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EmpresasToolStripMenuItem As ToolStripMenuItem
@@ -233,6 +223,6 @@ Partial Class frm_MDI
     Friend WithEvents MonedasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OrdenesDeEgresoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CreacionDeOrdenToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents RevisionDeOrdenToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AutorizacionDeOrdenDeEgresoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents IngresoDeProductosToolStripMenuItem1 As ToolStripMenuItem
 End Class

@@ -101,4 +101,13 @@ Public Class frm_MDI
     Private Sub CreacionDeOrdenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CreacionDeOrdenToolStripMenuItem.Click
         iniciar_frm(frm_orden_egreso)
     End Sub
+
+    Private Sub frm_MDI_Load(sender As Object, e As EventArgs) Handles Me.Load
+        ToolStripStatusLabel2.Text = "    Usuario: " + My.Settings.user
+        lst_tool_empresa.Text = "Empresa: " + My.Settings.id_empresa + " - " + My.Settings.empresa_nombre
+    End Sub
+
+    Private Sub IngresoDeProductosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles IngresoDeProductosToolStripMenuItem1.Click
+        iniciar_frm(frm_productos)
+    End Sub
 End Class

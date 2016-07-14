@@ -52,6 +52,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -129,6 +130,12 @@
     <Compile Include="frm_orden_egreso.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm_productos.Designer.vb">
+      <DependentUpon>frm_productos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_productos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_selector_empresa.Designer.vb">
       <DependentUpon>frm_selector_empresa.vb</DependentUpon>
     </Compile>
@@ -184,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_orden_egreso.resx">
       <DependentUpon>frm_orden_egreso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_productos.resx">
+      <DependentUpon>frm_productos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_selector_empresa.resx">
       <DependentUpon>frm_selector_empresa.vb</DependentUpon>

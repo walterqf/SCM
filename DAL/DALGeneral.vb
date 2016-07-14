@@ -115,5 +115,29 @@ Public Class DALGeneral
         End Using
     End Function
 
+
+
+    Public Shared Function get_productos(ByVal pConnection As Connection_Entity) As DataTable
+
+        Using iConnection As New OleDbConnection("Provider=SQLOLEDB;Server=" & pConnection.ServerName & ";Database=" & pConnection.DataBaseName & ";Uid=" & pConnection.Login & "; Pwd=" & Entity.Seguridad.DesEncripta(pConnection.Password) & ";")
+
+            Dim iCommand As New OleDbCommand("spc_tbl_scm_productos_mod", iConnection)
+            iCommand.CommandType = CommandType.StoredProcedure
+
+            'iCommand.Parameters.AddWithValue("@id_orden", IIf(pc_productos.Idproducto = 0, DBNull.Value, pc_productos.Idproducto))
+
+            Try
+                Dim iDTResult As New DataTable("tbl_ordenes_detalle_mod")
+                Dim iDAResult As New OleDbDataAdapter()
+                iDAResult.SelectCommand = iCommand
+                iDAResult.Fill(iDTResult)
+
+                Return iDTResult
+            Catch ex As Exception
+                Throw New Exception(ex.Message, ex.InnerException)
+            End Try
+
+        End Using
+    End Function
 End Class
 

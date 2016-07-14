@@ -39,5 +39,13 @@ Public Class BOGeneral
         End Try
     End Function
 
+    Public Shared Function get_productos(ByVal pConnection As Connection_Entity) As DataTable
+        Try
+            Return DALGeneral.get_productos(pConnection)
+        Catch ex As Exception
+            Throw New Exception(ex.Message, ex.InnerException)
+        End Try
+    End Function
+
 End Class
 

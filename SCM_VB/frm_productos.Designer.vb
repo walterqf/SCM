@@ -22,31 +22,13 @@ Partial Class frm_productos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.txt_nombre_gestor = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pnl_usuario = New System.Windows.Forms.Panel()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.txt_id_usuario = New System.Windows.Forms.TextBox()
-        Me.cmb_empresa = New System.Windows.Forms.ComboBox()
-        Me.lbl_usuario = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.txt_usuario = New System.Windows.Forms.TextBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.txt_telefono_gestor = New System.Windows.Forms.TextBox()
-        Me.txt_nombre_comercial_gestor = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.cmb_tipos = New System.Windows.Forms.ComboBox()
-        Me.txt_nit_gestor = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txt_direccion_gestor = New System.Windows.Forms.TextBox()
+        Me.cmb_medida = New System.Windows.Forms.ComboBox()
+        Me.txt_nombre_producto = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.grd_gestores = New System.Windows.Forms.DataGridView()
-        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.usuarios = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.grd_productos = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -62,9 +44,12 @@ Partial Class frm_productos
         Me.btn_guardar = New System.Windows.Forms.PictureBox()
         Me.btn_salir = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.prd_descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.pnl_usuario.SuspendLayout()
-        CType(Me.grd_gestores, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grd_productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.btn_nuevo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btn_eliminar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -75,13 +60,6 @@ Partial Class frm_productos
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'txt_nombre_gestor
-        '
-        Me.txt_nombre_gestor.Location = New System.Drawing.Point(107, 37)
-        Me.txt_nombre_gestor.Name = "txt_nombre_gestor"
-        Me.txt_nombre_gestor.Size = New System.Drawing.Size(318, 20)
-        Me.txt_nombre_gestor.TabIndex = 0
-        '
         'Panel1
         '
         Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -89,7 +67,7 @@ Partial Class frm_productos
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.pnl_usuario)
-        Me.Panel1.Controls.Add(Me.grd_gestores)
+        Me.Panel1.Controls.Add(Me.grd_productos)
         Me.Panel1.Location = New System.Drawing.Point(3, 75)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(705, 412)
@@ -97,209 +75,63 @@ Partial Class frm_productos
         '
         'pnl_usuario
         '
-        Me.pnl_usuario.Controls.Add(Me.Label15)
-        Me.pnl_usuario.Controls.Add(Me.txt_id_usuario)
-        Me.pnl_usuario.Controls.Add(Me.cmb_empresa)
-        Me.pnl_usuario.Controls.Add(Me.lbl_usuario)
-        Me.pnl_usuario.Controls.Add(Me.Label14)
-        Me.pnl_usuario.Controls.Add(Me.txt_usuario)
-        Me.pnl_usuario.Controls.Add(Me.Label13)
-        Me.pnl_usuario.Controls.Add(Me.txt_telefono_gestor)
-        Me.pnl_usuario.Controls.Add(Me.txt_nombre_comercial_gestor)
-        Me.pnl_usuario.Controls.Add(Me.Label12)
         Me.pnl_usuario.Controls.Add(Me.Label11)
-        Me.pnl_usuario.Controls.Add(Me.cmb_tipos)
-        Me.pnl_usuario.Controls.Add(Me.txt_nit_gestor)
-        Me.pnl_usuario.Controls.Add(Me.Label3)
-        Me.pnl_usuario.Controls.Add(Me.txt_nombre_gestor)
-        Me.pnl_usuario.Controls.Add(Me.txt_direccion_gestor)
+        Me.pnl_usuario.Controls.Add(Me.cmb_medida)
+        Me.pnl_usuario.Controls.Add(Me.txt_nombre_producto)
         Me.pnl_usuario.Controls.Add(Me.Label2)
-        Me.pnl_usuario.Controls.Add(Me.Label4)
         Me.pnl_usuario.Location = New System.Drawing.Point(12, 3)
         Me.pnl_usuario.Name = "pnl_usuario"
-        Me.pnl_usuario.Size = New System.Drawing.Size(440, 184)
+        Me.pnl_usuario.Size = New System.Drawing.Size(440, 70)
         Me.pnl_usuario.TabIndex = 9
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(260, 13)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(48, 13)
-        Me.Label15.TabIndex = 11
-        Me.Label15.Text = "Empresa"
-        '
-        'txt_id_usuario
-        '
-        Me.txt_id_usuario.Location = New System.Drawing.Point(405, 144)
-        Me.txt_id_usuario.Name = "txt_id_usuario"
-        Me.txt_id_usuario.Size = New System.Drawing.Size(18, 20)
-        Me.txt_id_usuario.TabIndex = 17
-        Me.txt_id_usuario.Visible = False
-        '
-        'cmb_empresa
-        '
-        Me.cmb_empresa.FormattingEnabled = True
-        Me.cmb_empresa.Location = New System.Drawing.Point(314, 10)
-        Me.cmb_empresa.Name = "cmb_empresa"
-        Me.cmb_empresa.Size = New System.Drawing.Size(111, 21)
-        Me.cmb_empresa.TabIndex = 10
-        '
-        'lbl_usuario
-        '
-        Me.lbl_usuario.AutoSize = True
-        Me.lbl_usuario.Location = New System.Drawing.Point(214, 150)
-        Me.lbl_usuario.Name = "lbl_usuario"
-        Me.lbl_usuario.Size = New System.Drawing.Size(0, 13)
-        Me.lbl_usuario.TabIndex = 16
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(12, 144)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(43, 13)
-        Me.Label14.TabIndex = 15
-        Me.Label14.Text = "Usuario"
-        '
-        'txt_usuario
-        '
-        Me.txt_usuario.Location = New System.Drawing.Point(107, 144)
-        Me.txt_usuario.Name = "txt_usuario"
-        Me.txt_usuario.Size = New System.Drawing.Size(100, 20)
-        Me.txt_usuario.TabIndex = 14
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(254, 119)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(49, 13)
-        Me.Label13.TabIndex = 13
-        Me.Label13.Text = "Telefono"
-        '
-        'txt_telefono_gestor
-        '
-        Me.txt_telefono_gestor.Location = New System.Drawing.Point(323, 116)
-        Me.txt_telefono_gestor.Name = "txt_telefono_gestor"
-        Me.txt_telefono_gestor.Size = New System.Drawing.Size(100, 20)
-        Me.txt_telefono_gestor.TabIndex = 12
-        '
-        'txt_nombre_comercial_gestor
-        '
-        Me.txt_nombre_comercial_gestor.Location = New System.Drawing.Point(107, 63)
-        Me.txt_nombre_comercial_gestor.Name = "txt_nombre_comercial_gestor"
-        Me.txt_nombre_comercial_gestor.Size = New System.Drawing.Size(316, 20)
-        Me.txt_nombre_comercial_gestor.TabIndex = 10
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(11, 66)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(92, 13)
-        Me.Label12.TabIndex = 11
-        Me.Label12.Text = "Nombre comercial"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Location = New System.Drawing.Point(11, 18)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(28, 13)
+        Me.Label11.Size = New System.Drawing.Size(44, 13)
         Me.Label11.TabIndex = 9
-        Me.Label11.Text = "Tipo"
+        Me.Label11.Text = "Nombre"
         '
-        'cmb_tipos
+        'cmb_medida
         '
-        Me.cmb_tipos.FormattingEnabled = True
-        Me.cmb_tipos.Location = New System.Drawing.Point(107, 10)
-        Me.cmb_tipos.Name = "cmb_tipos"
-        Me.cmb_tipos.Size = New System.Drawing.Size(134, 21)
-        Me.cmb_tipos.TabIndex = 8
+        Me.cmb_medida.FormattingEnabled = True
+        Me.cmb_medida.Location = New System.Drawing.Point(74, 40)
+        Me.cmb_medida.Name = "cmb_medida"
+        Me.cmb_medida.Size = New System.Drawing.Size(134, 21)
+        Me.cmb_medida.TabIndex = 8
         '
-        'txt_nit_gestor
+        'txt_nombre_producto
         '
-        Me.txt_nit_gestor.Location = New System.Drawing.Point(107, 116)
-        Me.txt_nit_gestor.Name = "txt_nit_gestor"
-        Me.txt_nit_gestor.Size = New System.Drawing.Size(100, 20)
-        Me.txt_nit_gestor.TabIndex = 7
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(11, 119)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(20, 13)
-        Me.Label3.TabIndex = 6
-        Me.Label3.Text = "Nit"
-        '
-        'txt_direccion_gestor
-        '
-        Me.txt_direccion_gestor.Location = New System.Drawing.Point(107, 90)
-        Me.txt_direccion_gestor.Name = "txt_direccion_gestor"
-        Me.txt_direccion_gestor.Size = New System.Drawing.Size(316, 20)
-        Me.txt_direccion_gestor.TabIndex = 5
+        Me.txt_nombre_producto.Location = New System.Drawing.Point(74, 15)
+        Me.txt_nombre_producto.Name = "txt_nombre_producto"
+        Me.txt_nombre_producto.Size = New System.Drawing.Size(351, 20)
+        Me.txt_nombre_producto.TabIndex = 0
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(11, 40)
+        Me.Label2.Location = New System.Drawing.Point(11, 43)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(44, 13)
+        Me.Label2.Size = New System.Drawing.Size(42, 13)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Nombre"
+        Me.Label2.Text = "Medida"
         '
-        'Label4
+        'grd_productos
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(11, 93)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(52, 13)
-        Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Direccion"
-        '
-        'grd_gestores
-        '
-        Me.grd_gestores.AllowUserToAddRows = False
-        Me.grd_gestores.AllowUserToDeleteRows = False
-        Me.grd_gestores.AllowUserToOrderColumns = True
-        Me.grd_gestores.AllowUserToResizeColumns = False
-        Me.grd_gestores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grd_gestores.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_usuario, Me.usuarios, Me.nombre, Me.Usuario})
-        Me.grd_gestores.Location = New System.Drawing.Point(12, 193)
-        Me.grd_gestores.MultiSelect = False
-        Me.grd_gestores.Name = "grd_gestores"
-        Me.grd_gestores.RowHeadersVisible = False
-        Me.grd_gestores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grd_gestores.Size = New System.Drawing.Size(440, 177)
-        Me.grd_gestores.TabIndex = 8
-        '
-        'id_usuario
-        '
-        Me.id_usuario.DataPropertyName = "id_gestor_ordenes"
-        Me.id_usuario.HeaderText = "id_usuario"
-        Me.id_usuario.Name = "id_usuario"
-        Me.id_usuario.Visible = False
-        '
-        'usuarios
-        '
-        Me.usuarios.DataPropertyName = "tipo"
-        Me.usuarios.HeaderText = "Tipo"
-        Me.usuarios.Name = "usuarios"
-        '
-        'nombre
-        '
-        Me.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.nombre.DataPropertyName = "nombre_solicitante_orden"
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        '
-        'Usuario
-        '
-        Me.Usuario.DataPropertyName = "usuario"
-        Me.Usuario.HeaderText = "Usuario"
-        Me.Usuario.Name = "Usuario"
+        Me.grd_productos.AllowUserToAddRows = False
+        Me.grd_productos.AllowUserToDeleteRows = False
+        Me.grd_productos.AllowUserToOrderColumns = True
+        Me.grd_productos.AllowUserToResizeColumns = False
+        Me.grd_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grd_productos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_producto, Me.prd_descripcion, Me.medida})
+        Me.grd_productos.Location = New System.Drawing.Point(12, 79)
+        Me.grd_productos.MultiSelect = False
+        Me.grd_productos.Name = "grd_productos"
+        Me.grd_productos.RowHeadersVisible = False
+        Me.grd_productos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.grd_productos.Size = New System.Drawing.Size(440, 291)
+        Me.grd_productos.TabIndex = 8
         '
         'Label1
         '
@@ -482,6 +314,26 @@ Partial Class frm_productos
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         '
+        'id_producto
+        '
+        Me.id_producto.DataPropertyName = "id_producto"
+        Me.id_producto.HeaderText = "id_usuario"
+        Me.id_producto.Name = "id_producto"
+        Me.id_producto.Visible = False
+        '
+        'prd_descripcion
+        '
+        Me.prd_descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.prd_descripcion.DataPropertyName = "prd_descripcion"
+        Me.prd_descripcion.HeaderText = "Nombre"
+        Me.prd_descripcion.Name = "prd_descripcion"
+        '
+        'medida
+        '
+        Me.medida.DataPropertyName = "medida"
+        Me.medida.HeaderText = "Medida"
+        Me.medida.Name = "medida"
+        '
         'frm_productos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -498,7 +350,7 @@ Partial Class frm_productos
         Me.Panel1.ResumeLayout(False)
         Me.pnl_usuario.ResumeLayout(False)
         Me.pnl_usuario.PerformLayout()
-        CType(Me.grd_gestores, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grd_productos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.btn_nuevo, System.ComponentModel.ISupportInitialize).EndInit()
@@ -512,18 +364,13 @@ Partial Class frm_productos
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents txt_nombre_gestor As TextBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents txt_direccion_gestor As TextBox
-    Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents btn_salir As PictureBox
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents grd_gestores As DataGridView
+    Friend WithEvents grd_productos As DataGridView
     Friend WithEvents Label6 As Label
     Friend WithEvents btn_guardar As PictureBox
     Friend WithEvents Label7 As Label
@@ -535,22 +382,11 @@ Partial Class frm_productos
     Friend WithEvents Label10 As Label
     Friend WithEvents btn_nuevo As PictureBox
     Friend WithEvents pnl_usuario As Panel
-    Friend WithEvents txt_nit_gestor As TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents txt_usuario As TextBox
-    Friend WithEvents Label13 As Label
-    Friend WithEvents txt_telefono_gestor As TextBox
-    Friend WithEvents txt_nombre_comercial_gestor As TextBox
-    Friend WithEvents Label12 As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents cmb_tipos As ComboBox
-    Friend WithEvents txt_id_usuario As TextBox
-    Friend WithEvents lbl_usuario As Label
-    Friend WithEvents id_usuario As DataGridViewTextBoxColumn
-    Friend WithEvents usuarios As DataGridViewTextBoxColumn
-    Friend WithEvents nombre As DataGridViewTextBoxColumn
-    Friend WithEvents Usuario As DataGridViewTextBoxColumn
-    Friend WithEvents Label15 As Label
-    Friend WithEvents cmb_empresa As ComboBox
+    Friend WithEvents cmb_medida As ComboBox
+    Friend WithEvents txt_nombre_producto As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents id_producto As DataGridViewTextBoxColumn
+    Friend WithEvents prd_descripcion As DataGridViewTextBoxColumn
+    Friend WithEvents medida As DataGridViewTextBoxColumn
 End Class

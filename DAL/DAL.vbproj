@@ -69,7 +69,10 @@
     <Compile Include="DALtbl_empresas.vb" />
     <Compile Include="DALtbl_estado_orden.vb" />
     <Compile Include="DALtbl_gestor_ordenes.vb" />
+    <Compile Include="DALtbl_inventario.vb" />
     <Compile Include="DALtbl_monedas.vb" />
+    <Compile Include="DALtbl_ordenes_detalle.vb" />
+    <Compile Include="DALtbl_ordenes_encabezado.vb" />
     <Compile Include="DALtbl_scm_medidas_productos.vb" />
     <Compile Include="DALtbl_scm_productos.vb" />
     <Compile Include="DALtbl_scm_usuarios.vb" />
@@ -100,6 +103,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

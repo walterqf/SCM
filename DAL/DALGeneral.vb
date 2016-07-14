@@ -67,5 +67,53 @@ Public Class DALGeneral
         End Using
     End Function
 
+
+    Public Shared Function GetBodega(ByVal pConnection As Connection_Entity, ByVal id_producto As Integer) As DataTable
+
+        Using iConnection As New OleDbConnection("Provider=SQLOLEDB;Server=" & pConnection.ServerName & ";Database=" & pConnection.DataBaseName & ";Uid=" & pConnection.Login & "; Pwd=" & Entity.Seguridad.DesEncripta(pConnection.Password) & ";")
+
+            Dim iCommand As New OleDbCommand("spc_consulta_primera_bodega", iConnection)
+            iCommand.CommandType = CommandType.StoredProcedure
+
+            iCommand.Parameters.AddWithValue("@id_producto", IIf(id_producto = 0, DBNull.Value, id_producto))
+
+            Try
+                Dim iDTResult As New DataTable("consulta_primera_bodega")
+                Dim iDAResult As New OleDbDataAdapter()
+                iDAResult.SelectCommand = iCommand
+                iDAResult.Fill(iDTResult)
+
+                Return iDTResult
+            Catch ex As Exception
+                Throw New Exception(ex.Message, ex.InnerException)
+            End Try
+
+        End Using
+    End Function
+
+
+    Public Shared Function get_detalle_orden(ByVal pConnection As Connection_Entity, ByVal pc_detalle_orden As tbl_ordenes_detalle_Entity) As DataTable
+
+        Using iConnection As New OleDbConnection("Provider=SQLOLEDB;Server=" & pConnection.ServerName & ";Database=" & pConnection.DataBaseName & ";Uid=" & pConnection.Login & "; Pwd=" & Entity.Seguridad.DesEncripta(pConnection.Password) & ";")
+
+            Dim iCommand As New OleDbCommand("spc_tbl_ordenes_detalle_mod", iConnection)
+            iCommand.CommandType = CommandType.StoredProcedure
+
+            iCommand.Parameters.AddWithValue("@id_orden", IIf(pc_detalle_orden.Idorden = 0, DBNull.Value, pc_detalle_orden.Idorden))
+
+            Try
+                Dim iDTResult As New DataTable("tbl_ordenes_detalle_mod")
+                Dim iDAResult As New OleDbDataAdapter()
+                iDAResult.SelectCommand = iCommand
+                iDAResult.Fill(iDTResult)
+
+                Return iDTResult
+            Catch ex As Exception
+                Throw New Exception(ex.Message, ex.InnerException)
+            End Try
+
+        End Using
+    End Function
+
 End Class
 

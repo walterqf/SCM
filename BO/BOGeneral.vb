@@ -21,5 +21,23 @@ Public Class BOGeneral
         End Try
     End Function
 
+    Public Shared Function GetBodega(ByVal pConnection As Connection_Entity, ByVal id_producto As Integer) As DataTable
+        Try
+            Return DALGeneral.GetBodega(pConnection, id_producto)
+        Catch ex As Exception
+            Throw New Exception(ex.Message, ex.InnerException)
+        End Try
+    End Function
+
+
+
+    Public Shared Function get_detalle_orden(ByVal pConnection As Connection_Entity, ByVal pc_detalle_orden As tbl_ordenes_detalle_Entity) As DataTable
+        Try
+            Return DALGeneral.get_detalle_orden(pConnection, pc_detalle_orden)
+        Catch ex As Exception
+            Throw New Exception(ex.Message, ex.InnerException)
+        End Try
+    End Function
+
 End Class
 

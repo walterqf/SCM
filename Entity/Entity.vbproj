@@ -85,7 +85,10 @@
     <Compile Include="tbl_empresasEntity.vb" />
     <Compile Include="tbl_estado_ordenEntity.vb" />
     <Compile Include="tbl_gestor_ordenesEntity.vb" />
+    <Compile Include="tbl_inventarioEntity.vb" />
     <Compile Include="tbl_monedasEntity.vb" />
+    <Compile Include="tbl_ordenes_detalleEntity.vb" />
+    <Compile Include="tbl_ordenes_encabezadoEntity.vb" />
     <Compile Include="tbl_scm_medidas_productosEntity.vb" />
     <Compile Include="tbl_scm_productosEntity.vb" />
     <Compile Include="tbl_scm_usuariosEntity.vb" />

@@ -23,53 +23,56 @@ Partial Class frm_orden_egreso
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.pnl_producto = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cmb_medida = New System.Windows.Forms.ComboBox()
+        Me.txt_cantidad_detalle = New System.Windows.Forms.TextBox()
+        Me.btn_agregar_producto = New System.Windows.Forms.Button()
+        Me.cmb_producto = New System.Windows.Forms.ComboBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.grd_ordenes = New System.Windows.Forms.DataGridView()
+        Me.btn_mas_producto = New System.Windows.Forms.PictureBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.pnl_usuario = New System.Windows.Forms.Panel()
+        Me.lbl_no_orden = New System.Windows.Forms.Label()
+        Me.lbl_fecha = New System.Windows.Forms.Label()
         Me.txt_id_usuario = New System.Windows.Forms.TextBox()
         Me.lbl_usuario = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txt_usuario = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.cmb_gestores = New System.Windows.Forms.ComboBox()
-        Me.grd_gestores = New System.Windows.Forms.DataGridView()
+        Me.grd_detalle = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.btn_nuevo = New System.Windows.Forms.PictureBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.btn_eliminar = New System.Windows.Forms.PictureBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.btn_editar = New System.Windows.Forms.PictureBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.btncancelar = New System.Windows.Forms.PictureBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.btn_guardar = New System.Windows.Forms.PictureBox()
         Me.btn_salir = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btn_agregar_producto = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.pnl_producto = New System.Windows.Forms.Panel()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.cmb_producto = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.btn_mas_producto = New System.Windows.Forms.PictureBox()
-        Me.cmb_medida = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.grd_ordenes = New System.Windows.Forms.DataGridView()
+        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuarios = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.usuarios = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lbl_fecha = New System.Windows.Forms.Label()
-        Me.lbl_no_orden = New System.Windows.Forms.Label()
+        Me.fecha_movimiento = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
+        Me.pnl_producto.SuspendLayout()
+        CType(Me.grd_ordenes, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btn_mas_producto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnl_usuario.SuspendLayout()
-        CType(Me.grd_gestores, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grd_detalle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.btn_nuevo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btn_eliminar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -78,9 +81,6 @@ Partial Class frm_orden_egreso
         CType(Me.btn_guardar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btn_salir, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnl_producto.SuspendLayout()
-        CType(Me.btn_mas_producto, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.grd_ordenes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -95,11 +95,139 @@ Partial Class frm_orden_egreso
         Me.Panel1.Controls.Add(Me.btn_mas_producto)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.pnl_usuario)
-        Me.Panel1.Controls.Add(Me.grd_gestores)
+        Me.Panel1.Controls.Add(Me.grd_detalle)
         Me.Panel1.Location = New System.Drawing.Point(3, 75)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(965, 557)
         Me.Panel1.TabIndex = 5
+        '
+        'Label4
+        '
+        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(671, 5)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(121, 13)
+        Me.Label4.TabIndex = 19
+        Me.Label4.Text = "Ordenes en proceso"
+        '
+        'pnl_producto
+        '
+        Me.pnl_producto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.pnl_producto.Controls.Add(Me.Label3)
+        Me.pnl_producto.Controls.Add(Me.cmb_medida)
+        Me.pnl_producto.Controls.Add(Me.txt_cantidad_detalle)
+        Me.pnl_producto.Controls.Add(Me.btn_agregar_producto)
+        Me.pnl_producto.Controls.Add(Me.cmb_producto)
+        Me.pnl_producto.Controls.Add(Me.Label15)
+        Me.pnl_producto.Controls.Add(Me.Label12)
+        Me.pnl_producto.Location = New System.Drawing.Point(458, 120)
+        Me.pnl_producto.Name = "pnl_producto"
+        Me.pnl_producto.Size = New System.Drawing.Size(337, 262)
+        Me.pnl_producto.TabIndex = 16
+        Me.pnl_producto.Visible = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(179, 12)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(42, 13)
+        Me.Label3.TabIndex = 20
+        Me.Label3.Text = "Medida"
+        '
+        'cmb_medida
+        '
+        Me.cmb_medida.Enabled = False
+        Me.cmb_medida.FormattingEnabled = True
+        Me.cmb_medida.Location = New System.Drawing.Point(182, 28)
+        Me.cmb_medida.Name = "cmb_medida"
+        Me.cmb_medida.Size = New System.Drawing.Size(71, 21)
+        Me.cmb_medida.TabIndex = 19
+        '
+        'txt_cantidad_detalle
+        '
+        Me.txt_cantidad_detalle.Location = New System.Drawing.Point(259, 28)
+        Me.txt_cantidad_detalle.Name = "txt_cantidad_detalle"
+        Me.txt_cantidad_detalle.Size = New System.Drawing.Size(75, 20)
+        Me.txt_cantidad_detalle.TabIndex = 18
+        '
+        'btn_agregar_producto
+        '
+        Me.btn_agregar_producto.Location = New System.Drawing.Point(259, 54)
+        Me.btn_agregar_producto.Name = "btn_agregar_producto"
+        Me.btn_agregar_producto.Size = New System.Drawing.Size(75, 23)
+        Me.btn_agregar_producto.TabIndex = 14
+        Me.btn_agregar_producto.Text = "Agregar"
+        Me.btn_agregar_producto.UseVisualStyleBackColor = True
+        '
+        'cmb_producto
+        '
+        Me.cmb_producto.FormattingEnabled = True
+        Me.cmb_producto.Location = New System.Drawing.Point(12, 28)
+        Me.cmb_producto.Name = "cmb_producto"
+        Me.cmb_producto.Size = New System.Drawing.Size(164, 21)
+        Me.cmb_producto.TabIndex = 18
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(257, 12)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(49, 13)
+        Me.Label15.TabIndex = 1
+        Me.Label15.Text = "Cantidad"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(10, 12)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(50, 13)
+        Me.Label12.TabIndex = 0
+        Me.Label12.Text = "Producto"
+        '
+        'grd_ordenes
+        '
+        Me.grd_ordenes.AllowUserToAddRows = False
+        Me.grd_ordenes.AllowUserToDeleteRows = False
+        Me.grd_ordenes.AllowUserToOrderColumns = True
+        Me.grd_ordenes.AllowUserToResizeColumns = False
+        Me.grd_ordenes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grd_ordenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grd_ordenes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn3, Me.fecha_movimiento})
+        Me.grd_ordenes.Location = New System.Drawing.Point(674, 21)
+        Me.grd_ordenes.MultiSelect = False
+        Me.grd_ordenes.Name = "grd_ordenes"
+        Me.grd_ordenes.ReadOnly = True
+        Me.grd_ordenes.RowHeadersVisible = False
+        Me.grd_ordenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.grd_ordenes.Size = New System.Drawing.Size(286, 531)
+        Me.grd_ordenes.TabIndex = 18
+        '
+        'btn_mas_producto
+        '
+        Me.btn_mas_producto.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_mas_producto.Image = Global.SCM_VB.My.Resources.Resources.add
+        Me.btn_mas_producto.Location = New System.Drawing.Point(417, 79)
+        Me.btn_mas_producto.Name = "btn_mas_producto"
+        Me.btn_mas_producto.Size = New System.Drawing.Size(35, 35)
+        Me.btn_mas_producto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.btn_mas_producto.TabIndex = 17
+        Me.btn_mas_producto.TabStop = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(16, 101)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(101, 13)
+        Me.Label2.TabIndex = 15
+        Me.Label2.Text = "Detalle de orden"
         '
         'pnl_usuario
         '
@@ -115,6 +243,25 @@ Partial Class frm_orden_egreso
         Me.pnl_usuario.Name = "pnl_usuario"
         Me.pnl_usuario.Size = New System.Drawing.Size(436, 70)
         Me.pnl_usuario.TabIndex = 9
+        '
+        'lbl_no_orden
+        '
+        Me.lbl_no_orden.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_no_orden.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lbl_no_orden.Location = New System.Drawing.Point(361, 13)
+        Me.lbl_no_orden.Name = "lbl_no_orden"
+        Me.lbl_no_orden.Size = New System.Drawing.Size(72, 23)
+        Me.lbl_no_orden.TabIndex = 19
+        Me.lbl_no_orden.Text = "No."
+        Me.lbl_no_orden.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lbl_fecha
+        '
+        Me.lbl_fecha.Location = New System.Drawing.Point(277, 13)
+        Me.lbl_fecha.Name = "lbl_fecha"
+        Me.lbl_fecha.Size = New System.Drawing.Size(78, 21)
+        Me.lbl_fecha.TabIndex = 18
+        Me.lbl_fecha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'txt_id_usuario
         '
@@ -165,21 +312,21 @@ Partial Class frm_orden_egreso
         Me.cmb_gestores.Size = New System.Drawing.Size(211, 21)
         Me.cmb_gestores.TabIndex = 8
         '
-        'grd_gestores
+        'grd_detalle
         '
-        Me.grd_gestores.AllowUserToAddRows = False
-        Me.grd_gestores.AllowUserToDeleteRows = False
-        Me.grd_gestores.AllowUserToOrderColumns = True
-        Me.grd_gestores.AllowUserToResizeColumns = False
-        Me.grd_gestores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grd_gestores.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_usuario, Me.nombre, Me.Usuario, Me.usuarios})
-        Me.grd_gestores.Location = New System.Drawing.Point(12, 120)
-        Me.grd_gestores.MultiSelect = False
-        Me.grd_gestores.Name = "grd_gestores"
-        Me.grd_gestores.RowHeadersVisible = False
-        Me.grd_gestores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grd_gestores.Size = New System.Drawing.Size(440, 262)
-        Me.grd_gestores.TabIndex = 8
+        Me.grd_detalle.AllowUserToAddRows = False
+        Me.grd_detalle.AllowUserToDeleteRows = False
+        Me.grd_detalle.AllowUserToOrderColumns = True
+        Me.grd_detalle.AllowUserToResizeColumns = False
+        Me.grd_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grd_detalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_usuario, Me.nombre_producto, Me.medida, Me.usuarios})
+        Me.grd_detalle.Location = New System.Drawing.Point(12, 120)
+        Me.grd_detalle.MultiSelect = False
+        Me.grd_detalle.Name = "grd_detalle"
+        Me.grd_detalle.RowHeadersVisible = False
+        Me.grd_detalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.grd_detalle.Size = New System.Drawing.Size(440, 262)
+        Me.grd_detalle.TabIndex = 8
         '
         'Label1
         '
@@ -236,50 +383,6 @@ Partial Class frm_orden_egreso
         Me.Label10.TabIndex = 22
         Me.Label10.Text = "Nuevo"
         '
-        'Label9
-        '
-        Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(710, 42)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(43, 13)
-        Me.Label9.TabIndex = 20
-        Me.Label9.Text = "Eliminar"
-        '
-        'Label8
-        '
-        Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(766, 42)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(34, 13)
-        Me.Label8.TabIndex = 18
-        Me.Label8.Text = "Editar"
-        '
-        'Label7
-        '
-        Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(812, 42)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(49, 13)
-        Me.Label7.TabIndex = 16
-        Me.Label7.Text = "Cancelar"
-        '
-        'Label6
-        '
-        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(867, 42)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(45, 13)
-        Me.Label6.TabIndex = 14
-        Me.Label6.Text = "Guardar"
-        '
         'btn_nuevo
         '
         Me.btn_nuevo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -291,6 +394,17 @@ Partial Class frm_orden_egreso
         Me.btn_nuevo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.btn_nuevo.TabIndex = 21
         Me.btn_nuevo.TabStop = False
+        '
+        'Label9
+        '
+        Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(710, 42)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(43, 13)
+        Me.Label9.TabIndex = 20
+        Me.Label9.Text = "Eliminar"
         '
         'btn_eliminar
         '
@@ -304,6 +418,17 @@ Partial Class frm_orden_egreso
         Me.btn_eliminar.TabIndex = 19
         Me.btn_eliminar.TabStop = False
         '
+        'Label8
+        '
+        Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(766, 42)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(34, 13)
+        Me.Label8.TabIndex = 18
+        Me.Label8.Text = "Editar"
+        '
         'btn_editar
         '
         Me.btn_editar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -316,6 +441,17 @@ Partial Class frm_orden_egreso
         Me.btn_editar.TabIndex = 17
         Me.btn_editar.TabStop = False
         '
+        'Label7
+        '
+        Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(812, 42)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(49, 13)
+        Me.Label7.TabIndex = 16
+        Me.Label7.Text = "Cancelar"
+        '
         'btncancelar
         '
         Me.btncancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -327,6 +463,17 @@ Partial Class frm_orden_egreso
         Me.btncancelar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.btncancelar.TabIndex = 15
         Me.btncancelar.TabStop = False
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(867, 42)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(45, 13)
+        Me.Label6.TabIndex = 14
+        Me.Label6.Text = "Guardar"
         '
         'btn_guardar
         '
@@ -362,121 +509,31 @@ Partial Class frm_orden_egreso
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         '
-        'btn_agregar_producto
+        'id_usuario
         '
-        Me.btn_agregar_producto.Location = New System.Drawing.Point(259, 54)
-        Me.btn_agregar_producto.Name = "btn_agregar_producto"
-        Me.btn_agregar_producto.Size = New System.Drawing.Size(75, 23)
-        Me.btn_agregar_producto.TabIndex = 14
-        Me.btn_agregar_producto.Text = "Agregar"
-        Me.btn_agregar_producto.UseVisualStyleBackColor = True
+        Me.id_usuario.DataPropertyName = "id_ordenes_detalle"
+        Me.id_usuario.HeaderText = "id_ordenes_detalle"
+        Me.id_usuario.Name = "id_usuario"
+        Me.id_usuario.Visible = False
         '
-        'Label2
+        'nombre_producto
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(16, 101)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(101, 13)
-        Me.Label2.TabIndex = 15
-        Me.Label2.Text = "Detalle de orden"
+        Me.nombre_producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.nombre_producto.DataPropertyName = "nombre_producto"
+        Me.nombre_producto.HeaderText = "Producto"
+        Me.nombre_producto.Name = "nombre_producto"
         '
-        'pnl_producto
+        'medida
         '
-        Me.pnl_producto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.pnl_producto.Controls.Add(Me.Label3)
-        Me.pnl_producto.Controls.Add(Me.cmb_medida)
-        Me.pnl_producto.Controls.Add(Me.TextBox1)
-        Me.pnl_producto.Controls.Add(Me.btn_agregar_producto)
-        Me.pnl_producto.Controls.Add(Me.cmb_producto)
-        Me.pnl_producto.Controls.Add(Me.Label15)
-        Me.pnl_producto.Controls.Add(Me.Label12)
-        Me.pnl_producto.Location = New System.Drawing.Point(458, 120)
-        Me.pnl_producto.Name = "pnl_producto"
-        Me.pnl_producto.Size = New System.Drawing.Size(337, 262)
-        Me.pnl_producto.TabIndex = 16
-        Me.pnl_producto.Visible = False
+        Me.medida.DataPropertyName = "medida"
+        Me.medida.HeaderText = "Medida"
+        Me.medida.Name = "medida"
         '
-        'Label12
+        'usuarios
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(10, 12)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(50, 13)
-        Me.Label12.TabIndex = 0
-        Me.Label12.Text = "Producto"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(257, 12)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(49, 13)
-        Me.Label15.TabIndex = 1
-        Me.Label15.Text = "Cantidad"
-        '
-        'cmb_producto
-        '
-        Me.cmb_producto.FormattingEnabled = True
-        Me.cmb_producto.Location = New System.Drawing.Point(12, 28)
-        Me.cmb_producto.Name = "cmb_producto"
-        Me.cmb_producto.Size = New System.Drawing.Size(164, 21)
-        Me.cmb_producto.TabIndex = 18
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(259, 28)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(75, 20)
-        Me.TextBox1.TabIndex = 18
-        '
-        'btn_mas_producto
-        '
-        Me.btn_mas_producto.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_mas_producto.Image = Global.SCM_VB.My.Resources.Resources.add
-        Me.btn_mas_producto.Location = New System.Drawing.Point(417, 79)
-        Me.btn_mas_producto.Name = "btn_mas_producto"
-        Me.btn_mas_producto.Size = New System.Drawing.Size(35, 35)
-        Me.btn_mas_producto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.btn_mas_producto.TabIndex = 17
-        Me.btn_mas_producto.TabStop = False
-        '
-        'cmb_medida
-        '
-        Me.cmb_medida.Enabled = False
-        Me.cmb_medida.FormattingEnabled = True
-        Me.cmb_medida.Location = New System.Drawing.Point(182, 28)
-        Me.cmb_medida.Name = "cmb_medida"
-        Me.cmb_medida.Size = New System.Drawing.Size(71, 21)
-        Me.cmb_medida.TabIndex = 19
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(179, 12)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(42, 13)
-        Me.Label3.TabIndex = 20
-        Me.Label3.Text = "Medida"
-        '
-        'grd_ordenes
-        '
-        Me.grd_ordenes.AllowUserToAddRows = False
-        Me.grd_ordenes.AllowUserToDeleteRows = False
-        Me.grd_ordenes.AllowUserToOrderColumns = True
-        Me.grd_ordenes.AllowUserToResizeColumns = False
-        Me.grd_ordenes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.grd_ordenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grd_ordenes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn3, Me.Fecha})
-        Me.grd_ordenes.Location = New System.Drawing.Point(674, 21)
-        Me.grd_ordenes.MultiSelect = False
-        Me.grd_ordenes.Name = "grd_ordenes"
-        Me.grd_ordenes.RowHeadersVisible = False
-        Me.grd_ordenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grd_ordenes.Size = New System.Drawing.Size(286, 531)
-        Me.grd_ordenes.TabIndex = 18
+        Me.usuarios.DataPropertyName = "cantidad_producto"
+        Me.usuarios.HeaderText = "Cantidad"
+        Me.usuarios.Name = "usuarios"
         '
         'DataGridViewTextBoxColumn1
         '
@@ -490,64 +547,11 @@ Partial Class frm_orden_egreso
         Me.DataGridViewTextBoxColumn3.HeaderText = "Estado"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         '
-        'Fecha
+        'fecha_movimiento
         '
-        Me.Fecha.HeaderText = "Fecha"
-        Me.Fecha.Name = "Fecha"
-        '
-        'Label4
-        '
-        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(671, 5)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(121, 13)
-        Me.Label4.TabIndex = 19
-        Me.Label4.Text = "Ordenes en proceso"
-        '
-        'id_usuario
-        '
-        Me.id_usuario.DataPropertyName = "id_ordenes_detalle"
-        Me.id_usuario.HeaderText = "id_ordenes_detalle"
-        Me.id_usuario.Name = "id_usuario"
-        Me.id_usuario.Visible = False
-        '
-        'nombre
-        '
-        Me.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.nombre.HeaderText = "Producto"
-        Me.nombre.Name = "nombre"
-        '
-        'Usuario
-        '
-        Me.Usuario.HeaderText = "Medida"
-        Me.Usuario.Name = "Usuario"
-        '
-        'usuarios
-        '
-        Me.usuarios.DataPropertyName = "cantidad_producto"
-        Me.usuarios.HeaderText = "Cantidad"
-        Me.usuarios.Name = "usuarios"
-        '
-        'lbl_fecha
-        '
-        Me.lbl_fecha.Location = New System.Drawing.Point(277, 13)
-        Me.lbl_fecha.Name = "lbl_fecha"
-        Me.lbl_fecha.Size = New System.Drawing.Size(78, 21)
-        Me.lbl_fecha.TabIndex = 18
-        Me.lbl_fecha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lbl_no_orden
-        '
-        Me.lbl_no_orden.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_no_orden.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lbl_no_orden.Location = New System.Drawing.Point(361, 13)
-        Me.lbl_no_orden.Name = "lbl_no_orden"
-        Me.lbl_no_orden.Size = New System.Drawing.Size(72, 23)
-        Me.lbl_no_orden.TabIndex = 19
-        Me.lbl_no_orden.Text = "No."
-        Me.lbl_no_orden.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.fecha_movimiento.DataPropertyName = "fecha_movimiento"
+        Me.fecha_movimiento.HeaderText = "Fecha"
+        Me.fecha_movimiento.Name = "fecha_movimiento"
         '
         'frm_orden_egreso
         '
@@ -564,9 +568,13 @@ Partial Class frm_orden_egreso
         Me.Text = "Usuarios"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.pnl_producto.ResumeLayout(False)
+        Me.pnl_producto.PerformLayout()
+        CType(Me.grd_ordenes, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btn_mas_producto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnl_usuario.ResumeLayout(False)
         Me.pnl_usuario.PerformLayout()
-        CType(Me.grd_gestores, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grd_detalle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.btn_nuevo, System.ComponentModel.ISupportInitialize).EndInit()
@@ -576,10 +584,6 @@ Partial Class frm_orden_egreso
         CType(Me.btn_guardar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btn_salir, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnl_producto.ResumeLayout(False)
-        Me.pnl_producto.PerformLayout()
-        CType(Me.btn_mas_producto, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.grd_ordenes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -590,7 +594,7 @@ Partial Class frm_orden_egreso
     Friend WithEvents Label5 As Label
     Friend WithEvents btn_salir As PictureBox
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents grd_gestores As DataGridView
+    Friend WithEvents grd_detalle As DataGridView
     Friend WithEvents Label6 As Label
     Friend WithEvents btn_guardar As PictureBox
     Friend WithEvents Label7 As Label
@@ -611,7 +615,7 @@ Partial Class frm_orden_egreso
     Friend WithEvents btn_agregar_producto As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents pnl_producto As Panel
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txt_cantidad_detalle As TextBox
     Friend WithEvents cmb_producto As ComboBox
     Friend WithEvents Label15 As Label
     Friend WithEvents Label12 As Label
@@ -619,14 +623,14 @@ Partial Class frm_orden_egreso
     Friend WithEvents Label3 As Label
     Friend WithEvents cmb_medida As ComboBox
     Friend WithEvents grd_ordenes As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents Fecha As DataGridViewTextBoxColumn
     Friend WithEvents Label4 As Label
-    Friend WithEvents id_usuario As DataGridViewTextBoxColumn
-    Friend WithEvents nombre As DataGridViewTextBoxColumn
-    Friend WithEvents Usuario As DataGridViewTextBoxColumn
-    Friend WithEvents usuarios As DataGridViewTextBoxColumn
     Friend WithEvents lbl_fecha As Label
     Friend WithEvents lbl_no_orden As Label
+    Friend WithEvents id_usuario As DataGridViewTextBoxColumn
+    Friend WithEvents nombre_producto As DataGridViewTextBoxColumn
+    Friend WithEvents medida As DataGridViewTextBoxColumn
+    Friend WithEvents usuarios As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents fecha_movimiento As DataGridViewTextBoxColumn
 End Class

@@ -68,7 +68,10 @@
     <Compile Include="BOtbl_empresas.vb" />
     <Compile Include="BOtbl_estado_orden.vb" />
     <Compile Include="BOtbl_gestor_ordenes.vb" />
+    <Compile Include="BOtbl_inventario.vb" />
     <Compile Include="BOtbl_monedas.vb" />
+    <Compile Include="BOtbl_ordenes_detalle.vb" />
+    <Compile Include="BOtbl_ordenes_encabezado.vb" />
     <Compile Include="BOtbl_scm_medidas_productos.vb" />
     <Compile Include="BOtbl_scm_productos.vb" />
     <Compile Include="BOtbl_scm_usuarios.vb" />

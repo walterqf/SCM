@@ -12,6 +12,7 @@ Public Class frm_login
 
     Private Sub btn_ingresar_login_Click(sender As Object, e As EventArgs) Handles btn_ingresar_login.Click
         frm_MDI.Show()
+        ''frm_selector_empresa.Show()
         Me.Hide()
     End Sub
 

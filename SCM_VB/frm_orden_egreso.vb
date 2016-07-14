@@ -2,6 +2,7 @@
     Dim vCon As New Entity.Connection_Entity
     Dim editar As Boolean
     Dim id As Integer
+    Dim id_bodega_tmp As Integer
 
     Private Sub btn_salir_Click(sender As Object, e As EventArgs) Handles btn_salir.Click
         Me.Close()
@@ -36,8 +37,8 @@
     End Sub
 
     Private Sub cargar_gestores()
-        grd_gestores.AutoGenerateColumns = False
-        grd_gestores.DataSource = BO.BOGeneral.GetAllGestores(vCon, New Entity.tbl_gestor_ordenes_Entity)
+        'grd_detalle.AutoGenerateColumns = False
+        'grd_detalle.DataSource = BO.BOGeneral.GetAllGestores(vCon, New Entity.tbl_gestor_ordenes_Entity)
     End Sub
 
     Private Sub frm_orden_egreso_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -51,6 +52,8 @@
         cargar_medidas()
         cargar_encabezado()
         busqueda_medida_producto()
+
+        cargar_ordenes_estado()
     End Sub
     Private Sub cargar_encabezado()
         lbl_fecha.Text = Now.Day.ToString + "/" + Now.Month.ToString + "/" + Now.Year.ToString
@@ -58,7 +61,7 @@
 
     Private Sub frm_habilitar(ByVal estado As Boolean)
         btn_mas_producto.Enabled = estado
-        grd_gestores.Enabled = estado
+        grd_detalle.Enabled = estado
         cmb_gestores.Enabled = estado
         'cmb_empresa.Enabled = estado
         'txt_nombre_gestor.Enabled = estado
@@ -75,6 +78,7 @@
         btn_acciones(1)
         limpiar()
         editar = False
+        crear_encabezado()
     End Sub
 
     Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
@@ -98,9 +102,9 @@
         guardar()
     End Sub
 
-    Private Sub grd_usuarios_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grd_gestores.CellDoubleClick
+    Private Sub grd_usuarios_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grd_detalle.CellDoubleClick
         'Dim value As Object = grd_usuarios.Rows(e.RowIndex).Cells(e.ColumnIndex).Value
-        id = Val(grd_gestores.Rows(e.RowIndex).Cells(0).Value.ToString)
+        id = Val(grd_detalle.Rows(e.RowIndex).Cells(0).Value.ToString)
         Dim gestor As New Entity.tbl_gestor_ordenes_Entity
         Dim usuario As New DataTable
 
@@ -252,10 +256,23 @@
 
     Private Sub busqueda_medida_producto()
         Dim producto As New Entity.tbl_scm_productos_Entity
+        Dim data_tmp As DataTable
 
         producto = BO.BOtbl_scm_productos.getSingle(vCon, New Entity.tbl_scm_productos_Entity With {.Idproducto = cmb_producto.SelectedValue})
+        data_tmp = BO.BOGeneral.GetBodega(vCon, cmb_producto.SelectedValue)
+
+
+        If data_tmp.Rows.Count <> 0 Then
+            id_bodega_tmp = Val(data_tmp.Rows(0)("id_bodega"))
+        End If
+
+
+
 
         cmb_medida.SelectedValue = producto.Idmedida
+
+
+
     End Sub
 
     Private Sub btn_mas_producto_Click(sender As Object, e As EventArgs) Handles btn_mas_producto.Click
@@ -264,9 +281,92 @@
 
     Private Sub btn_agregar_producto_Click(sender As Object, e As EventArgs) Handles btn_agregar_producto.Click
         pnl_producto.Visible = False
+        guardar_detalle_orden()
     End Sub
 
     Private Sub cmb_producto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_producto.SelectedIndexChanged
         busqueda_medida_producto()
+    End Sub
+
+    Private Sub crear_encabezado()
+        Dim encabezado As New Entity.tbl_ordenes_encabezado_Entity
+        Dim encabezado_tmp As New Entity.tbl_ordenes_encabezado_Entity
+
+        Try
+
+            encabezado.Fechamovmiento = Now
+            encabezado.Ivaorden = 0
+            encabezado.Ivaorden1 = 0
+            encabezado.Totalorden = 0
+            encabezado.Idusuario = 1
+            encabezado.Idtipoorden = 1
+            encabezado.Idgestorordenes = cmb_gestores.SelectedValue
+            encabezado.Idestadoorden = 1
+
+            encabezado_tmp = BO.BOtbl_ordenes_encabezado.Insert(vCon, encabezado)
+            lbl_no_orden.Text = "No. " + encabezado_tmp.Idorden.ToString
+            id = encabezado_tmp.Idorden
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+
+    Private Sub guardar_detalle_orden()
+        Try
+            Dim detalle_orden As New Entity.tbl_ordenes_detalle_Entity
+            detalle_orden.Costounitarioproducto = 0
+            detalle_orden.Cantidadproducto = txt_cantidad_detalle.Text
+            detalle_orden.Tipocambio = 1
+            detalle_orden.Idorden = id
+            detalle_orden.Idmoneda = 1
+            detalle_orden.Idproducto = cmb_producto.SelectedValue
+            detalle_orden.Idbodega = id_bodega_tmp
+
+            BO.BOtbl_ordenes_detalle.Insert(vCon, detalle_orden)
+            carga_detalle()
+        Catch ex As Exception
+
+        End Try
+
+
+    End Sub
+
+
+    Private Sub carga_detalle()
+        Dim data_detalle As DataTable
+        data_detalle = BO.BOGeneral.get_detalle_orden(vCon, New Entity.tbl_ordenes_detalle_Entity With {.Idorden = id})
+        grd_detalle.AutoGenerateColumns = False
+        If data_detalle.Rows.Count > 0 Then
+            grd_detalle.DataSource = data_detalle
+        Else
+            grd_detalle.DataSource = Nothing
+        End If
+
+
+    End Sub
+
+
+    Private Sub cargar_ordenes_estado()
+        Dim data_ordenes As DataTable
+        grd_ordenes.AutoGenerateColumns = False
+        data_ordenes = BO.BOtbl_ordenes_encabezado.getAll(vCon, New Entity.tbl_ordenes_encabezado_Entity)
+        If data_ordenes.Rows.Count > 0 Then
+            grd_ordenes.DataSource = data_ordenes
+        Else
+            grd_ordenes.DataSource = Nothing
+        End If
+    End Sub
+
+
+    Private Sub grd_ordenes_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grd_ordenes.CellContentDoubleClick
+
+    End Sub
+
+    Private Sub grd_ordenes_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grd_ordenes.CellDoubleClick
+
+        id = Val(grd_ordenes.Rows(e.RowIndex).Cells(0).Value.ToString)
+        carga_detalle()
     End Sub
 End Class

@@ -3,6 +3,9 @@
     Dim editar As Boolean
     Dim id As Integer
     Dim id_bodega_tmp As Integer
+    Dim id_detalle_orden As Integer
+    Dim editar_detalle As Boolean
+
 
     Private Sub btn_salir_Click(sender As Object, e As EventArgs) Handles btn_salir.Click
         Me.Close()
@@ -61,7 +64,7 @@
 
     Private Sub frm_habilitar(ByVal estado As Boolean)
         btn_mas_producto.Enabled = estado
-        grd_detalle.Enabled = estado
+        'grd_detalle.Enabled = estado
         cmb_gestores.Enabled = estado
         'cmb_empresa.Enabled = estado
         'txt_nombre_gestor.Enabled = estado
@@ -81,14 +84,9 @@
         crear_encabezado()
     End Sub
 
-    Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
-        BO.BOtbl_gestor_ordenes.Delete(vCon, New Entity.tbl_gestor_ordenes_Entity With {.Idgestorordenes = id})
-        btn_acciones(2)
-        cargar_gestores()
-        limpiar()
-    End Sub
 
-    Private Sub btn_editar_Click(sender As Object, e As EventArgs) Handles btn_editar.Click
+
+    Private Sub btn_editar_Click(sender As Object, e As EventArgs)
         btn_acciones(3)
         editar = True
     End Sub
@@ -103,39 +101,7 @@
         cargar_ordenes_estado()
     End Sub
 
-    Private Sub grd_usuarios_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grd_detalle.CellDoubleClick
-        'Dim value As Object = grd_usuarios.Rows(e.RowIndex).Cells(e.ColumnIndex).Value
-        id = Val(grd_detalle.Rows(e.RowIndex).Cells(0).Value.ToString)
-        Dim gestor As New Entity.tbl_gestor_ordenes_Entity
-        Dim usuario As New DataTable
 
-        gestor = BO.BOtbl_gestor_ordenes.getSingle(vCon, New Entity.tbl_gestor_ordenes_Entity With {.Idgestorordenes = id})
-
-        'txt_nombre_gestor.Text = gestor.Nombresolicitanteorden
-        'txt_direccion_gestor.Text = gestor.Direccionsolicitanteorden
-        'txt_nit_gestor.Text = gestor.Nitsolicitanteorden
-        'txt_telefono_gestor.Text = gestor.Telefonosolicitanteorden
-        'txt_nombre_comercial_gestor.Text = gestor.Nombrecomercialsolicitanteorden
-        'cmb_empresa.SelectedValue = gestor.Idempresa
-        cmb_gestores.SelectedValue = gestor.Idtipogestor
-
-        txt_id_usuario.Text = gestor.Idusuario
-
-        usuario = BO.BOtbl_scm_usuarios.getAll(vCon, New Entity.tbl_scm_usuarios_Entity With {.Idusuario = gestor.Idusuario})
-
-        If usuario.Rows.Count <> 0 Then
-            lbl_usuario.Text = usuario.Rows(0)("med_nombre").ToString()
-            txt_usuario.Text = usuario.Rows(0)("med_loginid").ToString()
-
-        Else
-            lbl_usuario.Text = ""
-            txt_id_usuario.Text = 0
-        End If
-
-
-        Console.Write("")
-        btn_acciones(6)
-    End Sub
 
     Private Sub limpiar()
         'txt_nombre_gestor.Text = ""
@@ -154,44 +120,32 @@
         Select Case (estado)
             Case 1 'Nuevo
                 btn_nuevo.Enabled = False
-                btn_eliminar.Enabled = False
-                btn_editar.Enabled = False
                 btncancelar.Enabled = True
                 btn_guardar.Enabled = True
                 frm_habilitar(True)
             Case 2 'eliminar
                 btn_nuevo.Enabled = True
-                btn_eliminar.Enabled = False
-                btn_editar.Enabled = False
                 btncancelar.Enabled = False
                 btn_guardar.Enabled = False
                 frm_habilitar(False)
             Case 3 'editar
                 btn_nuevo.Enabled = False
-                btn_eliminar.Enabled = False
-                btn_editar.Enabled = False
                 btncancelar.Enabled = True
                 btn_guardar.Enabled = True
                 frm_habilitar(True)
             Case 4 'cancelar
                 btn_nuevo.Enabled = True
-                btn_eliminar.Enabled = False
-                btn_editar.Enabled = False
                 btncancelar.Enabled = False
                 btn_guardar.Enabled = False
                 frm_habilitar(False)
                 pnl_producto.Visible = False
             Case 5 'guardar
                 btn_nuevo.Enabled = True
-                btn_eliminar.Enabled = False
-                btn_editar.Enabled = False
                 btncancelar.Enabled = False
                 btn_guardar.Enabled = False
                 frm_habilitar(False)
             Case 6 'habilitar edicion
                 btn_nuevo.Enabled = True
-                btn_eliminar.Enabled = True
-                btn_editar.Enabled = True
                 btncancelar.Enabled = False
                 btn_guardar.Enabled = False
                 frm_habilitar(False)
@@ -278,12 +232,14 @@
 
     Private Sub btn_mas_producto_Click(sender As Object, e As EventArgs) Handles btn_mas_producto.Click
         pnl_producto.Visible = True
+        txt_cantidad_detalle.Text = 0
+        lbl_deta.Text = "Agregar"
+        btn_editar_deta.Visible = False
+        Label9.Visible = False
+        cmb_producto.Enabled = True
+        editar_detalle = False
     End Sub
 
-    Private Sub btn_agregar_producto_Click(sender As Object, e As EventArgs) Handles btn_agregar_producto.Click
-        pnl_producto.Visible = False
-        guardar_detalle_orden()
-    End Sub
 
     Private Sub cmb_producto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_producto.SelectedIndexChanged
         busqueda_medida_producto()
@@ -294,6 +250,7 @@
         Dim encabezado_tmp As New Entity.tbl_ordenes_encabezado_Entity
 
         Try
+
 
             encabezado.Fechamovmiento = Now
             encabezado.Ivaorden = 0
@@ -307,6 +264,9 @@
             encabezado_tmp = BO.BOtbl_ordenes_encabezado.Insert(vCon, encabezado)
             lbl_no_orden.Text = "No. " + encabezado_tmp.Idorden.ToString
             id = encabezado_tmp.Idorden
+
+            pnl_producto.Visible = False
+
         Catch ex As Exception
 
         End Try
@@ -316,17 +276,47 @@
 
     Private Sub guardar_detalle_orden()
         Try
-            Dim detalle_orden As New Entity.tbl_ordenes_detalle_Entity
-            detalle_orden.Costounitarioproducto = 0
-            detalle_orden.Cantidadproducto = txt_cantidad_detalle.Text
-            detalle_orden.Tipocambio = 1
-            detalle_orden.Idorden = id
-            detalle_orden.Idmoneda = 1
-            detalle_orden.Idproducto = cmb_producto.SelectedValue
-            detalle_orden.Idbodega = id_bodega_tmp
 
-            BO.BOtbl_ordenes_detalle.Insert(vCon, detalle_orden)
+
+            If editar_detalle = True Then
+                Dim detalle_temporal As New Entity.tbl_ordenes_detalle_Entity
+
+                detalle_temporal = BO.BOtbl_ordenes_detalle.getSingle(vCon, New Entity.tbl_ordenes_detalle_Entity With {.Idordenesdetalle = id_detalle_orden})
+                detalle_temporal.Cantidadproducto = txt_cantidad_detalle.Text
+                detalle_temporal.Idproducto = cmb_producto.SelectedValue
+
+                BO.BOtbl_ordenes_detalle.Update(vCon, detalle_temporal)
+
+            Else
+
+                If validar_producto_ingresado(Convert.ToInt32(cmb_producto.SelectedValue)) = 0 Then
+
+                    Console.Write("")
+                    Dim detalle_orden As New Entity.tbl_ordenes_detalle_Entity
+                    detalle_orden.Costounitarioproducto = 0
+                    detalle_orden.Cantidadproducto = txt_cantidad_detalle.Text
+                    detalle_orden.Tipocambio = 1
+                    detalle_orden.Idorden = id
+                    detalle_orden.Idmoneda = 1
+                    detalle_orden.Idproducto = cmb_producto.SelectedValue
+                    detalle_orden.Idbodega = id_bodega_tmp
+
+                    BO.BOtbl_ordenes_detalle.Insert(vCon, detalle_orden)
+                Else
+                    MessageBox.Show("Producto ya registrado en la orden",
+               "Error en ingreso de orden",
+               MessageBoxButtons.OK,
+               MessageBoxIcon.Exclamation,
+               MessageBoxDefaultButton.Button1)
+                End If
+
+            End If
+            pnl_producto.Visible = False
+            btn_editar_deta.Visible = False
+            Label9.Visible = False
+
             carga_detalle()
+            editar_detalle = False
         Catch ex As Exception
 
         End Try
@@ -374,5 +364,83 @@
         End If
 
         carga_detalle()
+        btn_mas_producto.Enabled = True
+        pnl_producto.Visible = False
+    End Sub
+
+    Private Sub grd_detalle_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grd_detalle.CellDoubleClick
+        Dim data_tmp_detalle As New DataTable
+        id_detalle_orden = grd_detalle.Rows(e.RowIndex).Cells(0).Value
+        editar_detalle = True
+
+        btn_editar_deta.Visible = True
+        Label9.Visible = True
+
+        data_tmp_detalle = BO.BOtbl_ordenes_detalle.getAll(vCon, New Entity.tbl_ordenes_detalle_Entity With {.Idordenesdetalle = id_detalle_orden})
+
+
+        If data_tmp_detalle.Rows.Count <> 0 Then
+            cmb_medida.SelectedValue = Val(data_tmp_detalle.Rows(0)("id_medida"))
+            txt_cantidad_detalle.Text = data_tmp_detalle.Rows(0)("cantidad_producto").ToString()
+            cmb_producto.SelectedValue = Val(data_tmp_detalle.Rows(0)("id_producto"))
+
+            lbl_deta.Text = "Actualizar"
+            pnl_producto.Visible = True
+        Else
+
+        End If
+
+        cmb_producto.Enabled = False
+    End Sub
+    Private Sub eliminar_detalle()
+
+        BO.BOtbl_ordenes_detalle.Delete(vCon, New Entity.tbl_ordenes_detalle_Entity With {.Idordenesdetalle = id_detalle_orden})
+
+    End Sub
+
+    Private Sub btn_eliminar_detalle_Click(sender As Object, e As EventArgs)
+        eliminar_detalle()
+        pnl_producto.Visible = False
+        carga_detalle()
+    End Sub
+
+    Private Function validar_producto_ingresado(ByVal id_producto As Integer) As Integer
+        Dim estado As Boolean
+        Dim conteo As Integer = 0
+        Dim ids As String = ""
+        grd_detalle.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        grd_detalle.ClearSelection()
+        grd_detalle.CurrentCell = Nothing
+        Dim intCount As Integer = 0
+
+        For Each row As DataGridViewRow In grd_detalle.Rows
+            If Convert.ToInt32(grd_detalle.Rows(intCount).Cells(4).Value) = id_producto Then
+                conteo = conteo + 1
+            Else
+            End If
+            intCount += 1
+        Next row
+        If conteo = 0 Then
+            estado = True
+        Else
+            estado = False
+        End If
+        Return conteo
+    End Function
+
+
+
+    Private Sub btn_agregar_deta_Click(sender As Object, e As EventArgs) Handles btn_agregar_deta.Click
+        guardar_detalle_orden()
+    End Sub
+
+    Private Sub btn_editar_deta_Click(sender As Object, e As EventArgs) Handles btn_editar_deta.Click
+        eliminar_detalle()
+        pnl_producto.Visible = False
+        carga_detalle()
+    End Sub
+
+    Private Sub lbl_close_Click(sender As Object, e As EventArgs) Handles lbl_close.Click
+        pnl_producto.Visible = False
     End Sub
 End Class

@@ -22,6 +22,12 @@ Partial Class frm_autoriza_orden_egreso
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pnl_detalle = New System.Windows.Forms.Panel()
         Me.lbl_close = New System.Windows.Forms.Label()
@@ -36,6 +42,11 @@ Partial Class frm_autoriza_orden_egreso
         Me.Label15 = New System.Windows.Forms.Label()
         Me.cmb_empresa = New System.Windows.Forms.ComboBox()
         Me.grd_ordenes = New System.Windows.Forms.DataGridView()
+        Me.seleccionar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuarios = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Totales = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -47,11 +58,6 @@ Partial Class frm_autoriza_orden_egreso
         Me.btn_guardar = New System.Windows.Forms.PictureBox()
         Me.btn_salir = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.seleccionar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.usuarios = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Totales = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.pnl_detalle.SuspendLayout()
         CType(Me.grd_detalle, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -119,15 +125,39 @@ Partial Class frm_autoriza_orden_egreso
         '
         Me.grd_detalle.AllowUserToAddRows = False
         Me.grd_detalle.AllowUserToDeleteRows = False
-        Me.grd_detalle.AllowUserToOrderColumns = True
         Me.grd_detalle.AllowUserToResizeColumns = False
+        Me.grd_detalle.AllowUserToResizeRows = False
         Me.grd_detalle.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grd_detalle.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.grd_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grd_detalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.nombre_producto, Me.medida, Me.DataGridViewTextBoxColumn2})
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grd_detalle.DefaultCellStyle = DataGridViewCellStyle2
         Me.grd_detalle.Location = New System.Drawing.Point(19, 48)
         Me.grd_detalle.MultiSelect = False
         Me.grd_detalle.Name = "grd_detalle"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grd_detalle.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.grd_detalle.RowHeadersVisible = False
         Me.grd_detalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.grd_detalle.Size = New System.Drawing.Size(478, 349)
@@ -205,15 +235,71 @@ Partial Class frm_autoriza_orden_egreso
         Me.grd_ordenes.AllowUserToResizeRows = False
         Me.grd_ordenes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grd_ordenes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.grd_ordenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grd_ordenes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.seleccionar, Me.id_usuario, Me.nombre, Me.usuarios, Me.Totales})
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grd_ordenes.DefaultCellStyle = DataGridViewCellStyle5
         Me.grd_ordenes.Location = New System.Drawing.Point(12, 51)
         Me.grd_ordenes.MultiSelect = False
         Me.grd_ordenes.Name = "grd_ordenes"
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grd_ordenes.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.grd_ordenes.RowHeadersVisible = False
         Me.grd_ordenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.grd_ordenes.Size = New System.Drawing.Size(523, 349)
         Me.grd_ordenes.TabIndex = 8
+        '
+        'seleccionar
+        '
+        Me.seleccionar.HeaderText = "Seleccionar"
+        Me.seleccionar.Name = "seleccionar"
+        Me.seleccionar.Width = 70
+        '
+        'id_usuario
+        '
+        Me.id_usuario.DataPropertyName = "id_orden"
+        Me.id_usuario.HeaderText = "No. orden"
+        Me.id_usuario.Name = "id_usuario"
+        Me.id_usuario.Width = 80
+        '
+        'nombre
+        '
+        Me.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.nombre.DataPropertyName = "nombre_gestor"
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        '
+        'usuarios
+        '
+        Me.usuarios.DataPropertyName = "fecha_fomat"
+        Me.usuarios.HeaderText = "Fecha"
+        Me.usuarios.Name = "usuarios"
+        '
+        'Totales
+        '
+        Me.Totales.DataPropertyName = "total_productos"
+        Me.Totales.HeaderText = "Cantidades"
+        Me.Totales.Name = "Totales"
         '
         'Label1
         '
@@ -345,38 +431,6 @@ Partial Class frm_autoriza_orden_egreso
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
-        '
-        'seleccionar
-        '
-        Me.seleccionar.HeaderText = "Seleccionar"
-        Me.seleccionar.Name = "seleccionar"
-        Me.seleccionar.Width = 70
-        '
-        'id_usuario
-        '
-        Me.id_usuario.DataPropertyName = "id_orden"
-        Me.id_usuario.HeaderText = "No. orden"
-        Me.id_usuario.Name = "id_usuario"
-        Me.id_usuario.Width = 80
-        '
-        'nombre
-        '
-        Me.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.nombre.DataPropertyName = "nombre_gestor"
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        '
-        'usuarios
-        '
-        Me.usuarios.DataPropertyName = "fecha_fomat"
-        Me.usuarios.HeaderText = "Fecha"
-        Me.usuarios.Name = "usuarios"
-        '
-        'Totales
-        '
-        Me.Totales.DataPropertyName = "total_productos"
-        Me.Totales.HeaderText = "Cantidades"
-        Me.Totales.Name = "Totales"
         '
         'frm_autoriza_orden_egreso
         '

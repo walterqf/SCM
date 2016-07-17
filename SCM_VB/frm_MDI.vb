@@ -110,4 +110,12 @@ Public Class frm_MDI
     Private Sub IngresoDeProductosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles IngresoDeProductosToolStripMenuItem1.Click
         iniciar_frm(frm_productos)
     End Sub
+
+    Private Sub AutorizacionDeOrdenDeEgresoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AutorizacionDeOrdenDeEgresoToolStripMenuItem.Click
+        iniciar_frm(frm_autoriza_orden_egreso)
+    End Sub
+
+    Private Sub RecepcionDeOrdenesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RecepcionDeOrdenesToolStripMenuItem.Click
+        iniciar_frm(frm_ordenes_entrega)
+    End Sub
 End Class

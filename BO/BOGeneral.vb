@@ -47,5 +47,22 @@ Public Class BOGeneral
         End Try
     End Function
 
+
+    Public Shared Function GetAll_ordenes_empresa_estado(ByVal pConnection As Connection_Entity, ByVal id_empresa As Integer, ByVal id_estado As Integer) As DataTable
+        Try
+            Return DALGeneral.GetAll_ordenes_empresa_estado(pConnection, id_empresa, id_estado)
+        Catch ex As Exception
+            Throw New Exception(ex.Message, ex.InnerException)
+        End Try
+    End Function
+
+    Public Shared Function modificar_estados_lote(ByVal pConnection As Connection_Entity, ByVal ids As String, ByVal estado As Integer) As Boolean
+        Try
+            Return DALGeneral.modificar_estados_lote(pConnection, ids, estado)
+        Catch ex As Exception
+            Throw New Exception(ex.Message, ex.InnerException)
+        End Try
+    End Function
+
 End Class
 

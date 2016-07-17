@@ -76,10 +76,22 @@
   <ItemGroup>
     <Compile Include="cs\Conexiones.vb" />
     <Compile Include="cs\Globales.vb" />
+    <Compile Include="frm_autoriza_orden_egreso.Designer.vb">
+      <DependentUpon>frm_autoriza_orden_egreso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_autoriza_orden_egreso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_bodega.Designer.vb">
       <DependentUpon>frm_bodega.vb</DependentUpon>
     </Compile>
     <Compile Include="frm_bodega.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_detalle_ordenes.Designer.vb">
+      <DependentUpon>frm_detalle_ordenes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_detalle_ordenes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_empresa.Designer.vb">
@@ -124,6 +136,12 @@
     <Compile Include="frm_monedas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm_ordenes_entrega.Designer.vb">
+      <DependentUpon>frm_ordenes_entrega.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ordenes_entrega.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_orden_egreso.Designer.vb">
       <DependentUpon>frm_orden_egreso.vb</DependentUpon>
     </Compile>
@@ -165,8 +183,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frm_autoriza_orden_egreso.resx">
+      <DependentUpon>frm_autoriza_orden_egreso.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_bodega.resx">
       <DependentUpon>frm_bodega.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_detalle_ordenes.resx">
+      <DependentUpon>frm_detalle_ordenes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_empresa.resx">
       <DependentUpon>frm_empresa.vb</DependentUpon>
@@ -188,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_monedas.resx">
       <DependentUpon>frm_monedas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ordenes_entrega.resx">
+      <DependentUpon>frm_ordenes_entrega.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_orden_egreso.resx">
       <DependentUpon>frm_orden_egreso.vb</DependentUpon>

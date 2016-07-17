@@ -9,30 +9,30 @@
     End Sub
 
     Private Sub guardar()
-        Dim gestores As New Entity.tbl_gestor_ordenes_Entity
-        'gestores.Nombresolicitanteorden = txt_nombre_gestor.Text
-        'gestores.Nombrecomercialsolicitanteorden = txt_nombre_comercial_gestor.Text
-        'gestores.Idtipogestor = cmb_tipos.SelectedValue
-        'gestores.Nitsolicitanteorden = txt_nit_gestor.Text
-        'gestores.Direccionsolicitanteorden = txt_direccion_gestor.Text
-        'gestores.Telefonosolicitanteorden = txt_telefono_gestor.Text
-        'gestores.Idusuario = Val(txt_id_usuario.Text)
-        'gestores.Idempresa = Val(cmb_empresa.SelectedValue)
+        'Dim gestores As New Entity.tbl_gestor_ordenes_Entity
+        ''gestores.Nombresolicitanteorden = txt_nombre_gestor.Text
+        ''gestores.Nombrecomercialsolicitanteorden = txt_nombre_comercial_gestor.Text
+        ''gestores.Idtipogestor = cmb_tipos.SelectedValue
+        ''gestores.Nitsolicitanteorden = txt_nit_gestor.Text
+        ''gestores.Direccionsolicitanteorden = txt_direccion_gestor.Text
+        ''gestores.Telefonosolicitanteorden = txt_telefono_gestor.Text
+        ''gestores.Idusuario = Val(txt_id_usuario.Text)
+        ''gestores.Idempresa = Val(cmb_empresa.SelectedValue)
 
-        gestores.Idgestorordenes = id
-        If txt_id_usuario.Text <> "0" Then
-            If editar = False Then
-                BO.BOtbl_gestor_ordenes.Insert(vCon, gestores)
-            Else
-                BO.BOtbl_gestor_ordenes.Update(vCon, gestores)
-            End If
-            btn_acciones(5)
-            editar = False
-            limpiar()
-            cargar_gestores()
-        Else
+        'gestores.Idgestorordenes = id
+        'If txt_id_usuario.Text <> "0" Then
+        '    If editar = False Then
+        '        BO.BOtbl_gestor_ordenes.Insert(vCon, gestores)
+        '    Else
+        '        BO.BOtbl_gestor_ordenes.Update(vCon, gestores)
+        '    End If
+        btn_acciones(5)
+        editar = False
+        '    limpiar()
+        '    cargar_gestores()
+        'Else
 
-        End If
+        'End If
 
     End Sub
 
@@ -100,6 +100,7 @@
 
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
         guardar()
+        cargar_ordenes_estado()
     End Sub
 
     Private Sub grd_usuarios_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grd_detalle.CellDoubleClick
@@ -218,7 +219,7 @@
 
     Private Sub cargar_gestores_ordenes()
         Dim iDGestores As DataTable
-        iDGestores = BO.BOtbl_gestor_ordenes.getAll(vCon, New Entity.tbl_gestor_ordenes_Entity)
+        iDGestores = BO.BOtbl_gestor_ordenes.getAll(vCon, New Entity.tbl_gestor_ordenes_Entity With {.Idempresa = My.Settings.id_empresa})
         cmb_gestores.Items.Clear()
 
 
@@ -298,7 +299,7 @@
             encabezado.Ivaorden = 0
             encabezado.Ivaorden1 = 0
             encabezado.Totalorden = 0
-            encabezado.Idusuario = 1
+            encabezado.Idusuario = My.Settings.id_user
             encabezado.Idtipoorden = 1
             encabezado.Idgestorordenes = cmb_gestores.SelectedValue
             encabezado.Idestadoorden = 1
@@ -351,7 +352,7 @@
     Private Sub cargar_ordenes_estado()
         Dim data_ordenes As DataTable
         grd_ordenes.AutoGenerateColumns = False
-        data_ordenes = BO.BOtbl_ordenes_encabezado.getAll(vCon, New Entity.tbl_ordenes_encabezado_Entity)
+        data_ordenes = BO.BOtbl_ordenes_encabezado.getAll(vCon, New Entity.tbl_ordenes_encabezado_Entity With {.Idtipoorden = 1, .Idestadoorden = 1, .Idempresa = My.Settings.id_empresa})
         If data_ordenes.Rows.Count > 0 Then
             grd_ordenes.DataSource = data_ordenes
         Else
@@ -359,14 +360,19 @@
         End If
     End Sub
 
-
-    Private Sub grd_ordenes_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grd_ordenes.CellContentDoubleClick
-
-    End Sub
-
     Private Sub grd_ordenes_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grd_ordenes.CellDoubleClick
+        Dim data_tmp As New DataTable
+
 
         id = Val(grd_ordenes.Rows(e.RowIndex).Cells(0).Value.ToString)
+        lbl_no_orden.Text = "No. " + id.ToString
+        data_tmp = BO.BOtbl_ordenes_encabezado.getAll(vCon, New Entity.tbl_ordenes_encabezado_Entity With {.Idorden = id})
+        If data_tmp.Rows.Count > 0 Then
+            cmb_gestores.SelectedValue = Val(data_tmp.Rows(0)("id_gestor_ordenes"))
+        Else
+
+        End If
+
         carga_detalle()
     End Sub
 End Class

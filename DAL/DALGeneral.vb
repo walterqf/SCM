@@ -139,5 +139,52 @@ Public Class DALGeneral
 
         End Using
     End Function
+
+
+    Public Shared Function GetAll_ordenes_empresa_estado(ByVal pConnection As Connection_Entity, ByVal id_empresa As Integer, ByVal id_estado As Integer) As DataTable
+
+        Using iConnection As New OleDbConnection("Provider=SQLOLEDB;Server=" & pConnection.ServerName & ";Database=" & pConnection.DataBaseName & ";Uid=" & pConnection.Login & "; Pwd=" & Entity.Seguridad.DesEncripta(pConnection.Password) & ";")
+
+            Dim iCommand As New OleDbCommand("spc_tbl_ordenes_encabezado_busqueda", iConnection)
+            iCommand.CommandType = CommandType.StoredProcedure
+
+            iCommand.Parameters.AddWithValue("@id_empresa", IIf(id_empresa = 0, DBNull.Value, id_empresa))
+            iCommand.Parameters.AddWithValue("@id_estado", IIf(id_estado = 0, DBNull.Value, id_estado))
+            Try
+                Dim iDTResult As New DataTable("tbl_ordenes_encabezado")
+                Dim iDAResult As New OleDbDataAdapter()
+                iDAResult.SelectCommand = iCommand
+                iDAResult.Fill(iDTResult)
+
+                Return iDTResult
+            Catch ex As Exception
+                Throw New Exception(ex.Message, ex.InnerException)
+            End Try
+
+        End Using
+    End Function
+
+
+    Public Shared Function modificar_estados_lote(ByVal pConnection As Connection_Entity, ByVal ids As String, ByVal estado As Integer) As Boolean
+
+        Using iConnection As New OleDbConnection("Provider=SQLOLEDB;Server=" & pConnection.ServerName & ";Database=" & pConnection.DataBaseName & ";Uid=" & pConnection.Login & "; Pwd=" & Entity.Seguridad.DesEncripta(pConnection.Password) & ";")
+
+            Dim iCommand As New OleDbCommand("spu_estados_ordenes", iConnection)
+            iCommand.CommandType = CommandType.StoredProcedure
+
+            iCommand.Parameters.AddWithValue("@ids", IIf(ids.Length = 0, "0", ids))
+            iCommand.Parameters.AddWithValue("@id_estado_orden", estado)
+
+            iConnection.Open()
+            iCommand.Connection = iConnection
+            Try
+                iCommand.ExecuteNonQuery()
+                Return True
+            Catch ex As Exception
+                Throw New Exception(ex.Message, ex.InnerException)
+            End Try
+        End Using
+    End Function
+
 End Class
 

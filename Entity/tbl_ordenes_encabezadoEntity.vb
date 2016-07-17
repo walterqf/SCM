@@ -12,6 +12,7 @@ Public Class tbl_ordenes_encabezado_Entity
     Private _idtipoorden As Int32
     Private _idgestorordenes As Int32
     Private _idestadoorden As Int32
+    Private _idempresa As Int32
 
 #End Region
 
@@ -104,6 +105,15 @@ Public Class tbl_ordenes_encabezado_Entity
         End Get
         Set(ByVal value As Int32)
             _idestadoorden = value
+        End Set
+    End Property
+
+    Public Property Idempresa() As Int32
+        Get
+            Return _idempresa
+        End Get
+        Set(ByVal value As Int32)
+            _idempresa = value
         End Set
     End Property
 

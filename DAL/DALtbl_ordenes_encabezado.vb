@@ -114,8 +114,10 @@ Public Class DALtbl_ordenes_encabezado
             iCommand.Parameters.AddWithValue("@id_usuario", iif(ptbl_ordenes_encabezado.Idusuario = 0, DbNull.Value, ptbl_ordenes_encabezado.Idusuario))
             iCommand.Parameters.AddWithValue("@id_tipo_orden", iif(ptbl_ordenes_encabezado.Idtipoorden = 0, DbNull.Value, ptbl_ordenes_encabezado.Idtipoorden))
             iCommand.Parameters.AddWithValue("@id_gestor_ordenes", iif(ptbl_ordenes_encabezado.Idgestorordenes = 0, DbNull.Value, ptbl_ordenes_encabezado.Idgestorordenes))
-            iCommand.Parameters.AddWithValue("@id_estado_orden", iif(ptbl_ordenes_encabezado.Idestadoorden = 0, DbNull.Value, ptbl_ordenes_encabezado.Idestadoorden))
-                Try
+            iCommand.Parameters.AddWithValue("@id_estado_orden", IIf(ptbl_ordenes_encabezado.Idestadoorden = 0, DBNull.Value, ptbl_ordenes_encabezado.Idestadoorden))
+            iCommand.Parameters.AddWithValue("@id_empresa", IIf(ptbl_ordenes_encabezado.Idempresa = 0, DBNull.Value, ptbl_ordenes_encabezado.Idempresa))
+
+            Try
                     Dim iDTResult as New DataTable("tbl_ordenes_encabezado")
                     Dim iDAResult as New OleDbDataAdapter()
                     iDAResult.SelectCommand = iCommand

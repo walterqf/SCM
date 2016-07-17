@@ -33,6 +33,9 @@ Partial Class frm_orden_egreso
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.grd_ordenes = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fecha_movimiento = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btn_mas_producto = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.pnl_usuario = New System.Windows.Forms.Panel()
@@ -45,6 +48,10 @@ Partial Class frm_orden_egreso
         Me.Label11 = New System.Windows.Forms.Label()
         Me.cmb_gestores = New System.Windows.Forms.ComboBox()
         Me.grd_detalle = New System.Windows.Forms.DataGridView()
+        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuarios = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -60,13 +67,6 @@ Partial Class frm_orden_egreso
         Me.btn_guardar = New System.Windows.Forms.PictureBox()
         Me.btn_salir = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.usuarios = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fecha_movimiento = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.pnl_producto.SuspendLayout()
         CType(Me.grd_ordenes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -208,6 +208,29 @@ Partial Class frm_orden_egreso
         Me.grd_ordenes.Size = New System.Drawing.Size(286, 531)
         Me.grd_ordenes.TabIndex = 18
         '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "id_orden"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "No. orden"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 80
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "nombre_estado_orden"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Estado"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        '
+        'fecha_movimiento
+        '
+        Me.fecha_movimiento.DataPropertyName = "fecha_fomat"
+        Me.fecha_movimiento.HeaderText = "Fecha"
+        Me.fecha_movimiento.Name = "fecha_movimiento"
+        Me.fecha_movimiento.ReadOnly = True
+        '
         'btn_mas_producto
         '
         Me.btn_mas_producto.Cursor = System.Windows.Forms.Cursors.Hand
@@ -287,6 +310,7 @@ Partial Class frm_orden_egreso
         Me.Label14.Size = New System.Drawing.Size(43, 13)
         Me.Label14.TabIndex = 15
         Me.Label14.Text = "Usuario"
+        Me.Label14.Visible = False
         '
         'txt_usuario
         '
@@ -294,6 +318,7 @@ Partial Class frm_orden_egreso
         Me.txt_usuario.Name = "txt_usuario"
         Me.txt_usuario.Size = New System.Drawing.Size(100, 20)
         Me.txt_usuario.TabIndex = 14
+        Me.txt_usuario.Visible = False
         '
         'Label11
         '
@@ -318,6 +343,8 @@ Partial Class frm_orden_egreso
         Me.grd_detalle.AllowUserToDeleteRows = False
         Me.grd_detalle.AllowUserToOrderColumns = True
         Me.grd_detalle.AllowUserToResizeColumns = False
+        Me.grd_detalle.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.grd_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grd_detalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_usuario, Me.nombre_producto, Me.medida, Me.usuarios})
         Me.grd_detalle.Location = New System.Drawing.Point(12, 120)
@@ -325,8 +352,34 @@ Partial Class frm_orden_egreso
         Me.grd_detalle.Name = "grd_detalle"
         Me.grd_detalle.RowHeadersVisible = False
         Me.grd_detalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grd_detalle.Size = New System.Drawing.Size(440, 262)
+        Me.grd_detalle.Size = New System.Drawing.Size(440, 432)
         Me.grd_detalle.TabIndex = 8
+        '
+        'id_usuario
+        '
+        Me.id_usuario.DataPropertyName = "id_ordenes_detalle"
+        Me.id_usuario.HeaderText = "id_ordenes_detalle"
+        Me.id_usuario.Name = "id_usuario"
+        Me.id_usuario.Visible = False
+        '
+        'nombre_producto
+        '
+        Me.nombre_producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.nombre_producto.DataPropertyName = "nombre_producto"
+        Me.nombre_producto.HeaderText = "Producto"
+        Me.nombre_producto.Name = "nombre_producto"
+        '
+        'medida
+        '
+        Me.medida.DataPropertyName = "medida"
+        Me.medida.HeaderText = "Medida"
+        Me.medida.Name = "medida"
+        '
+        'usuarios
+        '
+        Me.usuarios.DataPropertyName = "cantidad_producto"
+        Me.usuarios.HeaderText = "Cantidad"
+        Me.usuarios.Name = "usuarios"
         '
         'Label1
         '
@@ -377,7 +430,7 @@ Partial Class frm_orden_egreso
         Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(661, 42)
+        Me.Label10.Location = New System.Drawing.Point(765, 42)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(39, 13)
         Me.Label10.TabIndex = 22
@@ -388,7 +441,7 @@ Partial Class frm_orden_egreso
         Me.btn_nuevo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn_nuevo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_nuevo.Image = Global.SCM_VB.My.Resources.Resources.plainicon_com_54405_512px_4d4
-        Me.btn_nuevo.Location = New System.Drawing.Point(663, 3)
+        Me.btn_nuevo.Location = New System.Drawing.Point(767, 3)
         Me.btn_nuevo.Name = "btn_nuevo"
         Me.btn_nuevo.Size = New System.Drawing.Size(35, 35)
         Me.btn_nuevo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -400,46 +453,50 @@ Partial Class frm_orden_egreso
         Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(710, 42)
+        Me.Label9.Location = New System.Drawing.Point(565, 42)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(43, 13)
         Me.Label9.TabIndex = 20
         Me.Label9.Text = "Eliminar"
+        Me.Label9.Visible = False
         '
         'btn_eliminar
         '
         Me.btn_eliminar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn_eliminar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_eliminar.Image = Global.SCM_VB.My.Resources.Resources.substract
-        Me.btn_eliminar.Location = New System.Drawing.Point(714, 3)
+        Me.btn_eliminar.Location = New System.Drawing.Point(569, 3)
         Me.btn_eliminar.Name = "btn_eliminar"
         Me.btn_eliminar.Size = New System.Drawing.Size(35, 35)
         Me.btn_eliminar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.btn_eliminar.TabIndex = 19
         Me.btn_eliminar.TabStop = False
+        Me.btn_eliminar.Visible = False
         '
         'Label8
         '
         Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(766, 42)
+        Me.Label8.Location = New System.Drawing.Point(621, 42)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(34, 13)
         Me.Label8.TabIndex = 18
         Me.Label8.Text = "Editar"
+        Me.Label8.Visible = False
         '
         'btn_editar
         '
         Me.btn_editar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn_editar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_editar.Image = Global.SCM_VB.My.Resources.Resources.pen
-        Me.btn_editar.Location = New System.Drawing.Point(767, 3)
+        Me.btn_editar.Location = New System.Drawing.Point(622, 3)
         Me.btn_editar.Name = "btn_editar"
         Me.btn_editar.Size = New System.Drawing.Size(35, 35)
         Me.btn_editar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.btn_editar.TabIndex = 17
         Me.btn_editar.TabStop = False
+        Me.btn_editar.Visible = False
         '
         'Label7
         '
@@ -508,50 +565,6 @@ Partial Class frm_orden_egreso
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
-        '
-        'id_usuario
-        '
-        Me.id_usuario.DataPropertyName = "id_ordenes_detalle"
-        Me.id_usuario.HeaderText = "id_ordenes_detalle"
-        Me.id_usuario.Name = "id_usuario"
-        Me.id_usuario.Visible = False
-        '
-        'nombre_producto
-        '
-        Me.nombre_producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.nombre_producto.DataPropertyName = "nombre_producto"
-        Me.nombre_producto.HeaderText = "Producto"
-        Me.nombre_producto.Name = "nombre_producto"
-        '
-        'medida
-        '
-        Me.medida.DataPropertyName = "medida"
-        Me.medida.HeaderText = "Medida"
-        Me.medida.Name = "medida"
-        '
-        'usuarios
-        '
-        Me.usuarios.DataPropertyName = "cantidad_producto"
-        Me.usuarios.HeaderText = "Cantidad"
-        Me.usuarios.Name = "usuarios"
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "id_orden"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "No. orden"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Estado"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        '
-        'fecha_movimiento
-        '
-        Me.fecha_movimiento.DataPropertyName = "fecha_movimiento"
-        Me.fecha_movimiento.HeaderText = "Fecha"
-        Me.fecha_movimiento.Name = "fecha_movimiento"
         '
         'frm_orden_egreso
         '

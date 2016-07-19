@@ -64,5 +64,13 @@ Public Class BOGeneral
         End Try
     End Function
 
+
+    Public Shared Function get_detalle_producto(ByVal pConnection As Connection_Entity, ByVal pc_inventario As tbl_inventario_Entity) As DataTable
+        Try
+            Return DALGeneral.get_detalle_producto(pConnection, pc_inventario)
+        Catch ex As Exception
+            Throw New Exception(ex.Message, ex.InnerException)
+        End Try
+    End Function
 End Class
 

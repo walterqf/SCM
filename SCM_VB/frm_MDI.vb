@@ -118,4 +118,8 @@ Public Class frm_MDI
     Private Sub RecepcionDeOrdenesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RecepcionDeOrdenesToolStripMenuItem.Click
         iniciar_frm(frm_ordenes_entrega)
     End Sub
+
+    Private Sub ExistenciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExistenciasToolStripMenuItem.Click
+        iniciar_frm(frm_inventario)
+    End Sub
 End Class

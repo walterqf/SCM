@@ -54,6 +54,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -104,6 +105,12 @@
       <DependentUpon>frm_gestor.vb</DependentUpon>
     </Compile>
     <Compile Include="frm_gestor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_inventario.Designer.vb">
+      <DependentUpon>frm_inventario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_inventario.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_login.Designer.vb">
@@ -197,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_gestor.resx">
       <DependentUpon>frm_gestor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_inventario.resx">
+      <DependentUpon>frm_inventario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_login.resx">
       <DependentUpon>frm_login.vb</DependentUpon>

@@ -22,17 +22,38 @@ Partial Class frm_inventario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pnl_inventario = New System.Windows.Forms.Panel()
+        Me.btn_agregar_deta = New System.Windows.Forms.PictureBox()
+        Me.lbl_deta = New System.Windows.Forms.Label()
+        Me.lbl_cantidad = New System.Windows.Forms.Label()
+        Me.lbl_medida = New System.Windows.Forms.Label()
+        Me.lbl_close = New System.Windows.Forms.Label()
+        Me.lbl_producto = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.labe155 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtinvmax = New System.Windows.Forms.TextBox()
+        Me.txtinvopt = New System.Windows.Forms.TextBox()
+        Me.txtinvmin = New System.Windows.Forms.TextBox()
         Me.pnl_usuario = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cmb_bodega = New System.Windows.Forms.ComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.cmb_empresa = New System.Windows.Forms.ComboBox()
         Me.grd_ordenes = New System.Windows.Forms.DataGridView()
+        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuarios = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Totales = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Costo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -44,29 +65,9 @@ Partial Class frm_inventario
         Me.btn_guardar = New System.Windows.Forms.PictureBox()
         Me.btn_salir = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.txtinvmin = New System.Windows.Forms.TextBox()
-        Me.txtinvopt = New System.Windows.Forms.TextBox()
-        Me.txtinvmax = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.labe155 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.lbl_producto = New System.Windows.Forms.Label()
-        Me.lbl_close = New System.Windows.Forms.Label()
-        Me.lbl_medida = New System.Windows.Forms.Label()
-        Me.lbl_cantidad = New System.Windows.Forms.Label()
-        Me.btn_agregar_deta = New System.Windows.Forms.PictureBox()
-        Me.lbl_deta = New System.Windows.Forms.Label()
-        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.usuarios = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Totales = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Costo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.pnl_inventario.SuspendLayout()
+        CType(Me.btn_agregar_deta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnl_usuario.SuspendLayout()
         CType(Me.grd_ordenes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -75,7 +76,6 @@ Partial Class frm_inventario
         CType(Me.btn_guardar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btn_salir, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btn_agregar_deta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -114,6 +114,146 @@ Partial Class frm_inventario
         Me.pnl_inventario.Size = New System.Drawing.Size(307, 215)
         Me.pnl_inventario.TabIndex = 10
         Me.pnl_inventario.Visible = False
+        '
+        'btn_agregar_deta
+        '
+        Me.btn_agregar_deta.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_agregar_deta.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_agregar_deta.Image = Global.SCM_VB.My.Resources.Resources.Floppy_disk_512
+        Me.btn_agregar_deta.Location = New System.Drawing.Point(262, 155)
+        Me.btn_agregar_deta.Name = "btn_agregar_deta"
+        Me.btn_agregar_deta.Size = New System.Drawing.Size(35, 35)
+        Me.btn_agregar_deta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.btn_agregar_deta.TabIndex = 26
+        Me.btn_agregar_deta.TabStop = False
+        '
+        'lbl_deta
+        '
+        Me.lbl_deta.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbl_deta.AutoSize = True
+        Me.lbl_deta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_deta.Location = New System.Drawing.Point(259, 193)
+        Me.lbl_deta.Name = "lbl_deta"
+        Me.lbl_deta.Size = New System.Drawing.Size(45, 13)
+        Me.lbl_deta.TabIndex = 25
+        Me.lbl_deta.Text = "Guardar"
+        '
+        'lbl_cantidad
+        '
+        Me.lbl_cantidad.AutoSize = True
+        Me.lbl_cantidad.Location = New System.Drawing.Point(238, 48)
+        Me.lbl_cantidad.Name = "lbl_cantidad"
+        Me.lbl_cantidad.Size = New System.Drawing.Size(0, 13)
+        Me.lbl_cantidad.TabIndex = 24
+        '
+        'lbl_medida
+        '
+        Me.lbl_medida.AutoSize = True
+        Me.lbl_medida.Location = New System.Drawing.Point(71, 48)
+        Me.lbl_medida.Name = "lbl_medida"
+        Me.lbl_medida.Size = New System.Drawing.Size(0, 13)
+        Me.lbl_medida.TabIndex = 23
+        '
+        'lbl_close
+        '
+        Me.lbl_close.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbl_close.AutoSize = True
+        Me.lbl_close.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lbl_close.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_close.Location = New System.Drawing.Point(285, 9)
+        Me.lbl_close.Name = "lbl_close"
+        Me.lbl_close.Size = New System.Drawing.Size(15, 13)
+        Me.lbl_close.TabIndex = 22
+        Me.lbl_close.Text = "X"
+        '
+        'lbl_producto
+        '
+        Me.lbl_producto.AutoSize = True
+        Me.lbl_producto.Location = New System.Drawing.Point(71, 23)
+        Me.lbl_producto.Name = "lbl_producto"
+        Me.lbl_producto.Size = New System.Drawing.Size(0, 13)
+        Me.lbl_producto.TabIndex = 20
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(180, 48)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(65, 13)
+        Me.Label12.TabIndex = 19
+        Me.Label12.Text = "Existencia"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(15, 23)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(58, 13)
+        Me.Label11.TabIndex = 18
+        Me.Label11.Text = "Producto"
+        '
+        'labe155
+        '
+        Me.labe155.AutoSize = True
+        Me.labe155.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labe155.Location = New System.Drawing.Point(14, 48)
+        Me.labe155.Name = "labe155"
+        Me.labe155.Size = New System.Drawing.Size(48, 13)
+        Me.labe155.TabIndex = 17
+        Me.labe155.Text = "Medida"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(16, 132)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(74, 13)
+        Me.Label9.TabIndex = 16
+        Me.Label9.Text = "Inv. maximo"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(16, 106)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(70, 13)
+        Me.Label8.TabIndex = 15
+        Me.Label8.Text = "Inv. optimo"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(16, 80)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(71, 13)
+        Me.Label4.TabIndex = 14
+        Me.Label4.Text = "Inv. minimo"
+        '
+        'txtinvmax
+        '
+        Me.txtinvmax.Location = New System.Drawing.Point(233, 129)
+        Me.txtinvmax.Name = "txtinvmax"
+        Me.txtinvmax.Size = New System.Drawing.Size(64, 20)
+        Me.txtinvmax.TabIndex = 2
+        '
+        'txtinvopt
+        '
+        Me.txtinvopt.Location = New System.Drawing.Point(233, 103)
+        Me.txtinvopt.Name = "txtinvopt"
+        Me.txtinvopt.Size = New System.Drawing.Size(64, 20)
+        Me.txtinvopt.TabIndex = 1
+        '
+        'txtinvmin
+        '
+        Me.txtinvmin.Location = New System.Drawing.Point(233, 77)
+        Me.txtinvmin.Name = "txtinvmin"
+        Me.txtinvmin.Size = New System.Drawing.Size(64, 20)
+        Me.txtinvmin.TabIndex = 0
         '
         'pnl_usuario
         '
@@ -168,39 +308,77 @@ Partial Class frm_inventario
         Me.grd_ordenes.AllowUserToResizeRows = False
         Me.grd_ordenes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grd_ordenes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grd_ordenes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.grd_ordenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grd_ordenes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_usuario, Me.nombre, Me.usuarios, Me.Totales, Me.Costo, Me.estado})
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grd_ordenes.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grd_ordenes.DefaultCellStyle = DataGridViewCellStyle2
         Me.grd_ordenes.Location = New System.Drawing.Point(12, 77)
         Me.grd_ordenes.MultiSelect = False
         Me.grd_ordenes.Name = "grd_ordenes"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grd_ordenes.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grd_ordenes.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.grd_ordenes.RowHeadersVisible = False
         Me.grd_ordenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.grd_ordenes.Size = New System.Drawing.Size(590, 323)
         Me.grd_ordenes.TabIndex = 8
+        '
+        'id_usuario
+        '
+        Me.id_usuario.DataPropertyName = "id_inventario"
+        Me.id_usuario.HeaderText = "No. orden"
+        Me.id_usuario.Name = "id_usuario"
+        Me.id_usuario.Width = 80
+        '
+        'nombre
+        '
+        Me.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.nombre.DataPropertyName = "prd_descripcion"
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        '
+        'usuarios
+        '
+        Me.usuarios.DataPropertyName = "fecha_modif"
+        Me.usuarios.HeaderText = "Fecha"
+        Me.usuarios.Name = "usuarios"
+        '
+        'Totales
+        '
+        Me.Totales.DataPropertyName = "cantidad_real"
+        Me.Totales.HeaderText = "Exitencia"
+        Me.Totales.Name = "Totales"
+        '
+        'Costo
+        '
+        Me.Costo.DataPropertyName = "costo_unitario_producto"
+        Me.Costo.HeaderText = "Costo"
+        Me.Costo.Name = "Costo"
+        '
+        'estado
+        '
+        Me.estado.HeaderText = ""
+        Me.estado.Name = "estado"
+        Me.estado.Width = 20
         '
         'Label1
         '
@@ -339,184 +517,6 @@ Partial Class frm_inventario
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         '
-        'txtinvmin
-        '
-        Me.txtinvmin.Location = New System.Drawing.Point(233, 77)
-        Me.txtinvmin.Name = "txtinvmin"
-        Me.txtinvmin.Size = New System.Drawing.Size(64, 20)
-        Me.txtinvmin.TabIndex = 0
-        '
-        'txtinvopt
-        '
-        Me.txtinvopt.Location = New System.Drawing.Point(233, 103)
-        Me.txtinvopt.Name = "txtinvopt"
-        Me.txtinvopt.Size = New System.Drawing.Size(64, 20)
-        Me.txtinvopt.TabIndex = 1
-        '
-        'txtinvmax
-        '
-        Me.txtinvmax.Location = New System.Drawing.Point(233, 129)
-        Me.txtinvmax.Name = "txtinvmax"
-        Me.txtinvmax.Size = New System.Drawing.Size(64, 20)
-        Me.txtinvmax.TabIndex = 2
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(16, 80)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(71, 13)
-        Me.Label4.TabIndex = 14
-        Me.Label4.Text = "Inv. minimo"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(16, 106)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(70, 13)
-        Me.Label8.TabIndex = 15
-        Me.Label8.Text = "Inv. optimo"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(16, 132)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(74, 13)
-        Me.Label9.TabIndex = 16
-        Me.Label9.Text = "Inv. maximo"
-        '
-        'labe155
-        '
-        Me.labe155.AutoSize = True
-        Me.labe155.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labe155.Location = New System.Drawing.Point(14, 48)
-        Me.labe155.Name = "labe155"
-        Me.labe155.Size = New System.Drawing.Size(48, 13)
-        Me.labe155.TabIndex = 17
-        Me.labe155.Text = "Medida"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(15, 23)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(58, 13)
-        Me.Label11.TabIndex = 18
-        Me.Label11.Text = "Producto"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(180, 48)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(65, 13)
-        Me.Label12.TabIndex = 19
-        Me.Label12.Text = "Existencia"
-        '
-        'lbl_producto
-        '
-        Me.lbl_producto.AutoSize = True
-        Me.lbl_producto.Location = New System.Drawing.Point(71, 23)
-        Me.lbl_producto.Name = "lbl_producto"
-        Me.lbl_producto.Size = New System.Drawing.Size(0, 13)
-        Me.lbl_producto.TabIndex = 20
-        '
-        'lbl_close
-        '
-        Me.lbl_close.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lbl_close.AutoSize = True
-        Me.lbl_close.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lbl_close.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_close.Location = New System.Drawing.Point(285, 9)
-        Me.lbl_close.Name = "lbl_close"
-        Me.lbl_close.Size = New System.Drawing.Size(15, 13)
-        Me.lbl_close.TabIndex = 22
-        Me.lbl_close.Text = "X"
-        '
-        'lbl_medida
-        '
-        Me.lbl_medida.AutoSize = True
-        Me.lbl_medida.Location = New System.Drawing.Point(71, 48)
-        Me.lbl_medida.Name = "lbl_medida"
-        Me.lbl_medida.Size = New System.Drawing.Size(0, 13)
-        Me.lbl_medida.TabIndex = 23
-        '
-        'lbl_cantidad
-        '
-        Me.lbl_cantidad.AutoSize = True
-        Me.lbl_cantidad.Location = New System.Drawing.Point(238, 48)
-        Me.lbl_cantidad.Name = "lbl_cantidad"
-        Me.lbl_cantidad.Size = New System.Drawing.Size(0, 13)
-        Me.lbl_cantidad.TabIndex = 24
-        '
-        'btn_agregar_deta
-        '
-        Me.btn_agregar_deta.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btn_agregar_deta.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_agregar_deta.Image = Global.SCM_VB.My.Resources.Resources.Floppy_disk_512
-        Me.btn_agregar_deta.Location = New System.Drawing.Point(262, 155)
-        Me.btn_agregar_deta.Name = "btn_agregar_deta"
-        Me.btn_agregar_deta.Size = New System.Drawing.Size(35, 35)
-        Me.btn_agregar_deta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.btn_agregar_deta.TabIndex = 26
-        Me.btn_agregar_deta.TabStop = False
-        '
-        'lbl_deta
-        '
-        Me.lbl_deta.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lbl_deta.AutoSize = True
-        Me.lbl_deta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_deta.Location = New System.Drawing.Point(259, 193)
-        Me.lbl_deta.Name = "lbl_deta"
-        Me.lbl_deta.Size = New System.Drawing.Size(45, 13)
-        Me.lbl_deta.TabIndex = 25
-        Me.lbl_deta.Text = "Guardar"
-        '
-        'id_usuario
-        '
-        Me.id_usuario.DataPropertyName = "id_inventario"
-        Me.id_usuario.HeaderText = "No. orden"
-        Me.id_usuario.Name = "id_usuario"
-        Me.id_usuario.Width = 80
-        '
-        'nombre
-        '
-        Me.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.nombre.DataPropertyName = "prd_descripcion"
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        '
-        'usuarios
-        '
-        Me.usuarios.DataPropertyName = "fecha_modif"
-        Me.usuarios.HeaderText = "Fecha"
-        Me.usuarios.Name = "usuarios"
-        '
-        'Totales
-        '
-        Me.Totales.DataPropertyName = "cantidad_real"
-        Me.Totales.HeaderText = "Exitencia"
-        Me.Totales.Name = "Totales"
-        '
-        'Costo
-        '
-        Me.Costo.DataPropertyName = "costo_unitario_producto"
-        Me.Costo.HeaderText = "Costo"
-        Me.Costo.Name = "Costo"
-        '
-        'estado
-        '
-        Me.estado.HeaderText = ""
-        Me.estado.Name = "estado"
-        Me.estado.Width = 20
-        '
         'frm_inventario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -533,6 +533,7 @@ Partial Class frm_inventario
         Me.Panel1.ResumeLayout(False)
         Me.pnl_inventario.ResumeLayout(False)
         Me.pnl_inventario.PerformLayout()
+        CType(Me.btn_agregar_deta, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnl_usuario.ResumeLayout(False)
         Me.pnl_usuario.PerformLayout()
         CType(Me.grd_ordenes, System.ComponentModel.ISupportInitialize).EndInit()
@@ -543,7 +544,6 @@ Partial Class frm_inventario
         CType(Me.btn_guardar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btn_salir, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btn_agregar_deta, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

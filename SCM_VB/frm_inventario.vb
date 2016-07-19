@@ -11,9 +11,9 @@ Public Class frm_inventario
         Me.Close()
     End Sub
 
-    Private Sub cargar_ordenes_pendientes()
+    Private Sub cargar_inventarios()
         Dim data_tmp As DataTable
-        data_tmp = BO.BOtbl_inventario.getAll(vCon, New Entity.tbl_inventario_Entity)
+        data_tmp = BO.BOtbl_inventario.getAll(vCon, New Entity.tbl_inventario_Entity With {.Idbodega = Val(IIf(cmb_bodega.SelectedValue Is Nothing, 4000004, cmb_bodega.SelectedValue))})
         grd_ordenes.AutoGenerateColumns = False
         grd_ordenes.Rows.Clear()
         For Z As Integer = 0 To data_tmp.Rows.Count - 1
@@ -27,7 +27,7 @@ Public Class frm_inventario
                     grd_ordenes.Rows(Z).Cells(5).Style.BackColor = Color.Green
             End Select
         Next
-
+        mostrar_panel(False)
     End Sub
 
     Private Sub guardar()
@@ -43,7 +43,7 @@ Public Class frm_inventario
         vCon = Conexiones.EntityConnection_DB("", "")
         'mostrar_detalle(False)
         cargar_empresas()
-        cargar_ordenes_pendientes()
+        cargar_inventarios()
 
     End Sub
 
@@ -51,38 +51,44 @@ Public Class frm_inventario
         'pnl_detalle.Visible = estado
     End Sub
 
-    Private Sub btncancelar_Click(sender As Object, e As EventArgs) Handles btncancelar.Click
-        id_estado = 4
-        recorrer_seleccionados()
-    End Sub
+    'Private Sub btncancelar_Click(sender As Object, e As EventArgs) Handles btncancelar.Click
+    '    id_estado = 4
+    '    recorrer_seleccionados()
+    'End Sub
 
-    Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
-        id_estado = 2
-        recorrer_seleccionados()
-    End Sub
+    'Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
+    '    id_estado = 2
+    '    recorrer_seleccionados()
+    'End Sub
 
     Private Sub cargar_empresas()
-        Dim iDEmpresa DataTable
+        Dim iDEmpresa As DataTable
         iDEmpresa = BO.BOtbl_empresas.getAll(vCon, New Entity.tbl_empresas_Entity)
         cmb_empresa.Items.Clear()
         cmb_empresa.DataSource = iDEmpresa
         cmb_empresa.DisplayMember = "emp_nombre"
         cmb_empresa.ValueMember = "id_empresa"
+        cargar_bodega()
     End Sub
 
     Private Sub cargar_bodega()
         Dim iDBodega As DataTable
         iDBodega = BO.BOtbl_bodegas.getAll(vCon, New Entity.tbl_bodegas_Entity With {.Idempresa = Val(cmb_empresa.SelectedValue)})
-        cmb_bodega.Items.Clear()
+        cmb_bodega.DataSource = Nothing
         cmb_bodega.DataSource = iDBodega
-        cmb_bodega.DisplayMember = "emp_nombre"
-        cmb_bodega.ValueMember = "id_empresa"
+        cmb_bodega.DisplayMember = "nombre_bodega"
+        cmb_bodega.ValueMember = "id_bodega"
+        cargar_inventarios()
     End Sub
 
 
     Private Sub cmb_empresa_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_empresa.SelectionChangeCommitted
+        cargar_bodega()
 
+    End Sub
 
+    Private Sub cmb_bodega_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_bodega.SelectionChangeCommitted
+        cargar_inventarios()
     End Sub
 
     Private Sub grd_usuarios_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs)
@@ -132,7 +138,7 @@ Public Class frm_inventario
 
         BO.BOtbl_inventario.Update(vCon, inventario)
         mostrar_panel(False)
-        cargar_ordenes_pendientes()
+        cargar_inventarios()
 
     End Sub
 
@@ -185,7 +191,7 @@ Public Class frm_inventario
             Console.WriteLine("SI" + ids)
             Try
                 BO.BOGeneral.modificar_estados_lote(vCon, ids, id_estado.ToString)
-                cargar_ordenes_pendientes()
+                cargar_inventarios()
             Catch ex As Exception
 
             End Try
@@ -195,7 +201,7 @@ Public Class frm_inventario
 
         End If
     End Sub
-    Private Sub cargar_ordenes_pendientes_ruta()
+    Private Sub cargar_inventarios_ruta()
 
     End Sub
 

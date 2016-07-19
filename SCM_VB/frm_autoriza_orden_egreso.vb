@@ -10,7 +10,7 @@
 
     Private Sub cargar_ordenes_pendientes()
         Dim data_tmp As DataTable
-        data_tmp = BO.BOGeneral.GetAll_ordenes_empresa_estado(vCon, Convert.ToInt32(cmb_empresa.SelectedValue), 1)
+        data_tmp = BO.BOGeneral.GetAll_ordenes_empresa_estado(vCon, Convert.ToInt32(cmb_empresa.SelectedValue), 1, 1)
         grd_ordenes.AutoGenerateColumns = False
         grd_ordenes.DataSource = data_tmp
     End Sub

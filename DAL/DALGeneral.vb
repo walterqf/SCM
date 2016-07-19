@@ -141,7 +141,7 @@ Public Class DALGeneral
     End Function
 
 
-    Public Shared Function GetAll_ordenes_empresa_estado(ByVal pConnection As Connection_Entity, ByVal id_empresa As Integer, ByVal id_estado As Integer) As DataTable
+    Public Shared Function GetAll_ordenes_empresa_estado(ByVal pConnection As Connection_Entity, ByVal id_empresa As Integer, ByVal id_estado As Integer, ByVal id_tipo As Integer) As DataTable
 
         Using iConnection As New OleDbConnection("Provider=SQLOLEDB;Server=" & pConnection.ServerName & ";Database=" & pConnection.DataBaseName & ";Uid=" & pConnection.Login & "; Pwd=" & Entity.Seguridad.DesEncripta(pConnection.Password) & ";")
 
@@ -150,6 +150,7 @@ Public Class DALGeneral
 
             iCommand.Parameters.AddWithValue("@id_empresa", IIf(id_empresa = 0, DBNull.Value, id_empresa))
             iCommand.Parameters.AddWithValue("@id_estado", IIf(id_estado = 0, DBNull.Value, id_estado))
+            iCommand.Parameters.AddWithValue("@id_tipo", IIf(id_tipo = 0, DBNull.Value, id_tipo))
             Try
                 Dim iDTResult As New DataTable("tbl_ordenes_encabezado")
                 Dim iDAResult As New OleDbDataAdapter()

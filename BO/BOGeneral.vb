@@ -48,9 +48,9 @@ Public Class BOGeneral
     End Function
 
 
-    Public Shared Function GetAll_ordenes_empresa_estado(ByVal pConnection As Connection_Entity, ByVal id_empresa As Integer, ByVal id_estado As Integer) As DataTable
+    Public Shared Function GetAll_ordenes_empresa_estado(ByVal pConnection As Connection_Entity, ByVal id_empresa As Integer, ByVal id_estado As Integer, ByVal id_tipo As Integer) As DataTable
         Try
-            Return DALGeneral.GetAll_ordenes_empresa_estado(pConnection, id_empresa, id_estado)
+            Return DALGeneral.GetAll_ordenes_empresa_estado(pConnection, id_empresa, id_estado, id_tipo)
         Catch ex As Exception
             Throw New Exception(ex.Message, ex.InnerException)
         End Try

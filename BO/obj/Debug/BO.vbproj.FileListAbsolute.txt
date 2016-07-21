@@ -58,3 +58,18 @@ C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\BO\obj\Debug\
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\BO\obj\Debug\BO.dll
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\BO\obj\Debug\BO.xml
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\BO\obj\Debug\BO.pdb
+C:\Users\walte\Documents\GitHub\SCM\BO\bin\Debug\BO.dll
+C:\Users\walte\Documents\GitHub\SCM\BO\bin\Debug\BO.pdb
+C:\Users\walte\Documents\GitHub\SCM\BO\bin\Debug\BO.xml
+C:\Users\walte\Documents\GitHub\SCM\BO\bin\Debug\DAL.dll
+C:\Users\walte\Documents\GitHub\SCM\BO\bin\Debug\Entity.dll
+C:\Users\walte\Documents\GitHub\SCM\BO\bin\Debug\DAL.pdb
+C:\Users\walte\Documents\GitHub\SCM\BO\bin\Debug\DAL.xml
+C:\Users\walte\Documents\GitHub\SCM\BO\bin\Debug\Entity.pdb
+C:\Users\walte\Documents\GitHub\SCM\BO\bin\Debug\Entity.xml
+C:\Users\walte\Documents\GitHub\SCM\BO\obj\Debug\BO.vbprojResolveAssemblyReference.cache
+C:\Users\walte\Documents\GitHub\SCM\BO\obj\Debug\BO.Resources.resources
+C:\Users\walte\Documents\GitHub\SCM\BO\obj\Debug\BO.vbproj.GenerateResource.Cache
+C:\Users\walte\Documents\GitHub\SCM\BO\obj\Debug\BO.dll
+C:\Users\walte\Documents\GitHub\SCM\BO\obj\Debug\BO.xml
+C:\Users\walte\Documents\GitHub\SCM\BO\obj\Debug\BO.pdb

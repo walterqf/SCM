@@ -46,3 +46,15 @@ C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\DAL\obj\Debug
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\DAL\obj\Debug\DAL.dll
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\DAL\obj\Debug\DAL.xml
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\DAL\obj\Debug\DAL.pdb
+C:\Users\walte\Documents\GitHub\SCM\DAL\bin\Debug\DAL.dll
+C:\Users\walte\Documents\GitHub\SCM\DAL\bin\Debug\DAL.pdb
+C:\Users\walte\Documents\GitHub\SCM\DAL\bin\Debug\DAL.xml
+C:\Users\walte\Documents\GitHub\SCM\DAL\bin\Debug\Entity.dll
+C:\Users\walte\Documents\GitHub\SCM\DAL\bin\Debug\Entity.pdb
+C:\Users\walte\Documents\GitHub\SCM\DAL\bin\Debug\Entity.xml
+C:\Users\walte\Documents\GitHub\SCM\DAL\obj\Debug\DAL.vbprojResolveAssemblyReference.cache
+C:\Users\walte\Documents\GitHub\SCM\DAL\obj\Debug\DAL.Resources.resources
+C:\Users\walte\Documents\GitHub\SCM\DAL\obj\Debug\DAL.vbproj.GenerateResource.Cache
+C:\Users\walte\Documents\GitHub\SCM\DAL\obj\Debug\DAL.dll
+C:\Users\walte\Documents\GitHub\SCM\DAL\obj\Debug\DAL.xml
+C:\Users\walte\Documents\GitHub\SCM\DAL\obj\Debug\DAL.pdb

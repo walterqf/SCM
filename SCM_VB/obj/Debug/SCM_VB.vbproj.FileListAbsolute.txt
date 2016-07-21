@@ -119,3 +119,42 @@ C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\SCM_VB\obj\De
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\SCM_VB\obj\Debug\SCM_VB.frm_orden_ingreso.resources
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\SCM_VB\obj\Debug\SCM_VB.frm_reporte_ordenes.resources
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\SCM_VB\obj\Debug\SCM_VB.frm_vehiculos.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\bin\Debug\SCM_VB.exe.config
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.exe
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.xml
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.pdb
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\bin\Debug\SCM_VB.exe
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\bin\Debug\SCM_VB.pdb
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\bin\Debug\SCM_VB.xml
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\bin\Debug\BO.dll
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\bin\Debug\Entity.dll
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\bin\Debug\DAL.dll
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\bin\Debug\BO.pdb
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\bin\Debug\BO.xml
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\bin\Debug\Entity.pdb
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\bin\Debug\Entity.xml
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\bin\Debug\DAL.pdb
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\bin\Debug\DAL.xml
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.vbprojResolveAssemblyReference.cache
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_autorizacion_orden_ingreso.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_autoriza_orden_egreso.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_bodega.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_detalle_ordenes.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_empresa.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_gestor.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_inventario.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_login.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_MDI.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_cat_usuarios.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_medidas.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_monedas.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_ordenes_entrega.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_orden_egreso.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_orden_ingreso.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_productos.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_reporte_ordenes.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_selector_empresa.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_tipo_gestor.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.frm_vehiculos.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.Resources.resources
+C:\Users\walte\Documents\GitHub\SCM\SCM_VB\obj\Debug\SCM_VB.vbproj.GenerateResource.Cache

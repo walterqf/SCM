@@ -34,3 +34,12 @@ C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\Entity\obj\De
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\Entity\obj\Debug\Entity.xml
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\Entity\obj\Debug\Entity.pdb
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\Entity\obj\Debug\Entity.vbprojResolveAssemblyReference.cache
+C:\Users\walte\Documents\GitHub\SCM\Entity\bin\Debug\Entity.dll
+C:\Users\walte\Documents\GitHub\SCM\Entity\bin\Debug\Entity.pdb
+C:\Users\walte\Documents\GitHub\SCM\Entity\bin\Debug\Entity.xml
+C:\Users\walte\Documents\GitHub\SCM\Entity\obj\Debug\Entity.vbprojResolveAssemblyReference.cache
+C:\Users\walte\Documents\GitHub\SCM\Entity\obj\Debug\Entity.Resources.resources
+C:\Users\walte\Documents\GitHub\SCM\Entity\obj\Debug\Entity.vbproj.GenerateResource.Cache
+C:\Users\walte\Documents\GitHub\SCM\Entity\obj\Debug\Entity.dll
+C:\Users\walte\Documents\GitHub\SCM\Entity\obj\Debug\Entity.xml
+C:\Users\walte\Documents\GitHub\SCM\Entity\obj\Debug\Entity.pdb

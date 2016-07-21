@@ -24,8 +24,11 @@ Partial Class frm_orden_ingreso
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.pnl_producto = New System.Windows.Forms.Panel()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.pnl_precio = New System.Windows.Forms.Label()
         Me.txt_precio = New System.Windows.Forms.TextBox()
@@ -51,6 +54,12 @@ Partial Class frm_orden_ingreso
         Me.Label11 = New System.Windows.Forms.Label()
         Me.cmb_gestores = New System.Windows.Forms.ComboBox()
         Me.grd_detalle = New System.Windows.Forms.DataGridView()
+        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuarios = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.btn_nuevo = New System.Windows.Forms.PictureBox()
@@ -65,16 +74,9 @@ Partial Class frm_orden_ingreso
         Me.Label5 = New System.Windows.Forms.Label()
         Me.btn_salir = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Subtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.usuarios = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.medida = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre_producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.pnl_producto.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grd_ordenes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btn_mas_producto, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -120,6 +122,26 @@ Partial Class frm_orden_ingreso
         Me.Panel1.Size = New System.Drawing.Size(1057, 564)
         Me.Panel1.TabIndex = 9
         '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(379, 400)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(49, 20)
+        Me.Label16.TabIndex = 21
+        Me.Label16.Text = "Total"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(455, 400)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(14, 20)
+        Me.Label13.TabIndex = 20
+        Me.Label13.Text = "."
+        '
         'Label4
         '
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -135,6 +157,7 @@ Partial Class frm_orden_ingreso
         '
         Me.pnl_producto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.pnl_producto.Controls.Add(Me.PictureBox3)
         Me.pnl_producto.Controls.Add(Me.PictureBox2)
         Me.pnl_producto.Controls.Add(Me.pnl_precio)
         Me.pnl_producto.Controls.Add(Me.txt_precio)
@@ -150,11 +173,22 @@ Partial Class frm_orden_ingreso
         Me.pnl_producto.TabIndex = 16
         Me.pnl_producto.Visible = False
         '
+        'PictureBox3
+        '
+        Me.PictureBox3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBox3.Image = Global.SCM_VB.My.Resources.Resources.multiply
+        Me.PictureBox3.Location = New System.Drawing.Point(385, 54)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(35, 35)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 24
+        Me.PictureBox3.TabStop = False
+        '
         'PictureBox2
         '
         Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox2.Image = Global.SCM_VB.My.Resources.Resources.ok2
-        Me.PictureBox2.Location = New System.Drawing.Point(384, 54)
+        Me.PictureBox2.Image = Global.SCM_VB.My.Resources.Resources.perfect1
+        Me.PictureBox2.Location = New System.Drawing.Point(344, 54)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(35, 35)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -347,6 +381,7 @@ Partial Class frm_orden_ingreso
         Me.Label14.Size = New System.Drawing.Size(43, 13)
         Me.Label14.TabIndex = 15
         Me.Label14.Text = "Usuario"
+        Me.Label14.Visible = False
         '
         'txt_usuario
         '
@@ -354,6 +389,7 @@ Partial Class frm_orden_ingreso
         Me.txt_usuario.Name = "txt_usuario"
         Me.txt_usuario.Size = New System.Drawing.Size(100, 20)
         Me.txt_usuario.TabIndex = 14
+        Me.txt_usuario.Visible = False
         '
         'Label11
         '
@@ -388,6 +424,44 @@ Partial Class frm_orden_ingreso
         Me.grd_detalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.grd_detalle.Size = New System.Drawing.Size(516, 262)
         Me.grd_detalle.TabIndex = 8
+        '
+        'id_usuario
+        '
+        Me.id_usuario.DataPropertyName = "id_ordenes_detalle"
+        Me.id_usuario.HeaderText = "id_ordenes_detalle"
+        Me.id_usuario.Name = "id_usuario"
+        Me.id_usuario.Visible = False
+        '
+        'nombre_producto
+        '
+        Me.nombre_producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.nombre_producto.DataPropertyName = "nombre_producto"
+        Me.nombre_producto.HeaderText = "Producto"
+        Me.nombre_producto.Name = "nombre_producto"
+        '
+        'medida
+        '
+        Me.medida.DataPropertyName = "medida"
+        Me.medida.HeaderText = "Medida"
+        Me.medida.Name = "medida"
+        '
+        'usuarios
+        '
+        Me.usuarios.DataPropertyName = "cantidad_producto"
+        Me.usuarios.HeaderText = "Cantidad"
+        Me.usuarios.Name = "usuarios"
+        '
+        'Precio
+        '
+        Me.Precio.DataPropertyName = "costo_unitario_producto"
+        Me.Precio.HeaderText = "Precio"
+        Me.Precio.Name = "Precio"
+        '
+        'Subtotal
+        '
+        Me.Subtotal.DataPropertyName = "costo_unitario_producto * cantidad_producto"
+        Me.Subtotal.HeaderText = "Subtotal"
+        Me.Subtotal.Name = "Subtotal"
         '
         'Panel2
         '
@@ -560,64 +634,6 @@ Partial Class frm_orden_ingreso
         Me.PictureBox1.TabIndex = 8
         Me.PictureBox1.TabStop = False
         '
-        'Subtotal
-        '
-        Me.Subtotal.DataPropertyName = "costo_unitario_producto * cantidad_producto"
-        Me.Subtotal.HeaderText = "Subtotal"
-        Me.Subtotal.Name = "Subtotal"
-        '
-        'Precio
-        '
-        Me.Precio.DataPropertyName = "costo_unitario_producto"
-        Me.Precio.HeaderText = "Precio"
-        Me.Precio.Name = "Precio"
-        '
-        'usuarios
-        '
-        Me.usuarios.DataPropertyName = "cantidad_producto"
-        Me.usuarios.HeaderText = "Cantidad"
-        Me.usuarios.Name = "usuarios"
-        '
-        'medida
-        '
-        Me.medida.DataPropertyName = "medida"
-        Me.medida.HeaderText = "Medida"
-        Me.medida.Name = "medida"
-        '
-        'nombre_producto
-        '
-        Me.nombre_producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.nombre_producto.DataPropertyName = "nombre_producto"
-        Me.nombre_producto.HeaderText = "Producto"
-        Me.nombre_producto.Name = "nombre_producto"
-        '
-        'id_usuario
-        '
-        Me.id_usuario.DataPropertyName = "id_ordenes_detalle"
-        Me.id_usuario.HeaderText = "id_ordenes_detalle"
-        Me.id_usuario.Name = "id_usuario"
-        Me.id_usuario.Visible = False
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(455, 400)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(14, 20)
-        Me.Label13.TabIndex = 20
-        Me.Label13.Text = "."
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(379, 400)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(49, 20)
-        Me.Label16.TabIndex = 21
-        Me.Label16.Text = "Total"
-        '
         'frm_orden_ingreso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -628,11 +644,12 @@ Partial Class frm_orden_ingreso
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Name = "frm_orden_ingreso"
-        Me.Text = "frm_orden_ingreso"
+        Me.Text = "Ordenes De Ingreso"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.pnl_producto.ResumeLayout(False)
         Me.pnl_producto.PerformLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grd_ordenes, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btn_mas_producto, System.ComponentModel.ISupportInitialize).EndInit()
@@ -704,4 +721,5 @@ Partial Class frm_orden_ingreso
     Friend WithEvents Subtotal As DataGridViewTextBoxColumn
     Friend WithEvents Label13 As Label
     Friend WithEvents Label16 As Label
+    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
 End Class

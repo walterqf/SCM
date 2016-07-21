@@ -22,7 +22,6 @@
 
         Dim delimiter As Char = ","
         Dim substrings() As String = ids.Split(delimiter)
-        MessageBox.Show(ids)
         If ids <> Nothing Then
             data_tmp = BO.BOtbl_scm_ordenes_entrega.getAll(vCon, New Entity.tbl_scm_ordenes_entrega_Entity With {.Idorden = idorden_g})
             If data_tmp.Rows.Count > 0 Then

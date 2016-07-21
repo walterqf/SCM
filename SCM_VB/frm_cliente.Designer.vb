@@ -53,12 +53,12 @@ Partial Class frm_cliente
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.grd_usuarios = New System.Windows.Forms.DataGridView()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.id_cliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nom_cliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dir_cliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tel_cliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nit_cliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2.SuspendLayout()
         CType(Me.btn_nuevo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btn_eliminar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -239,9 +239,9 @@ Partial Class frm_cliente
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(94, 24)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(130, 31)
+        Me.Label1.Size = New System.Drawing.Size(121, 31)
         Me.Label1.TabIndex = 11
-        Me.Label1.Text = "Usuarios"
+        Me.Label1.Text = "Clientes"
         '
         'Panel1
         '
@@ -407,16 +407,6 @@ Partial Class frm_cliente
         Me.grd_usuarios.Size = New System.Drawing.Size(670, 169)
         Me.grd_usuarios.TabIndex = 8
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.SCM_VB.My.Resources.Resources.contactbook
-        Me.PictureBox1.Location = New System.Drawing.Point(22, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(50, 50)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 9
-        Me.PictureBox1.TabStop = False
-        '
         'id_cliente
         '
         Me.id_cliente.DataPropertyName = "id_cliente"
@@ -447,6 +437,16 @@ Partial Class frm_cliente
         Me.nit_cliente.DataPropertyName = "cli_nit"
         Me.nit_cliente.HeaderText = "Nit"
         Me.nit_cliente.Name = "nit_cliente"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.SCM_VB.My.Resources.Resources.contactbook
+        Me.PictureBox1.Location = New System.Drawing.Point(22, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(50, 50)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 9
+        Me.PictureBox1.TabStop = False
         '
         'frm_cliente
         '

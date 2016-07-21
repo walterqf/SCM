@@ -259,6 +259,9 @@
     <EmbeddedResource Include="frm_bodega.resx">
       <DependentUpon>frm_bodega.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_cliente.resx">
+      <DependentUpon>frm_cliente.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_detalle_ordenes.resx">
       <DependentUpon>frm_detalle_ordenes.vb</DependentUpon>
     </EmbeddedResource>

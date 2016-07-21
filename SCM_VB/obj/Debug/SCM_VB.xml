@@ -277,6 +277,11 @@ SCM_VB
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:SCM_VB.My.Resources.Resources.maxresdefault3">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:SCM_VB.My.Resources.Resources.mobile">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.

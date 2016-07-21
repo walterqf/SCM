@@ -37,8 +37,12 @@ Partial Class frm_vehiculos
         Me.btn_salir = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.grd_usuarios = New System.Windows.Forms.DataGridView()
+        Me.grd_vehiculos = New System.Windows.Forms.DataGridView()
         Me.pnl_usuario = New System.Windows.Forms.Panel()
+        Me.dt_fecha_compra = New System.Windows.Forms.DateTimePicker()
+        Me.txt_kil_original = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.cb_estado = New System.Windows.Forms.ComboBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.dt_fecha = New System.Windows.Forms.DateTimePicker()
@@ -56,10 +60,7 @@ Partial Class frm_vehiculos
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.txt_kil_original = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
         Me.usuarios = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id_estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id_tipo_vehiculo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.marca_vehiculo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mtr_vehiculo = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -69,6 +70,7 @@ Partial Class frm_vehiculos
         Me.kilometraje_actual = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha_ultimoservicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha_compra = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id_estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2.SuspendLayout()
         CType(Me.btn_nuevo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btn_eliminar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,7 +79,7 @@ Partial Class frm_vehiculos
         CType(Me.btn_guardar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btn_salir, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        CType(Me.grd_usuarios, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grd_vehiculos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnl_usuario.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -259,33 +261,38 @@ Partial Class frm_vehiculos
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.grd_usuarios)
+        Me.Panel1.Controls.Add(Me.grd_vehiculos)
         Me.Panel1.Controls.Add(Me.pnl_usuario)
         Me.Panel1.Location = New System.Drawing.Point(1, 76)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(712, 304)
         Me.Panel1.TabIndex = 14
         '
-        'grd_usuarios
+        'grd_vehiculos
         '
-        Me.grd_usuarios.AllowUserToAddRows = False
-        Me.grd_usuarios.AllowUserToDeleteRows = False
-        Me.grd_usuarios.AllowUserToOrderColumns = True
-        Me.grd_usuarios.AllowUserToResizeColumns = False
-        Me.grd_usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grd_usuarios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.usuarios, Me.id_estado, Me.id_tipo_vehiculo, Me.marca_vehiculo, Me.mtr_vehiculo, Me.clr_vehiculo, Me.mod_vehiculo, Me.km_vehiculo, Me.kilometraje_actual, Me.fecha_ultimoservicio, Me.fecha_compra})
-        Me.grd_usuarios.Location = New System.Drawing.Point(12, 157)
-        Me.grd_usuarios.MultiSelect = False
-        Me.grd_usuarios.Name = "grd_usuarios"
-        Me.grd_usuarios.RowHeadersVisible = False
-        Me.grd_usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grd_usuarios.Size = New System.Drawing.Size(620, 146)
-        Me.grd_usuarios.TabIndex = 9
+        Me.grd_vehiculos.AllowUserToAddRows = False
+        Me.grd_vehiculos.AllowUserToDeleteRows = False
+        Me.grd_vehiculos.AllowUserToOrderColumns = True
+        Me.grd_vehiculos.AllowUserToResizeColumns = False
+        Me.grd_vehiculos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grd_vehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grd_vehiculos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.usuarios, Me.id_tipo_vehiculo, Me.marca_vehiculo, Me.mtr_vehiculo, Me.clr_vehiculo, Me.mod_vehiculo, Me.km_vehiculo, Me.kilometraje_actual, Me.fecha_ultimoservicio, Me.fecha_compra, Me.id_estado})
+        Me.grd_vehiculos.Location = New System.Drawing.Point(12, 157)
+        Me.grd_vehiculos.MultiSelect = False
+        Me.grd_vehiculos.Name = "grd_vehiculos"
+        Me.grd_vehiculos.RowHeadersVisible = False
+        Me.grd_vehiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.grd_vehiculos.Size = New System.Drawing.Size(620, 146)
+        Me.grd_vehiculos.TabIndex = 9
         '
         'pnl_usuario
         '
+        Me.pnl_usuario.Controls.Add(Me.dt_fecha_compra)
         Me.pnl_usuario.Controls.Add(Me.txt_kil_original)
         Me.pnl_usuario.Controls.Add(Me.Label17)
+        Me.pnl_usuario.Controls.Add(Me.Label15)
         Me.pnl_usuario.Controls.Add(Me.cb_estado)
         Me.pnl_usuario.Controls.Add(Me.Label16)
         Me.pnl_usuario.Controls.Add(Me.dt_fecha)
@@ -307,10 +314,42 @@ Partial Class frm_vehiculos
         Me.pnl_usuario.Size = New System.Drawing.Size(620, 148)
         Me.pnl_usuario.TabIndex = 9
         '
+        'dt_fecha_compra
+        '
+        Me.dt_fecha_compra.Location = New System.Drawing.Point(420, 107)
+        Me.dt_fecha_compra.Name = "dt_fecha_compra"
+        Me.dt_fecha_compra.Size = New System.Drawing.Size(163, 20)
+        Me.dt_fecha_compra.TabIndex = 25
+        '
+        'txt_kil_original
+        '
+        Me.txt_kil_original.Location = New System.Drawing.Point(420, 3)
+        Me.txt_kil_original.Name = "txt_kil_original"
+        Me.txt_kil_original.Size = New System.Drawing.Size(163, 20)
+        Me.txt_kil_original.TabIndex = 23
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(296, 6)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(94, 13)
+        Me.Label17.TabIndex = 22
+        Me.Label17.Text = "Kilometraje original"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(296, 108)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(90, 13)
+        Me.Label15.TabIndex = 24
+        Me.Label15.Text = "Fecha de compra"
+        '
         'cb_estado
         '
         Me.cb_estado.FormattingEnabled = True
-        Me.cb_estado.Location = New System.Drawing.Point(420, 105)
+        Me.cb_estado.Location = New System.Drawing.Point(107, 119)
         Me.cb_estado.Name = "cb_estado"
         Me.cb_estado.Size = New System.Drawing.Size(163, 21)
         Me.cb_estado.TabIndex = 21
@@ -318,7 +357,7 @@ Partial Class frm_vehiculos
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(296, 108)
+        Me.Label16.Location = New System.Drawing.Point(9, 122)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(40, 13)
         Me.Label16.TabIndex = 20
@@ -448,43 +487,21 @@ Partial Class frm_vehiculos
         Me.PictureBox1.TabIndex = 13
         Me.PictureBox1.TabStop = False
         '
-        'txt_kil_original
-        '
-        Me.txt_kil_original.Location = New System.Drawing.Point(420, 3)
-        Me.txt_kil_original.Name = "txt_kil_original"
-        Me.txt_kil_original.Size = New System.Drawing.Size(163, 20)
-        Me.txt_kil_original.TabIndex = 23
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(296, 6)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(94, 13)
-        Me.Label17.TabIndex = 22
-        Me.Label17.Text = "Kilometraje original"
-        '
         'usuarios
         '
         Me.usuarios.DataPropertyName = "id_vehiculos"
         Me.usuarios.HeaderText = "ID"
         Me.usuarios.Name = "usuarios"
         '
-        'id_estado
-        '
-        Me.id_estado.DataPropertyName = "id_estado"
-        Me.id_estado.HeaderText = "Estado"
-        Me.id_estado.Name = "id_estado"
-        '
         'id_tipo_vehiculo
         '
-        Me.id_tipo_vehiculo.DataPropertyName = "id_tipo_vehiculo"
-        Me.id_tipo_vehiculo.HeaderText = "Tipo vehiculo"
+        Me.id_tipo_vehiculo.DataPropertyName = "nombre"
+        Me.id_tipo_vehiculo.HeaderText = "Tipo"
         Me.id_tipo_vehiculo.Name = "id_tipo_vehiculo"
         '
         'marca_vehiculo
         '
-        Me.marca_vehiculo.DataPropertyName = "id_marca"
+        Me.marca_vehiculo.DataPropertyName = "marca"
         Me.marca_vehiculo.HeaderText = "Marca"
         Me.marca_vehiculo.Name = "marca_vehiculo"
         '
@@ -520,15 +537,21 @@ Partial Class frm_vehiculos
         '
         'fecha_ultimoservicio
         '
-        Me.fecha_ultimoservicio.DataPropertyName = "vhc_fecha_ultimoservicio"
+        Me.fecha_ultimoservicio.DataPropertyName = "fecha_ultimoserv"
         Me.fecha_ultimoservicio.HeaderText = "Ultimo servicio"
         Me.fecha_ultimoservicio.Name = "fecha_ultimoservicio"
         '
         'fecha_compra
         '
-        Me.fecha_compra.DataPropertyName = "vhc_fecha_compra"
+        Me.fecha_compra.DataPropertyName = "fecha_compra"
         Me.fecha_compra.HeaderText = "Fecha de compra"
         Me.fecha_compra.Name = "fecha_compra"
+        '
+        'id_estado
+        '
+        Me.id_estado.DataPropertyName = "stdnombre"
+        Me.id_estado.HeaderText = "Estado"
+        Me.id_estado.Name = "id_estado"
         '
         'frm_vehiculos
         '
@@ -552,7 +575,7 @@ Partial Class frm_vehiculos
         CType(Me.btn_guardar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btn_salir, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
-        CType(Me.grd_usuarios, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grd_vehiculos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnl_usuario.ResumeLayout(False)
         Me.pnl_usuario.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -576,7 +599,7 @@ Partial Class frm_vehiculos
     Friend WithEvents btn_salir As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents grd_usuarios As DataGridView
+    Friend WithEvents grd_vehiculos As DataGridView
     Friend WithEvents pnl_usuario As Panel
     Friend WithEvents dt_fecha As DateTimePicker
     Friend WithEvents Label14 As Label
@@ -597,8 +620,9 @@ Partial Class frm_vehiculos
     Friend WithEvents Label16 As Label
     Friend WithEvents txt_kil_original As TextBox
     Friend WithEvents Label17 As Label
+    Friend WithEvents dt_fecha_compra As DateTimePicker
+    Friend WithEvents Label15 As Label
     Friend WithEvents usuarios As DataGridViewTextBoxColumn
-    Friend WithEvents id_estado As DataGridViewTextBoxColumn
     Friend WithEvents id_tipo_vehiculo As DataGridViewTextBoxColumn
     Friend WithEvents marca_vehiculo As DataGridViewTextBoxColumn
     Friend WithEvents mtr_vehiculo As DataGridViewTextBoxColumn
@@ -608,4 +632,5 @@ Partial Class frm_vehiculos
     Friend WithEvents kilometraje_actual As DataGridViewTextBoxColumn
     Friend WithEvents fecha_ultimoservicio As DataGridViewTextBoxColumn
     Friend WithEvents fecha_compra As DataGridViewTextBoxColumn
+    Friend WithEvents id_estado As DataGridViewTextBoxColumn
 End Class

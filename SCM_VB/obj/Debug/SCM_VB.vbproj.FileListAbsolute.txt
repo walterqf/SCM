@@ -115,3 +115,7 @@ C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\SCM_VB\obj\De
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\SCM_VB\obj\Debug\SCM_VB.Resources.resources
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\SCM_VB\obj\Debug\SCM_VB.vbproj.GenerateResource.Cache
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\SCM_VB\obj\Debug\SCM_VB.frm_inventario.resources
+C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\SCM_VB\obj\Debug\SCM_VB.frm_autorizacion_orden_ingreso.resources
+C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\SCM_VB\obj\Debug\SCM_VB.frm_orden_ingreso.resources
+C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\SCM_VB\obj\Debug\SCM_VB.frm_reporte_ordenes.resources
+C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\SCM_VB\obj\Debug\SCM_VB.frm_vehiculos.resources

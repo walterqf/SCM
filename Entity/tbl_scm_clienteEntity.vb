@@ -1,4 +1,4 @@
-    'Derechos reservados    12/07/2016 6:50:52 p. m.
+    'Derechos reservados    17/07/2016 7:10:02 p. m.
 Public Class tbl_scm_cliente_Entity
 
 #Region "Private Properties"
@@ -10,6 +10,7 @@ Public Class tbl_scm_cliente_Entity
         Private _clisegundoapellido As String
         Private _clidireccion As String
         Private _clitelefono As String
+        Private _clinit As String
 
 #End Region
 
@@ -85,7 +86,17 @@ Public Class tbl_scm_cliente_Entity
             End Set
         End Property
 
-    'Derechos reservados    12/07/2016 6:50:52 p. m.
+
+ Public Property Clinit() As String
+            Get
+                Return _clinit
+            End Get
+            Set(ByVal value As String)
+                _clinit = value
+            End Set
+        End Property
+
+    'Derechos reservados    17/07/2016 7:10:02 p. m.
 
 #End Region
 

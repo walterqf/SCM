@@ -2,7 +2,9 @@
     Dim vCon As New Entity.Connection_Entity
     Dim editar As Boolean
     Dim id As Integer
-    Dim idorden As Integer
+    Dim idorden_g As Integer
+    Dim conteo As Integer = 0
+    Dim ids, detfecha As String
 
     Private Sub btn_salir_Click(sender As Object, e As EventArgs) Handles btn_salir.Click
         Me.Close()
@@ -11,84 +13,137 @@
     Private Sub guardar()
         Dim deto As New Entity.tbl_scm_detalle_ordenes_Entity
         Dim inv As New Entity.tbl_inventario_Entity
-        Dim costo As Decimal
-        ' inv = BO.BOtbl_inventario.getSingle(vCon, New Entity.tbl_inventario_Entity With {.Idproducto = cb_producto.SelectedValue})
-        costo = inv.Costounitarioproducto
-        'MessageBox.Show(costo.ToString * txt_cantidad.Text)
+        Dim ord As New Entity.tbl_scm_ordenes_entrega_Entity
+        Dim detor As New Entity.tbl_ordenes_detalle_Entity
+        Dim detorca As New Entity.tbl_ordenes_encabezado_Entity
+        Dim SoloNumero As String = ""
+        Dim index As Integer
+        Dim data_tmp, data_tmp1 As New DataTable
 
-        ' deto.Detfechasolicitud = dt_fecha_solicitud.Value.ToString
-        deto.Detfechaentrega = dt_fecha_entrega.Value.ToString
-        'deto.Idproducto = cb_producto.SelectedValue
-        deto.Detcantidadproducto = txt_cantidad.Text
-        deto.Detvolumenpeso = txt_peso.Text
-        deto.Idruta = cb_ruta.SelectedValue
-        'deto.Idscmestadoorden = cb_estado.SelectedValue
-        deto.Idcliente = cb_cliente.SelectedValue
-        deto.Idordenesentrega = idorden
-        deto.Detcostototal = txt_cantidad.Text * costo.ToString
-        deto.Iddetalleordenes = id
-        If editar = False Then
-            BO.BOtbl_scm_detalle_ordenes.Insert(vCon, deto)
+        Dim delimiter As Char = ","
+        Dim substrings() As String = ids.Split(delimiter)
+        MessageBox.Show(ids)
+        If ids <> Nothing Then
+            data_tmp = BO.BOtbl_scm_ordenes_entrega.getAll(vCon, New Entity.tbl_scm_ordenes_entrega_Entity With {.Idorden = idorden_g})
+            If data_tmp.Rows.Count > 0 Then
+                For Each substring In substrings
+                    data_tmp1 = BO.BOtbl_scm_detalle_ordenes.getAll(vCon, New Entity.tbl_scm_detalle_ordenes_Entity With {.Idordenesdetalle = substring})
+
+                    If data_tmp1.Rows.Count > 0 Then
+                        detor = BO.BOtbl_ordenes_detalle.getSingle(vCon, New Entity.tbl_ordenes_detalle_Entity With {.Idordenesdetalle = substring})
+                        deto.Idordenesentrega = data_tmp.Rows(0).Item(0)
+                        deto.Detcostototal = detor.Cantidadproducto * detor.Costounitarioproducto
+                        deto.Detcantidadproducto = detor.Cantidadproducto
+                        deto.Detfechasolicitud = detfecha
+                        deto.Detfechaentrega = dt_fecha_entrega.Value.ToString
+                        deto.Idproducto = detor.Idproducto
+                        deto.Detvolumenpeso = "0.0"
+                        deto.Idbodega = detor.Idbodega
+                        deto.Idordenesdetalle = detor.Idordenesdetalle
+                    Else
+                        detor = BO.BOtbl_ordenes_detalle.getSingle(vCon, New Entity.tbl_ordenes_detalle_Entity With {.Idordenesdetalle = substring})
+                        deto.Idordenesentrega = data_tmp.Rows(0).Item(0)
+                        deto.Detcostototal = detor.Cantidadproducto * detor.Costounitarioproducto
+                        deto.Detcantidadproducto = detor.Cantidadproducto
+                        deto.Detfechasolicitud = detfecha
+                        deto.Detfechaentrega = dt_fecha_entrega.Value.ToString
+                        deto.Idproducto = detor.Idproducto
+                        deto.Detvolumenpeso = "0.0"
+                        deto.Idbodega = detor.Idbodega
+                        deto.Idordenesdetalle = detor.Idordenesdetalle
+
+                        BO.BOtbl_scm_detalle_ordenes.Insert(vCon, deto)
+                    End If
+                Next
+            Else
+                ord.Idorden = idorden_g
+                ord.Orddescripcion = "Orden No." + Convert.ToString(idorden_g)
+                ord.Idcliente = cb_cliente.SelectedValue
+                BO.BOtbl_scm_ordenes_entrega.Insert(vCon, ord)
+                For Each substring In substrings
+                    data_tmp1 = BO.BOtbl_scm_detalle_ordenes.getAll(vCon, New Entity.tbl_scm_detalle_ordenes_Entity With {.Idordenesdetalle = substring})
+                    If data_tmp1.Rows.Count > 0 Then
+
+                        detor = BO.BOtbl_ordenes_detalle.getSingle(vCon, New Entity.tbl_ordenes_detalle_Entity With {.Idordenesdetalle = substring})
+
+                        deto.Idordenesentrega = data_tmp.Rows(0).Item(0)
+                        deto.Detcostototal = detor.Cantidadproducto * detor.Costounitarioproducto
+                        deto.Detcantidadproducto = detor.Cantidadproducto
+                        deto.Detfechasolicitud = detfecha
+                        deto.Detfechaentrega = dt_fecha_entrega.Value.ToString
+                        deto.Idproducto = detor.Idproducto
+                        deto.Detvolumenpeso = "0.0"
+                        deto.Idbodega = detor.Idbodega
+                        deto.Idordenesdetalle = detor.Idordenesdetalle
+                    Else
+                        data_tmp = BO.BOtbl_scm_ordenes_entrega.getAll(vCon, New Entity.tbl_scm_ordenes_entrega_Entity With {.Idorden = idorden_g})
+                        detor = BO.BOtbl_ordenes_detalle.getSingle(vCon, New Entity.tbl_ordenes_detalle_Entity With {.Idordenesdetalle = substring})
+
+                        deto.Idordenesentrega = data_tmp.Rows(0).Item(0)
+                        deto.Detcostototal = detor.Cantidadproducto * detor.Costounitarioproducto
+                        deto.Detcantidadproducto = detor.Cantidadproducto
+                        deto.Detfechasolicitud = detfecha
+                        deto.Detfechaentrega = dt_fecha_entrega.Value.ToString
+                        deto.Idproducto = detor.Idproducto
+                        deto.Detvolumenpeso = "0.0"
+                        deto.Idbodega = detor.Idbodega
+                        deto.Idordenesdetalle = detor.Idordenesdetalle
+
+                        BO.BOtbl_scm_detalle_ordenes.Insert(vCon, deto)
+                    End If
+                Next
+
+            End If
         Else
-            BO.BOtbl_scm_detalle_ordenes.Update(vCon, deto)
+            ord.Idorden = idorden_g
+            ord.Orddescripcion = "Orden No." + Convert.ToString(idorden_g)
+            ord.Idcliente = cb_cliente.SelectedValue
+            BO.BOtbl_scm_ordenes_entrega.Insert(vCon, ord)
         End If
+
+        If (grd_carga_det.Rows.Count = conteo) Then
+            detorca.Idestadoorden = "6"
+            detorca.Idorden = idorden_g.ToString
+            ord.Idscmestadoorden = "1"
+            ord.Idordenesentrega = idorden_g.ToString
+            BO.BOGeneral.transportar_orden_entrega(vCon, idorden_g)
+            BO.BOGeneral.modificar_estados_ord(vCon, idorden_g.ToString, "1")
+            MessageBox.Show("Orden aprobada exitosamente",
+            "Orden Verificada",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information,
+            MessageBoxDefaultButton.Button1)
+            Me.Close()
+        End If
+
         btn_acciones(5)
         editar = False
         limpiar()
-        cargar_vehiculos()
     End Sub
 
-    Private Sub cargar_vehiculos()
-        grd_usuarios.AutoGenerateColumns = False
-        grd_usuarios.DataSource = BO.BOtbl_scm_detalle_ordenes.getAll(vCon, New Entity.tbl_scm_detalle_ordenes_Entity)
-    End Sub
 
     Private Sub fr_cat_usuarios_Load(sender As Object, e As EventArgs) Handles Me.Load
+
+        detfecha = ""
         vCon = Conexiones.EntityConnection_DB("", "")
         frm_habilitar(False)
         btn_acciones(4)
-        cargar_vehiculos()
-        'grd_usuarios.AutoGenerateColumns = False
-        'grd_usuarios.DataSource = BO.BOtbl_scm_vehiculos.getAll(vCon, New Entity.tbl_scm_detalle_ordenes)
-        'MessageBox.Show(frm_ordenes_entrega.idO.ToString)
-        idorden = frm_ordenes_entrega.idO
+        idorden_g = frm_ordenes_entrega.idO
+        detfecha = frm_ordenes_entrega.fecha
+        cargar_detalle()
         Dim iDproducto, iDruta, iDestado, iDcliente As DataTable
-        'Dim nombre As String
-        iDproducto = BO.BOtbl_scm_productos.getAll(vCon, New Entity.tbl_scm_productos_Entity)
-        iDruta = BO.BOtbl_scm_ruta.getAll(vCon, New Entity.tbl_scm_ruta_Entity)
-        iDestado = BO.BOtbl_scm_estado_orden.getAll(vCon, New Entity.tbl_scm_estado_orden_Entity)
-        iDcliente = BO.BOtbl_scm_cliente.getAll(vCon, New Entity.tbl_scm_cliente_Entity)
-        'cb_producto.Items.Clear()
-        'cb_estado.Items.Clear()
-        cb_ruta.Items.Clear()
-        cb_cliente.Items.Clear()
-
-        'cb_producto.DataSource = iDproducto
-        'cb_producto.DisplayMember = "prd_descripcion"
-        'cb_producto.ValueMember = "id_producto"
-        'cb_estado.DataSource = iDestado
-        'cb_estado.DataSource = iDestado
-        'cb_estado.DisplayMember = "std_nombre"
-        'cb_estado.ValueMember = "id_scm_estado_orden"
-        cb_ruta.DataSource = iDruta
-        cb_ruta.DisplayMember = "rta_nombre"
-        cb_ruta.ValueMember = "id_ruta"
-
-
-        cb_cliente.DataSource = iDcliente
-        cb_cliente.DisplayMember += "cli_primer_nombre"
+            iDproducto = BO.BOtbl_scm_productos.getAll(vCon, New Entity.tbl_scm_productos_Entity)
+            iDruta = BO.BOtbl_scm_ruta.getAll(vCon, New Entity.tbl_scm_ruta_Entity)
+            iDestado = BO.BOtbl_scm_estado_orden.getAll(vCon, New Entity.tbl_scm_estado_orden_Entity)
+            iDcliente = BO.BOtbl_scm_cliente.getAll(vCon, New Entity.tbl_scm_cliente_Entity)
+            cb_cliente.Items.Clear()
+            cb_cliente.DataSource = iDcliente
+            cb_cliente.DisplayMember = "nombrecompleto"
         cb_cliente.ValueMember = "id_cliente"
     End Sub
 
     Private Sub frm_habilitar(ByVal estado As Boolean)
-        ' dt_fecha_solicitud.Enabled = estado
-        dt_fecha_entrega.Enabled = estado
-        '' cb_producto.Enabled = estado
-        txt_cantidad.Enabled = estado
-        txt_peso.Enabled = estado
-        cb_ruta.Enabled = estado
-        '' cb_estado.Enabled = estado
-        cb_cliente.Enabled = estado
+        grd_carga_det.Enabled = estado
     End Sub
 
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
@@ -96,13 +151,6 @@
         btn_acciones(1)
         limpiar()
         editar = False
-    End Sub
-
-    Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
-        BO.BOtbl_scm_detalle_ordenes.Delete(vCon, New Entity.tbl_scm_detalle_ordenes_Entity With {.Iddetalleordenes = id})
-        btn_acciones(2)
-        cargar_vehiculos()
-        limpiar()
     End Sub
 
     Private Sub btn_editar_Click(sender As Object, e As EventArgs) Handles btn_editar.Click
@@ -116,7 +164,9 @@
     End Sub
 
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
+        recorrer_seleccionados()
         guardar()
+
     End Sub
 
     Private Sub grd_usuarios_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs)
@@ -138,6 +188,7 @@
                 btn_editar.Enabled = False
                 btncancelar.Enabled = True
                 btn_guardar.Enabled = True
+                grd_carga_det.Enabled = True
                 frm_habilitar(True)
             Case 2 'eliminar
                 btn_nuevo.Enabled = True
@@ -177,15 +228,12 @@
         End Select
     End Sub
 
-    Private Sub grd_usuarios_CellDoubleClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles grd_usuarios.CellDoubleClick
-        'Dim value As Object = grd_usuarios.Rows(e.RowIndex).Cells(e.ColumnIndex).Value
-        id = Val(grd_usuarios.Rows(e.RowIndex).Cells(0).Value.ToString)
-        Dim deto As New Entity.tbl_scm_detalle_ordenes_Entity
-        deto = BO.BOtbl_scm_detalle_ordenes.getSingle(vCon, New Entity.tbl_scm_detalle_ordenes_Entity With {.Iddetalleordenes = id})
-
-        '  dt_fecha_solicitud.Value = deto.Detfechasolicitud
-        '  cb_producto.DisplayMember=deto.
-
+    Private Sub grd_usuarios_CellDoubleClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles grd_carga_det.CellDoubleClick
+        id = Val(grd_carga_det.Rows(e.RowIndex).Cells(1).Value.ToString)
+        Dim deto As New Entity.tbl_ordenes_detalle_Entity
+        Dim pro As New Entity.tbl_scm_productos_Entity
+        deto = BO.BOtbl_ordenes_detalle.getSingle(vCon, New Entity.tbl_ordenes_detalle_Entity With {.Idordenesdetalle = id})
+        pro = BO.BOtbl_scm_productos.getSingle(vCon, New Entity.tbl_scm_productos_Entity With {.Idproducto = deto.Idproducto})
         Console.Write("")
         btn_acciones(6)
     End Sub
@@ -194,7 +242,53 @@
 
     End Sub
 
-    Private Sub grd_usuarios_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grd_usuarios.CellContentClick
+
+    Private Sub cargar_detalle()
+        Dim data_tmp As New DataTable
+        data_tmp = BO.BOGeneral.get_detalle_orden(vCon, New Entity.tbl_ordenes_detalle_Entity With {.Idorden = idorden_g})
+        grd_carga_det.AutoGenerateColumns = False
+        grd_carga_det.DataSource = data_tmp
+    End Sub
+
+
+
+    Private Sub recorrer_seleccionados()
+        ids = ""
+        conteo = 0
+
+        grd_carga_det.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        grd_carga_det.ClearSelection()
+        grd_carga_det.CurrentCell = Nothing
+        Dim intCount As Integer = 0
+
+        For Each row As DataGridViewRow In grd_carga_det.Rows
+
+            Console.WriteLine(grd_carga_det.Rows(intCount).Cells(1).Value)
+
+            If Convert.ToBoolean(grd_carga_det.Rows(intCount).Cells(0).Value) = True Then
+                If conteo = 0 Then
+                    ids = (grd_carga_det.Rows(intCount).Cells(1).Value.ToString)
+                Else
+                    ids = ids + "," + (grd_carga_det.Rows(intCount).Cells(1).Value.ToString)
+                End If
+                conteo = conteo + 1
+            Else
+
+            End If
+
+            intCount += 1
+        Next row
+
+
+
+        If conteo = 0 Then
+            Console.WriteLine("NO")
+        Else
+            Console.WriteLine("SI" + ids)
+        End If
 
     End Sub
+
+
+
 End Class

@@ -6,7 +6,7 @@ Imports Entity
 Public Class DALtbl_scm_vehiculos
 
 
-    'Derechos reservados     12/07/2016 6:50:52 p. m.
+    'Derechos reservados     20/07/2016 11:46:57 a. m.
     'CLASE DE ACTUALIZACION DE DATOS
      Public Shared Function Update(ByVal pConnection As Connection_Entity, ByVal ptbl_scm_vehiculos as tbl_scm_vehiculos_Entity) As Boolean
 
@@ -24,8 +24,8 @@ Public Class DALtbl_scm_vehiculos
             iCommand.Parameters.AddWithValue("@vhc_modelo",ptbl_scm_vehiculos.Vhcmodelo )
             iCommand.Parameters.AddWithValue("@vhc_km_original",ptbl_scm_vehiculos.Vhckmoriginal )
             iCommand.Parameters.AddWithValue("@vhc_km_actual",ptbl_scm_vehiculos.Vhckmactual )
-            'iCommand.Parameters.AddWithValue("@vhc_fecha_ultimoservicio",ptbl_scm_vehiculos.Vhcfechaultimoservicio )
-            'iCommand.Parameters.AddWithValue("@vhc_fecha_compra",ptbl_scm_vehiculos.Vhcfechacompra )
+            iCommand.Parameters.AddWithValue("@vhc_fecha_ultimoservicio",ptbl_scm_vehiculos.Vhcfechaultimoservicio )
+            iCommand.Parameters.AddWithValue("@vhc_fecha_comprao",ptbl_scm_vehiculos.Vhcfechacomprao )
             iConnection.Open()
             iCommand.Connection = iConnection
             Try
@@ -38,7 +38,7 @@ Public Class DALtbl_scm_vehiculos
     End Function
 
 
-    'Derechos reservados     12/07/2016 6:50:52 p. m.
+    'Derechos reservados     20/07/2016 11:46:57 a. m.
     'CLASE DE GRABADO DE DATOS
     Public Shared Function Insert(ByVal pConnection As Connection_Entity, ByVal ptbl_scm_vehiculos as tbl_scm_vehiculos_Entity) As tbl_scm_vehiculos_Entity
 
@@ -55,11 +55,11 @@ Public Class DALtbl_scm_vehiculos
                 lCommand.Parameters.AddWithValue("@vhccolor", ptbl_scm_vehiculos.Vhccolor) 
                 lCommand.Parameters.AddWithValue("@vhcmodelo", ptbl_scm_vehiculos.Vhcmodelo) 
                 lCommand.Parameters.AddWithValue("@vhckmoriginal", ptbl_scm_vehiculos.Vhckmoriginal) 
-                lCommand.Parameters.AddWithValue("@vhckmactual", ptbl_scm_vehiculos.Vhckmactual)
-            ''lCommand.Parameters.AddWithValue("@vhcfechaultimoservicio", ptbl_scm_vehiculos.Vhcfechaultimoservicio) 
-            ''lCommand.Parameters.AddWithValue("@vhcfechacompra", ptbl_scm_vehiculos.Vhcfechacompra) 
+                lCommand.Parameters.AddWithValue("@vhckmactual", ptbl_scm_vehiculos.Vhckmactual) 
+                lCommand.Parameters.AddWithValue("@vhcfechaultimoservicio", IIf(ptbl_scm_vehiculos.Vhcfechaultimoservicio is nothing, DBNull.Value, ptbl_scm_vehiculos.Vhcfechaultimoservicio)) 
+                lCommand.Parameters.AddWithValue("@vhcfechacomprao", IIf(ptbl_scm_vehiculos.Vhcfechacomprao is nothing, DBNull.Value, ptbl_scm_vehiculos.Vhcfechacomprao)) 
 
-            iConnection.Open()
+                iConnection.Open()
                 Dim lReturnValue As Object = lCommand.ExecuteScalar()
                 iConnection.Close()
 
@@ -78,7 +78,7 @@ Public Class DALtbl_scm_vehiculos
     End Function
 
 
-    'Derechos reservados     12/07/2016 6:50:52 p. m.
+    'Derechos reservados     20/07/2016 11:46:57 a. m.
     'CLASE DE ELIMINACION DE DATOS
     Public Shared Sub Delete(ByVal pConnection As Connection_Entity, ByVal ptbl_scm_vehiculos As tbl_scm_vehiculos_Entity)
 
@@ -100,7 +100,7 @@ Public Class DALtbl_scm_vehiculos
     End Sub
 
 
-    'Derechos reservados     12/07/2016 6:50:52 p. m.
+    'Derechos reservados     20/07/2016 11:46:57 a. m.
     'CLASE DE OBTENCION DE DATOS TODOS LOS REGISTRO REGRESADO EN UN DATATABLE
     Public Shared Function GetAll(ByVal pConnection As Connection_Entity, ByVal ptbl_scm_vehiculos as tbl_scm_vehiculos_Entity) As DataTable
 
@@ -118,9 +118,9 @@ Public Class DALtbl_scm_vehiculos
             iCommand.Parameters.AddWithValue("@vhc_modelo", iif(ptbl_scm_vehiculos.Vhcmodelo is Nothing, DbNull.Value, ptbl_scm_vehiculos.Vhcmodelo))
             iCommand.Parameters.AddWithValue("@vhc_km_original", IIf(ptbl_scm_vehiculos.Vhckmoriginal = 0, DBNull.Value, ptbl_scm_vehiculos.Vhckmoriginal))
             iCommand.Parameters.AddWithValue("@vhc_km_actual", IIf(ptbl_scm_vehiculos.Vhckmactual = 0, DBNull.Value, ptbl_scm_vehiculos.Vhckmactual))
-            'iCommand.Parameters.AddWithValue("@vhc_fecha_ultimoservicio", iif(ptbl_scm_vehiculos.Vhcfechaultimoservicio is Nothing, DbNull.Value, ptbl_scm_vehiculos.Vhcfechaultimoservicio))
-            'iCommand.Parameters.AddWithValue("@vhc_fecha_compra", iif(ptbl_scm_vehiculos.Vhcfechacompra is Nothing, DbNull.Value, ptbl_scm_vehiculos.Vhcfechacompra))
-            Try
+            iCommand.Parameters.AddWithValue("@vhc_fecha_ultimoservicio", iif(ptbl_scm_vehiculos.Vhcfechaultimoservicio is Nothing, DbNull.Value, ptbl_scm_vehiculos.Vhcfechaultimoservicio))
+            iCommand.Parameters.AddWithValue("@vhc_fecha_comprao", iif(ptbl_scm_vehiculos.Vhcfechacomprao is Nothing, DbNull.Value, ptbl_scm_vehiculos.Vhcfechacomprao))
+                Try
                     Dim iDTResult as New DataTable("tbl_scm_vehiculos")
                     Dim iDAResult as New OleDbDataAdapter()
                     iDAResult.SelectCommand = iCommand
@@ -135,7 +135,7 @@ Public Class DALtbl_scm_vehiculos
     End Function
 
 
-    'Derechos reservados     12/07/2016 6:50:52 p. m.
+    'Derechos reservados     20/07/2016 11:46:57 a. m.
     'CLASE DE OBTENCION DE DATOS UN SOLO REGISTRO REGRESADO EN UN ENTITY
     Public Shared Function GetSingle(ByVal pConnection As Connection_Entity, ByVal ptbl_scm_vehiculos as tbl_scm_vehiculos_Entity) As tbl_scm_vehiculos_Entity
 
@@ -153,9 +153,9 @@ Public Class DALtbl_scm_vehiculos
             iCommand.Parameters.AddWithValue("@vhc_modelo", iif(ptbl_scm_vehiculos.Vhcmodelo is Nothing, DbNull.Value, ptbl_scm_vehiculos.Vhcmodelo))
             iCommand.Parameters.AddWithValue("@vhc_km_original", IIf(ptbl_scm_vehiculos.Vhckmoriginal = 0, DBNull.Value, ptbl_scm_vehiculos.Vhckmoriginal))
             iCommand.Parameters.AddWithValue("@vhc_km_actual", IIf(ptbl_scm_vehiculos.Vhckmactual = 0, DBNull.Value, ptbl_scm_vehiculos.Vhckmactual))
-            ' iCommand.Parameters.AddWithValue("@vhc_fecha_ultimoservicio", iif(ptbl_scm_vehiculos.Vhcfechaultimoservicio is Nothing, DbNull.Value, ptbl_scm_vehiculos.Vhcfechaultimoservicio))
-            ' iCommand.Parameters.AddWithValue("@vhc_fecha_compra", iif(ptbl_scm_vehiculos.Vhcfechacompra is Nothing, DbNull.Value, ptbl_scm_vehiculos.Vhcfechacompra))
-            Try
+            iCommand.Parameters.AddWithValue("@vhc_fecha_ultimoservicio", iif(ptbl_scm_vehiculos.Vhcfechaultimoservicio is Nothing, DbNull.Value, ptbl_scm_vehiculos.Vhcfechaultimoservicio))
+            iCommand.Parameters.AddWithValue("@vhc_fecha_comprao", iif(ptbl_scm_vehiculos.Vhcfechacomprao is Nothing, DbNull.Value, ptbl_scm_vehiculos.Vhcfechacomprao))
+                Try
                     Dim iDTResult as New DataTable("tbl_scm_vehiculos")
                     dim iDAResult as New OleDbDataAdapter()
                     iDAResult.SelectCommand = iCommand
@@ -172,7 +172,7 @@ Public Class DALtbl_scm_vehiculos
                     itbl_scm_vehiculosResult.Vhckmoriginal = IIf(iDTResult.Rows(0)("vhc_km_original") Is DBNull.Value, Nothing, iDTResult.Rows(0)("vhc_km_original"))
                     itbl_scm_vehiculosResult.Vhckmactual = IIf(iDTResult.Rows(0)("vhc_km_actual") Is DBNull.Value, Nothing, iDTResult.Rows(0)("vhc_km_actual"))
                     itbl_scm_vehiculosResult.Vhcfechaultimoservicio = IIf(iDTResult.Rows(0)("vhc_fecha_ultimoservicio") Is DBNull.Value, Nothing, iDTResult.Rows(0)("vhc_fecha_ultimoservicio"))
-                    itbl_scm_vehiculosResult.Vhcfechacompra = IIf(iDTResult.Rows(0)("vhc_fecha_compra") Is DBNull.Value, Nothing, iDTResult.Rows(0)("vhc_fecha_compra"))
+                    itbl_scm_vehiculosResult.Vhcfechacomprao = IIf(iDTResult.Rows(0)("vhc_fecha_comprao") Is DBNull.Value, Nothing, iDTResult.Rows(0)("vhc_fecha_comprao"))
 
                     Return itbl_scm_vehiculosResult
 

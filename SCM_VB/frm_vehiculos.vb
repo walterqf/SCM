@@ -9,22 +9,17 @@
 
     Private Sub guardar()
         Dim vehiculo As New Entity.tbl_scm_vehiculos_Entity
-        'usuarios.Medloginid = txt_login_id.Text
-        ' usuarios.Medpassid = Globales.Encripta(txt_contrasena.Text)
-        'ordenes.Orddescripcion = txt_nombre.Text
-        ' usuarios.Medestado = Convert.ToInt32(cks_estado.Checked)
 
         vehiculo.Idestadovehiculo = cb_estado.SelectedValue
         vehiculo.Idtipovehiculo = cb_tipo_vehiculs.SelectedValue
         vehiculo.Idmarca = cb_marca.SelectedValue
         vehiculo.Vhcmatricula = txt_mtr.Text
         vehiculo.Vhccolor = txt_clr.Text
-        ' vehiculo.Numchasis = txt_num_chasis.Text
         vehiculo.Vhcmodelo = txt_modelo.Text
         vehiculo.Vhckmactual = txt_kilo_actual.Text
         vehiculo.Vhckmoriginal = txt_kil_original.Text
-        'vehiculo.Vhcfechaultimoservicio = dt_fecha.Value.ToString
-
+        vehiculo.Vhcfechaultimoservicio = dt_fecha.Value.ToString
+        vehiculo.Vhcfechacomprao = dt_fecha_compra.Value.ToString
         vehiculo.Idvehiculos = id
         If editar = False Then
             BO.BOtbl_scm_vehiculos.Insert(vCon, vehiculo)
@@ -38,8 +33,8 @@
     End Sub
 
     Private Sub cargar_vehiculos()
-        grd_usuarios.AutoGenerateColumns = False
-        grd_usuarios.DataSource = BO.BOtbl_scm_vehiculos.getAll(vCon, New Entity.tbl_scm_vehiculos_Entity)
+        grd_vehiculos.AutoGenerateColumns = False
+        grd_vehiculos.DataSource = BO.BOGeneral.get_vehciulosf(vCon, New Entity.tbl_scm_vehiculos_Entity)
     End Sub
 
     Private Sub fr_cat_usuarios_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -47,9 +42,6 @@
         frm_habilitar(False)
         btn_acciones(4)
         cargar_vehiculos()
-        'grd_usuarios.AutoGenerateColumns = False
-        'grd_usuarios.DataSource = BO.BOtbl_scm_vehiculos.getAll(vCon, New Entity.tbl_scm_vehiculos_Entity)
-
         Dim iDMarca, iDtipo, iDestado As DataTable
         iDMarca = BO.BOtbl_scm_marca_vehiculo.getAll(vCon, New Entity.tbl_scm_marca_vehiculo_Entity)
         iDtipo = BO.BOtbl_scm_tipo_vehiculo.getAll(vCon, New Entity.tbl_scm_tipo_vehiculo_Entity)
@@ -87,6 +79,7 @@
         txt_kilo_actual.Enabled = estado
         txt_kil_original.Enabled = estado
         dt_fecha.Enabled = estado
+        dt_fecha_compra.Enabled = estado
 
     End Sub
 
@@ -176,9 +169,9 @@
         End Select
     End Sub
 
-    Private Sub grd_usuarios_CellDoubleClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles grd_usuarios.CellDoubleClick
+    Private Sub grd_usuarios_CellDoubleClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles grd_vehiculos.CellDoubleClick
         'Dim value As Object = grd_usuarios.Rows(e.RowIndex).Cells(e.ColumnIndex).Value
-        id = Val(grd_usuarios.Rows(e.RowIndex).Cells(0).Value.ToString)
+        id = Val(grd_vehiculos.Rows(e.RowIndex).Cells(0).Value.ToString)
         Dim vehiculos As New Entity.tbl_scm_vehiculos_Entity
         vehiculos = BO.BOtbl_scm_vehiculos.getSingle(vCon, New Entity.tbl_scm_vehiculos_Entity With {.Idvehiculos = id})
 
@@ -206,4 +199,6 @@
     Private Sub Label16_Click(sender As Object, e As EventArgs) Handles Label16.Click
 
     End Sub
+
+
 End Class

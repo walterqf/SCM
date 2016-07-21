@@ -35,21 +35,32 @@ Partial Class frm_MDI
         Me.EmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IngresoDeUsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IngresoDeProductosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IngresoDeRutasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IngresoDeVehiculosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IngresoDeClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IngresoDeEmpreadoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Procesos = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrdenesDeEgresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CreacionDeOrdenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AutorizacionDeOrdenDeEgresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OrdenDeIngresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CreacionOrdenDeIngresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AutorizacionOrdenesDeIngresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrdenesDeEntregaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecepcionDeOrdenesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VerOrdenesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AsignarRutaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ValidacionDeOrdenesDeEntregaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InventarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExistenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Reportes = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OrdenesDeInventarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.lst_tool_empresa = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.InventarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExistenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -65,7 +76,7 @@ Partial Class frm_MDI
         '
         'Catalogos
         '
-        Me.Catalogos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresoDeProductosToolStripMenuItem, Me.BodegaToolStripMenuItem, Me.TiposMedidasToolStripMenuItem, Me.TipoDeGestoresToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.EmpresasToolStripMenuItem, Me.IngresoDeUsuariosToolStripMenuItem, Me.IngresoDeProductosToolStripMenuItem1})
+        Me.Catalogos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresoDeProductosToolStripMenuItem, Me.BodegaToolStripMenuItem, Me.TiposMedidasToolStripMenuItem, Me.TipoDeGestoresToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.EmpresasToolStripMenuItem, Me.IngresoDeUsuariosToolStripMenuItem, Me.IngresoDeProductosToolStripMenuItem1, Me.IngresoDeRutasToolStripMenuItem, Me.IngresoDeVehiculosToolStripMenuItem, Me.IngresoDeClientesToolStripMenuItem, Me.IngresoDeEmpreadoToolStripMenuItem})
         Me.Catalogos.Name = "Catalogos"
         Me.Catalogos.Size = New System.Drawing.Size(72, 20)
         Me.Catalogos.Text = "&Catalogos"
@@ -118,9 +129,33 @@ Partial Class frm_MDI
         Me.IngresoDeProductosToolStripMenuItem1.Size = New System.Drawing.Size(212, 22)
         Me.IngresoDeProductosToolStripMenuItem1.Text = "Ingreso de productos"
         '
+        'IngresoDeRutasToolStripMenuItem
+        '
+        Me.IngresoDeRutasToolStripMenuItem.Name = "IngresoDeRutasToolStripMenuItem"
+        Me.IngresoDeRutasToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.IngresoDeRutasToolStripMenuItem.Text = "Ingreso de rutas"
+        '
+        'IngresoDeVehiculosToolStripMenuItem
+        '
+        Me.IngresoDeVehiculosToolStripMenuItem.Name = "IngresoDeVehiculosToolStripMenuItem"
+        Me.IngresoDeVehiculosToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.IngresoDeVehiculosToolStripMenuItem.Text = "Ingreso de vehiculos"
+        '
+        'IngresoDeClientesToolStripMenuItem
+        '
+        Me.IngresoDeClientesToolStripMenuItem.Name = "IngresoDeClientesToolStripMenuItem"
+        Me.IngresoDeClientesToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.IngresoDeClientesToolStripMenuItem.Text = "Ingreso de clientes"
+        '
+        'IngresoDeEmpreadoToolStripMenuItem
+        '
+        Me.IngresoDeEmpreadoToolStripMenuItem.Name = "IngresoDeEmpreadoToolStripMenuItem"
+        Me.IngresoDeEmpreadoToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.IngresoDeEmpreadoToolStripMenuItem.Text = "Ingreso de empleados"
+        '
         'Procesos
         '
-        Me.Procesos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OrdenesDeEgresoToolStripMenuItem, Me.OrdenesDeEntregaToolStripMenuItem, Me.InventarioToolStripMenuItem})
+        Me.Procesos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OrdenesDeEgresoToolStripMenuItem, Me.OrdenDeIngresoToolStripMenuItem, Me.OrdenesDeEntregaToolStripMenuItem, Me.InventarioToolStripMenuItem})
         Me.Procesos.Name = "Procesos"
         Me.Procesos.Size = New System.Drawing.Size(66, 20)
         Me.Procesos.Text = "&Procesos"
@@ -144,9 +179,28 @@ Partial Class frm_MDI
         Me.AutorizacionDeOrdenDeEgresoToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
         Me.AutorizacionDeOrdenDeEgresoToolStripMenuItem.Text = "Autorizacion orden de egreso"
         '
+        'OrdenDeIngresoToolStripMenuItem
+        '
+        Me.OrdenDeIngresoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CreacionOrdenDeIngresoToolStripMenuItem, Me.AutorizacionOrdenesDeIngresoToolStripMenuItem})
+        Me.OrdenDeIngresoToolStripMenuItem.Name = "OrdenDeIngresoToolStripMenuItem"
+        Me.OrdenDeIngresoToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.OrdenDeIngresoToolStripMenuItem.Text = "Ordenes de ingreso"
+        '
+        'CreacionOrdenDeIngresoToolStripMenuItem
+        '
+        Me.CreacionOrdenDeIngresoToolStripMenuItem.Name = "CreacionOrdenDeIngresoToolStripMenuItem"
+        Me.CreacionOrdenDeIngresoToolStripMenuItem.Size = New System.Drawing.Size(233, 22)
+        Me.CreacionOrdenDeIngresoToolStripMenuItem.Text = "Creacion orden de ingreso"
+        '
+        'AutorizacionOrdenesDeIngresoToolStripMenuItem
+        '
+        Me.AutorizacionOrdenesDeIngresoToolStripMenuItem.Name = "AutorizacionOrdenesDeIngresoToolStripMenuItem"
+        Me.AutorizacionOrdenesDeIngresoToolStripMenuItem.Size = New System.Drawing.Size(233, 22)
+        Me.AutorizacionOrdenesDeIngresoToolStripMenuItem.Text = "Autorizacion orden de ingreso"
+        '
         'OrdenesDeEntregaToolStripMenuItem
         '
-        Me.OrdenesDeEntregaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RecepcionDeOrdenesToolStripMenuItem})
+        Me.OrdenesDeEntregaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RecepcionDeOrdenesToolStripMenuItem, Me.VerOrdenesToolStripMenuItem, Me.AsignarRutaToolStripMenuItem, Me.ValidacionDeOrdenesDeEntregaToolStripMenuItem})
         Me.OrdenesDeEntregaToolStripMenuItem.Name = "OrdenesDeEntregaToolStripMenuItem"
         Me.OrdenesDeEntregaToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.OrdenesDeEntregaToolStripMenuItem.Text = "Ordenes de entrega"
@@ -154,14 +208,52 @@ Partial Class frm_MDI
         'RecepcionDeOrdenesToolStripMenuItem
         '
         Me.RecepcionDeOrdenesToolStripMenuItem.Name = "RecepcionDeOrdenesToolStripMenuItem"
-        Me.RecepcionDeOrdenesToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+        Me.RecepcionDeOrdenesToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
         Me.RecepcionDeOrdenesToolStripMenuItem.Text = "Recepcion de ordenes"
+        '
+        'VerOrdenesToolStripMenuItem
+        '
+        Me.VerOrdenesToolStripMenuItem.Name = "VerOrdenesToolStripMenuItem"
+        Me.VerOrdenesToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
+        Me.VerOrdenesToolStripMenuItem.Text = "Ver ordenes"
+        '
+        'AsignarRutaToolStripMenuItem
+        '
+        Me.AsignarRutaToolStripMenuItem.Name = "AsignarRutaToolStripMenuItem"
+        Me.AsignarRutaToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
+        Me.AsignarRutaToolStripMenuItem.Text = "Asignar ruta"
+        '
+        'ValidacionDeOrdenesDeEntregaToolStripMenuItem
+        '
+        Me.ValidacionDeOrdenesDeEntregaToolStripMenuItem.Name = "ValidacionDeOrdenesDeEntregaToolStripMenuItem"
+        Me.ValidacionDeOrdenesDeEntregaToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
+        Me.ValidacionDeOrdenesDeEntregaToolStripMenuItem.Text = "Validacion de ordenes de entrega"
+        '
+        'InventarioToolStripMenuItem
+        '
+        Me.InventarioToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExistenciasToolStripMenuItem})
+        Me.InventarioToolStripMenuItem.Name = "InventarioToolStripMenuItem"
+        Me.InventarioToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.InventarioToolStripMenuItem.Text = "Inventario"
+        '
+        'ExistenciasToolStripMenuItem
+        '
+        Me.ExistenciasToolStripMenuItem.Name = "ExistenciasToolStripMenuItem"
+        Me.ExistenciasToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
+        Me.ExistenciasToolStripMenuItem.Text = "Existencias"
         '
         'Reportes
         '
+        Me.Reportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OrdenesDeInventarioToolStripMenuItem})
         Me.Reportes.Name = "Reportes"
         Me.Reportes.Size = New System.Drawing.Size(65, 20)
         Me.Reportes.Text = "&Reportes"
+        '
+        'OrdenesDeInventarioToolStripMenuItem
+        '
+        Me.OrdenesDeInventarioToolStripMenuItem.Name = "OrdenesDeInventarioToolStripMenuItem"
+        Me.OrdenesDeInventarioToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+        Me.OrdenesDeInventarioToolStripMenuItem.Text = "Ordenes de inventario"
         '
         'HelpMenu
         '
@@ -196,25 +288,12 @@ Partial Class frm_MDI
         Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(0, 17)
         Me.ToolStripStatusLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'InventarioToolStripMenuItem
-        '
-        Me.InventarioToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExistenciasToolStripMenuItem})
-        Me.InventarioToolStripMenuItem.Name = "InventarioToolStripMenuItem"
-        Me.InventarioToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
-        Me.InventarioToolStripMenuItem.Text = "Inventario"
-        '
-        'ExistenciasToolStripMenuItem
-        '
-        Me.ExistenciasToolStripMenuItem.Name = "ExistenciasToolStripMenuItem"
-        Me.ExistenciasToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ExistenciasToolStripMenuItem.Text = "Existencias"
-        '
         'frm_MDI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
-        Me.BackgroundImage = Global.SCM_VB.My.Resources.Resources.yr1qegc8j0f1enws84uo1
+        Me.BackgroundImage = Global.SCM_VB.My.Resources.Resources.maxresdefault3
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(632, 453)
         Me.Controls.Add(Me.MenuStrip)
@@ -259,4 +338,15 @@ Partial Class frm_MDI
     Friend WithEvents RecepcionDeOrdenesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InventarioToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExistenciasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OrdenDeIngresoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CreacionOrdenDeIngresoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AutorizacionOrdenesDeIngresoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OrdenesDeInventarioToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents VerOrdenesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AsignarRutaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ValidacionDeOrdenesDeEntregaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents IngresoDeRutasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents IngresoDeVehiculosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents IngresoDeClientesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents IngresoDeEmpreadoToolStripMenuItem As ToolStripMenuItem
 End Class

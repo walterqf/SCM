@@ -16,7 +16,7 @@ Public Class DALtbl_ordenes_encabezado
             iCommand.CommandType = CommandType.StoredProcedure
 
             iCommand.Parameters.AddWithValue("@id_orden",ptbl_ordenes_encabezado.Idorden )
-            iCommand.Parameters.AddWithValue("@fecha_movmiento",ptbl_ordenes_encabezado.Fechamovmiento )
+            'iCommand.Parameters.AddWithValue("@fecha_movmiento",ptbl_ordenes_encabezado.Fechamovmiento )
             iCommand.Parameters.AddWithValue("@iva_orden",ptbl_ordenes_encabezado.Ivaorden )
             iCommand.Parameters.AddWithValue("@iva_orden_1",ptbl_ordenes_encabezado.Ivaorden1 )
             iCommand.Parameters.AddWithValue("@total_orden",ptbl_ordenes_encabezado.Totalorden )

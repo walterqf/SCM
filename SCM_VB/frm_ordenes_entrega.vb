@@ -2,6 +2,7 @@
     Dim vCon As New Entity.Connection_Entity
     Dim editar As Boolean
     Public idO As Integer
+    Public fecha As String
 
     Private Sub btn_salir_Click(sender As Object, e As EventArgs) Handles btn_salir.Click
         Me.Close()
@@ -9,13 +10,6 @@
 
     Private Sub guardar()
         Dim ordenes As New Entity.tbl_scm_ordenes_entrega_Entity
-        'usuarios.Medloginid = txt_login_id.Text
-        ' usuarios.Medpassid = Globales.Encripta(txt_contrasena.Text)
-        ' ordenes.Orddescripcion = txt_nombre.Text
-        ' usuarios.Medestado = Convert.ToInt32(cks_estado.Checked)
-
-
-
         ordenes.Idordenesentrega = idO
         If editar = False Then
             BO.BOtbl_scm_ordenes_entrega.Insert(vCon, ordenes)
@@ -38,7 +32,6 @@
         vCon = Conexiones.EntityConnection_DB("", "")
         frm_habilitar(False)
         btn_acciones(4)
-        'cargar_ordenes()
         cargar_ordenes_pendientes()
     End Sub
 
@@ -136,16 +129,12 @@
     End Sub
 
     Private Sub grd_usuarios_CellDoubleClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles grd_ordenes.CellDoubleClick
-        'Dim value As Object = grd_usuarios.Rows(e.RowIndex).Cells(e.ColumnIndex).Value
+        fecha = ""
         idO = Val(grd_ordenes.Rows(e.RowIndex).Cells(0).Value.ToString)
-        Dim ordenes As New Entity.tbl_scm_ordenes_entrega_Entity
-        ordenes = BO.BOtbl_scm_ordenes_entrega.getSingle(vCon, New Entity.tbl_scm_ordenes_entrega_Entity With {.Idordenesentrega = idO})
-
-        'txt_login_id.Text = usuario.Medloginid
-        ' txt_nombre.Text = ordenes.Orddescripcion
-        'txt_contrasena.Text = Globales.DesEncripta(usuario.Medpassid)
-        'cks_estado.Checked = Convert.ToBoolean(usuario.Medestado)
-
+        fecha = grd_ordenes.Rows(e.RowIndex).Cells(1).Value
+        Dim ordenes As New Entity.tbl_ordenes_encabezado_Entity
+        ordenes = BO.BOtbl_ordenes_encabezado.getSingle(vCon, New Entity.tbl_ordenes_encabezado_Entity With {.Idorden = idO})
+        frm_detalle_ordenes.Show()
         Console.Write("")
         btn_acciones(6)
     End Sub
@@ -163,10 +152,15 @@
 
     Private Sub cargar_ordenes_pendientes()
         Dim data_pendiente As New DataTable
-        data_pendiente = BO.BOtbl_ordenes_encabezado.getAll(vCon, New Entity.tbl_ordenes_encabezado_Entity With {.Idtipoorden = 1, .Idestadoorden = 1})
+        data_pendiente = BO.BOtbl_ordenes_encabezado.getAll(vCon, New Entity.tbl_ordenes_encabezado_Entity With {.Idtipoorden = 1, .Idestadoorden = 3})
         grd_ordenes.AutoGenerateColumns = False
         grd_ordenes.DataSource = data_pendiente
 
 
+    End Sub
+
+    Private Sub btn_actualizar_Click(sender As Object, e As EventArgs) Handles btn_actualizar.Click
+        grd_ordenes.DataSource = Nothing
+        cargar_ordenes_pendientes()
     End Sub
 End Class

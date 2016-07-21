@@ -42,11 +42,6 @@ Partial Class frm_autoriza_orden_egreso
         Me.Label15 = New System.Windows.Forms.Label()
         Me.cmb_empresa = New System.Windows.Forms.ComboBox()
         Me.grd_ordenes = New System.Windows.Forms.DataGridView()
-        Me.seleccionar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.usuarios = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Totales = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -58,6 +53,13 @@ Partial Class frm_autoriza_orden_egreso
         Me.btn_guardar = New System.Windows.Forms.PictureBox()
         Me.btn_salir = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.seleccionar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.id_usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuarios = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Totales = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estado_detalle_total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.pnl_detalle.SuspendLayout()
         CType(Me.grd_detalle, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -244,7 +246,7 @@ Partial Class frm_autoriza_orden_egreso
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grd_ordenes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.grd_ordenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grd_ordenes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.seleccionar, Me.id_usuario, Me.nombre, Me.usuarios, Me.Totales})
+        Me.grd_ordenes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.seleccionar, Me.id_usuario, Me.nombre, Me.usuarios, Me.Totales, Me.estado, Me.estado_detalle_total})
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -268,38 +270,6 @@ Partial Class frm_autoriza_orden_egreso
         Me.grd_ordenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.grd_ordenes.Size = New System.Drawing.Size(523, 349)
         Me.grd_ordenes.TabIndex = 8
-        '
-        'seleccionar
-        '
-        Me.seleccionar.HeaderText = "Seleccionar"
-        Me.seleccionar.Name = "seleccionar"
-        Me.seleccionar.Width = 70
-        '
-        'id_usuario
-        '
-        Me.id_usuario.DataPropertyName = "id_orden"
-        Me.id_usuario.HeaderText = "No. orden"
-        Me.id_usuario.Name = "id_usuario"
-        Me.id_usuario.Width = 80
-        '
-        'nombre
-        '
-        Me.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.nombre.DataPropertyName = "nombre_gestor"
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        '
-        'usuarios
-        '
-        Me.usuarios.DataPropertyName = "fecha_fomat"
-        Me.usuarios.HeaderText = "Fecha"
-        Me.usuarios.Name = "usuarios"
-        '
-        'Totales
-        '
-        Me.Totales.DataPropertyName = "total_productos"
-        Me.Totales.HeaderText = "Cantidades"
-        Me.Totales.Name = "Totales"
         '
         'Label1
         '
@@ -432,6 +402,51 @@ Partial Class frm_autoriza_orden_egreso
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         '
+        'seleccionar
+        '
+        Me.seleccionar.HeaderText = "Seleccionar"
+        Me.seleccionar.Name = "seleccionar"
+        Me.seleccionar.Visible = False
+        Me.seleccionar.Width = 70
+        '
+        'id_usuario
+        '
+        Me.id_usuario.DataPropertyName = "id_orden"
+        Me.id_usuario.HeaderText = "No. orden"
+        Me.id_usuario.Name = "id_usuario"
+        Me.id_usuario.Width = 80
+        '
+        'nombre
+        '
+        Me.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.nombre.DataPropertyName = "nombre_gestor"
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        '
+        'usuarios
+        '
+        Me.usuarios.DataPropertyName = "fecha_fomat"
+        Me.usuarios.HeaderText = "Fecha"
+        Me.usuarios.Name = "usuarios"
+        '
+        'Totales
+        '
+        Me.Totales.DataPropertyName = "total_productos"
+        Me.Totales.HeaderText = "Cantidades"
+        Me.Totales.Name = "Totales"
+        '
+        'estado
+        '
+        Me.estado.HeaderText = ""
+        Me.estado.Name = "estado"
+        Me.estado.Width = 20
+        '
+        'estado_detalle_total
+        '
+        Me.estado_detalle_total.HeaderText = "estado_detalle_total"
+        Me.estado_detalle_total.Name = "estado_detalle_total"
+        Me.estado_detalle_total.Visible = False
+        '
         'frm_autoriza_orden_egreso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -493,4 +508,6 @@ Partial Class frm_autoriza_orden_egreso
     Friend WithEvents nombre As DataGridViewTextBoxColumn
     Friend WithEvents usuarios As DataGridViewTextBoxColumn
     Friend WithEvents Totales As DataGridViewTextBoxColumn
+    Friend WithEvents estado As DataGridViewTextBoxColumn
+    Friend WithEvents estado_detalle_total As DataGridViewTextBoxColumn
 End Class

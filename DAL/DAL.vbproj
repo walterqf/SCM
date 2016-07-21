@@ -69,12 +69,15 @@
     <Compile Include="DALtbl_empresas.vb" />
     <Compile Include="DALtbl_estado_orden.vb" />
     <Compile Include="DALtbl_gestor_ordenes.vb" />
+    <Compile Include="DALtbl_hist_mant_vehiculos.vb" />
     <Compile Include="DALtbl_inventario.vb" />
     <Compile Include="DALtbl_monedas.vb" />
     <Compile Include="DALtbl_ordenes_detalle.vb" />
     <Compile Include="DALtbl_ordenes_encabezado.vb" />
     <Compile Include="DALtbl_scm_cliente.vb" />
     <Compile Include="DALtbl_scm_detalle_ordenes.vb" />
+    <Compile Include="DALtbl_scm_detalle_ruta.vb" />
+    <Compile Include="DALtbl_scm_empleados.vb" />
     <Compile Include="DALtbl_scm_estado.vb" />
     <Compile Include="DALtbl_scm_estado_orden.vb" />
     <Compile Include="DALtbl_scm_marca_vehiculo.vb" />

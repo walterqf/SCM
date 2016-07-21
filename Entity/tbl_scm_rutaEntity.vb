@@ -1,10 +1,11 @@
-    'Derechos reservados    12/07/2016 6:50:52 p. m.
+    'Derechos reservados    18/07/2016 9:31:13 p. m.
 Public Class tbl_scm_ruta_Entity
 
 #Region "Private Properties"
 
         Private _idruta As Int32
         Private _rtanombre As String
+        Private _rtaestado As Nullable(Of Int32)
 
 #End Region
 
@@ -30,7 +31,17 @@ Public Class tbl_scm_ruta_Entity
             End Set
         End Property
 
-    'Derechos reservados    12/07/2016 6:50:52 p. m.
+
+ Public Property Rtaestado() As Nullable(Of Int32)
+            Get
+                Return _rtaestado
+            End Get
+            Set(ByVal value As Nullable(Of Int32))
+                _rtaestado = value
+            End Set
+        End Property
+
+    'Derechos reservados    18/07/2016 9:31:13 p. m.
 
 #End Region
 

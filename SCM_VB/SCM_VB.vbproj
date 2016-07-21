@@ -77,6 +77,18 @@
   <ItemGroup>
     <Compile Include="cs\Conexiones.vb" />
     <Compile Include="cs\Globales.vb" />
+    <Compile Include="frm_asignar_ruta.Designer.vb">
+      <DependentUpon>frm_asignar_ruta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_asignar_ruta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_autorizacion_orden_ingreso.Designer.vb">
+      <DependentUpon>frm_autorizacion_orden_ingreso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_autorizacion_orden_ingreso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_autoriza_orden_egreso.Designer.vb">
       <DependentUpon>frm_autoriza_orden_egreso.vb</DependentUpon>
     </Compile>
@@ -89,10 +101,22 @@
     <Compile Include="frm_bodega.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm_cliente.Designer.vb">
+      <DependentUpon>frm_cliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_cliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_detalle_ordenes.Designer.vb">
       <DependentUpon>frm_detalle_ordenes.vb</DependentUpon>
     </Compile>
     <Compile Include="frm_detalle_ordenes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_empleados.Designer.vb">
+      <DependentUpon>frm_empleados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_empleados.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_empresa.Designer.vb">
@@ -105,6 +129,12 @@
       <DependentUpon>frm_gestor.vb</DependentUpon>
     </Compile>
     <Compile Include="frm_gestor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ingreso_rutas.Designer.vb">
+      <DependentUpon>frm_ingreso_rutas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ingreso_rutas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_inventario.Designer.vb">
@@ -155,10 +185,22 @@
     <Compile Include="frm_orden_egreso.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm_orden_ingreso.Designer.vb">
+      <DependentUpon>frm_orden_ingreso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_orden_ingreso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_productos.Designer.vb">
       <DependentUpon>frm_productos.vb</DependentUpon>
     </Compile>
     <Compile Include="frm_productos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_reporte_ordenes.Designer.vb">
+      <DependentUpon>frm_reporte_ordenes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_reporte_ordenes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_selector_empresa.Designer.vb">
@@ -171,6 +213,24 @@
       <DependentUpon>frm_tipo_gestor.vb</DependentUpon>
     </Compile>
     <Compile Include="frm_tipo_gestor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_validacion_entregas_orden.Designer.vb">
+      <DependentUpon>frm_validacion_entregas_orden.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_validacion_entregas_orden.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_vehiculos.Designer.vb">
+      <DependentUpon>frm_vehiculos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_vehiculos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ver_ordenes.Designer.vb">
+      <DependentUpon>frm_ver_ordenes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ver_ordenes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -190,6 +250,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frm_autorizacion_orden_ingreso.resx">
+      <DependentUpon>frm_autorizacion_orden_ingreso.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_autoriza_orden_egreso.resx">
       <DependentUpon>frm_autoriza_orden_egreso.vb</DependentUpon>
     </EmbeddedResource>
@@ -229,14 +292,23 @@
     <EmbeddedResource Include="frm_orden_egreso.resx">
       <DependentUpon>frm_orden_egreso.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_orden_ingreso.resx">
+      <DependentUpon>frm_orden_ingreso.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_productos.resx">
       <DependentUpon>frm_productos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_reporte_ordenes.resx">
+      <DependentUpon>frm_reporte_ordenes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_selector_empresa.resx">
       <DependentUpon>frm_selector_empresa.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_tipo_gestor.resx">
       <DependentUpon>frm_tipo_gestor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_vehiculos.resx">
+      <DependentUpon>frm_vehiculos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -586,6 +658,7 @@
     <None Include="Resources\ERP-1.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\maxresdefault3.png" />
     <Content Include="Resources\put-inside.ico" />
     <None Include="Resources\yr1qegc8j0f1enws84uo.png" />
     <None Include="Resources\yr1qegc8j0f1enws84uo.jpg" />

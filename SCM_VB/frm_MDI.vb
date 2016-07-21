@@ -122,4 +122,44 @@ Public Class frm_MDI
     Private Sub ExistenciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExistenciasToolStripMenuItem.Click
         iniciar_frm(frm_inventario)
     End Sub
+
+    Private Sub CreacionOrdenDeIngresoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CreacionOrdenDeIngresoToolStripMenuItem.Click
+        iniciar_frm(frm_orden_ingreso)
+    End Sub
+
+    Private Sub AutorizacionOrdenesDeIngresoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AutorizacionOrdenesDeIngresoToolStripMenuItem.Click
+        iniciar_frm(frm_autorizacion_orden_ingreso)
+    End Sub
+
+    Private Sub OrdenesDeInventarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrdenesDeInventarioToolStripMenuItem.Click
+        iniciar_frm(frm_reporte_ordenes)
+    End Sub
+
+    Private Sub VerOrdenesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerOrdenesToolStripMenuItem.Click
+        iniciar_frm(frm_ver_ordenes)
+    End Sub
+
+    Private Sub AsignarRutaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsignarRutaToolStripMenuItem.Click
+        iniciar_frm(frm_asignar_ruta)
+    End Sub
+
+    Private Sub ValidacionDeOrdenesDeEntregaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ValidacionDeOrdenesDeEntregaToolStripMenuItem.Click
+        iniciar_frm(frm_validacion_entregas_orden)
+    End Sub
+
+    Private Sub IngresoDeRutasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IngresoDeRutasToolStripMenuItem.Click
+        iniciar_frm(frm_ingreso_rutas)
+    End Sub
+
+    Private Sub IngresoDeVehiculosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IngresoDeVehiculosToolStripMenuItem.Click
+        iniciar_frm(frm_vehiculos)
+    End Sub
+
+    Private Sub IngresoDeClientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IngresoDeClientesToolStripMenuItem.Click
+        iniciar_frm(frm_cliente)
+    End Sub
+
+    Private Sub IngresoDeEmpreadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IngresoDeEmpreadoToolStripMenuItem.Click
+        iniciar_frm(frm_empleados)
+    End Sub
 End Class

@@ -6,7 +6,7 @@ Imports Entity
 Public Class DALtbl_scm_ruta
 
 
-    'Derechos reservados     12/07/2016 6:50:52 p. m.
+    'Derechos reservados     18/07/2016 9:31:13 p. m.
     'CLASE DE ACTUALIZACION DE DATOS
      Public Shared Function Update(ByVal pConnection As Connection_Entity, ByVal ptbl_scm_ruta as tbl_scm_ruta_Entity) As Boolean
 
@@ -17,6 +17,7 @@ Public Class DALtbl_scm_ruta
 
             iCommand.Parameters.AddWithValue("@id_ruta",ptbl_scm_ruta.Idruta )
             iCommand.Parameters.AddWithValue("@rta_nombre",ptbl_scm_ruta.Rtanombre )
+            iCommand.Parameters.AddWithValue("@rta_estado",ptbl_scm_ruta.Rtaestado )
             iConnection.Open()
             iCommand.Connection = iConnection
             Try
@@ -29,7 +30,7 @@ Public Class DALtbl_scm_ruta
     End Function
 
 
-    'Derechos reservados     12/07/2016 6:50:52 p. m.
+    'Derechos reservados     18/07/2016 9:31:13 p. m.
     'CLASE DE GRABADO DE DATOS
     Public Shared Function Insert(ByVal pConnection As Connection_Entity, ByVal ptbl_scm_ruta as tbl_scm_ruta_Entity) As tbl_scm_ruta_Entity
 
@@ -39,8 +40,8 @@ Public Class DALtbl_scm_ruta
             'Acceso a los datos.
             Dim lCommand As New OleDbCommand("spi_tbl_scm_ruta", iConnection)
             lCommand.CommandType = CommandType.StoredProcedure
-                lCommand.Parameters.AddWithValue("@idruta", ptbl_scm_ruta.Idruta) 
                 lCommand.Parameters.AddWithValue("@rtanombre", ptbl_scm_ruta.Rtanombre) 
+                lCommand.Parameters.AddWithValue("@rtaestado", IIf(ptbl_scm_ruta.Rtaestado is nothing, DBNull.Value, ptbl_scm_ruta.Rtaestado)) 
 
                 iConnection.Open()
                 Dim lReturnValue As Object = lCommand.ExecuteScalar()
@@ -61,7 +62,7 @@ Public Class DALtbl_scm_ruta
     End Function
 
 
-    'Derechos reservados     12/07/2016 6:50:52 p. m.
+    'Derechos reservados     18/07/2016 9:31:13 p. m.
     'CLASE DE ELIMINACION DE DATOS
     Public Shared Sub Delete(ByVal pConnection As Connection_Entity, ByVal ptbl_scm_ruta As tbl_scm_ruta_Entity)
 
@@ -83,7 +84,7 @@ Public Class DALtbl_scm_ruta
     End Sub
 
 
-    'Derechos reservados     12/07/2016 6:50:52 p. m.
+    'Derechos reservados     18/07/2016 9:31:13 p. m.
     'CLASE DE OBTENCION DE DATOS TODOS LOS REGISTRO REGRESADO EN UN DATATABLE
     Public Shared Function GetAll(ByVal pConnection As Connection_Entity, ByVal ptbl_scm_ruta as tbl_scm_ruta_Entity) As DataTable
 
@@ -94,6 +95,7 @@ Public Class DALtbl_scm_ruta
 
             iCommand.Parameters.AddWithValue("@id_ruta", iif(ptbl_scm_ruta.Idruta = 0, DbNull.Value, ptbl_scm_ruta.Idruta))
             iCommand.Parameters.AddWithValue("@rta_nombre", iif(ptbl_scm_ruta.Rtanombre is Nothing, DbNull.Value, ptbl_scm_ruta.Rtanombre))
+            iCommand.Parameters.AddWithValue("@rta_estado", iif(ptbl_scm_ruta.Rtaestado is Nothing, DbNull.Value, ptbl_scm_ruta.Rtaestado))
                 Try
                     Dim iDTResult as New DataTable("tbl_scm_ruta")
                     Dim iDAResult as New OleDbDataAdapter()
@@ -109,7 +111,7 @@ Public Class DALtbl_scm_ruta
     End Function
 
 
-    'Derechos reservados     12/07/2016 6:50:52 p. m.
+    'Derechos reservados     18/07/2016 9:31:13 p. m.
     'CLASE DE OBTENCION DE DATOS UN SOLO REGISTRO REGRESADO EN UN ENTITY
     Public Shared Function GetSingle(ByVal pConnection As Connection_Entity, ByVal ptbl_scm_ruta as tbl_scm_ruta_Entity) As tbl_scm_ruta_Entity
 
@@ -120,6 +122,7 @@ Public Class DALtbl_scm_ruta
 
             iCommand.Parameters.AddWithValue("@id_ruta", iif(ptbl_scm_ruta.Idruta = 0, DbNull.Value, ptbl_scm_ruta.Idruta))
             iCommand.Parameters.AddWithValue("@rta_nombre", iif(ptbl_scm_ruta.Rtanombre is Nothing, DbNull.Value, ptbl_scm_ruta.Rtanombre))
+            iCommand.Parameters.AddWithValue("@rta_estado", iif(ptbl_scm_ruta.Rtaestado is Nothing, DbNull.Value, ptbl_scm_ruta.Rtaestado))
                 Try
                     Dim iDTResult as New DataTable("tbl_scm_ruta")
                     dim iDAResult as New OleDbDataAdapter()
@@ -129,6 +132,7 @@ Public Class DALtbl_scm_ruta
                     Dim itbl_scm_rutaResult As New tbl_scm_ruta_Entity
                     itbl_scm_rutaResult.Idruta = IIf(iDTResult.Rows(0)("id_ruta") Is DBNull.Value, Nothing, iDTResult.Rows(0)("id_ruta"))
                     itbl_scm_rutaResult.Rtanombre = IIf(iDTResult.Rows(0)("rta_nombre") Is DBNull.Value, Nothing, iDTResult.Rows(0)("rta_nombre"))
+                    itbl_scm_rutaResult.Rtaestado = IIf(iDTResult.Rows(0)("rta_estado") Is DBNull.Value, Nothing, iDTResult.Rows(0)("rta_estado"))
 
                     Return itbl_scm_rutaResult
 

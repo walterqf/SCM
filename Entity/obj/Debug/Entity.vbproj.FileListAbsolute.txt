@@ -28,9 +28,9 @@ C:\Users\walte\Documents\SCM\Entity\obj\Debug\Entity.pdb
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\Entity\bin\Debug\Entity.dll
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\Entity\bin\Debug\Entity.pdb
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\Entity\bin\Debug\Entity.xml
-C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\Entity\obj\Debug\Entity.vbprojResolveAssemblyReference.cache
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\Entity\obj\Debug\Entity.Resources.resources
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\Entity\obj\Debug\Entity.vbproj.GenerateResource.Cache
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\Entity\obj\Debug\Entity.dll
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\Entity\obj\Debug\Entity.xml
 C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\Entity\obj\Debug\Entity.pdb
+C:\Users\KikeM\Documents\Visual Studio 2015\Projetcs\SCM-Integrado\Entity\obj\Debug\Entity.vbprojResolveAssemblyReference.cache

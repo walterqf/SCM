@@ -1,4 +1,4 @@
-    'Derechos reservados    12/07/2016 6:50:52 p. m.
+    'Derechos reservados    20/07/2016 11:46:57 a. m.
 Public Class tbl_scm_vehiculos_Entity
 
 #Region "Private Properties"
@@ -12,8 +12,8 @@ Public Class tbl_scm_vehiculos_Entity
         Private _vhcmodelo As String
         Private _vhckmoriginal As Decimal
         Private _vhckmactual As Decimal
-        Private _vhcfechaultimoservicio As DateTime
-        Private _vhcfechacompra As DateTime
+        Private _vhcfechaultimoservicio As String
+        Private _vhcfechacomprao As String
 
 #End Region
 
@@ -110,26 +110,26 @@ Public Class tbl_scm_vehiculos_Entity
         End Property
 
 
- Public Property Vhcfechaultimoservicio() As DateTime
+ Public Property Vhcfechaultimoservicio() As String
             Get
                 Return _vhcfechaultimoservicio
             End Get
-            Set(ByVal value As DateTime)
+            Set(ByVal value As String)
                 _vhcfechaultimoservicio = value
             End Set
         End Property
 
 
- Public Property Vhcfechacompra() As DateTime
+ Public Property Vhcfechacomprao() As String
             Get
-                Return _vhcfechacompra
+                Return _vhcfechacomprao
             End Get
-            Set(ByVal value As DateTime)
-                _vhcfechacompra = value
+            Set(ByVal value As String)
+                _vhcfechacomprao = value
             End Set
         End Property
 
-    'Derechos reservados    12/07/2016 6:50:52 p. m.
+    'Derechos reservados    20/07/2016 11:46:57 a. m.
 
 #End Region
 

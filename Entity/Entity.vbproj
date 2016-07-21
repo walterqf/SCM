@@ -85,12 +85,15 @@
     <Compile Include="tbl_empresasEntity.vb" />
     <Compile Include="tbl_estado_ordenEntity.vb" />
     <Compile Include="tbl_gestor_ordenesEntity.vb" />
+    <Compile Include="tbl_hist_mant_vehiculosEntity.vb" />
     <Compile Include="tbl_inventarioEntity.vb" />
     <Compile Include="tbl_monedasEntity.vb" />
     <Compile Include="tbl_ordenes_detalleEntity.vb" />
     <Compile Include="tbl_ordenes_encabezadoEntity.vb" />
     <Compile Include="tbl_scm_clienteEntity.vb" />
     <Compile Include="tbl_scm_detalle_ordenesEntity.vb" />
+    <Compile Include="tbl_scm_detalle_rutaEntity.vb" />
+    <Compile Include="tbl_scm_empleadosEntity.vb" />
     <Compile Include="tbl_scm_estadoEntity.vb" />
     <Compile Include="tbl_scm_estado_ordenEntity.vb" />
     <Compile Include="tbl_scm_marca_vehiculoEntity.vb" />

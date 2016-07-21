@@ -12,31 +12,11 @@
     End Sub
 
     Private Sub guardar()
-        'Dim gestores As New Entity.tbl_gestor_ordenes_Entity
-        ''gestores.Nombresolicitanteorden = txt_nombre_gestor.Text
-        ''gestores.Nombrecomercialsolicitanteorden = txt_nombre_comercial_gestor.Text
-        ''gestores.Idtipogestor = cmb_tipos.SelectedValue
-        ''gestores.Nitsolicitanteorden = txt_nit_gestor.Text
-        ''gestores.Direccionsolicitanteorden = txt_direccion_gestor.Text
-        ''gestores.Telefonosolicitanteorden = txt_telefono_gestor.Text
-        ''gestores.Idusuario = Val(txt_id_usuario.Text)
-        ''gestores.Idempresa = Val(cmb_empresa.SelectedValue)
 
-        'gestores.Idgestorordenes = id
-        'If txt_id_usuario.Text <> "0" Then
-        '    If editar = False Then
-        '        BO.BOtbl_gestor_ordenes.Insert(vCon, gestores)
-        '    Else
-        '        BO.BOtbl_gestor_ordenes.Update(vCon, gestores)
-        '    End If
         btn_acciones(5)
         editar = False
-        '    limpiar()
-        '    cargar_gestores()
-        'Else
-
-        'End If
-
+        grd_detalle.DataSource = Nothing
+        lbl_no_orden.Text = "No."
     End Sub
 
     Private Sub cargar_gestores()
@@ -64,15 +44,7 @@
 
     Private Sub frm_habilitar(ByVal estado As Boolean)
         btn_mas_producto.Enabled = estado
-        'grd_detalle.Enabled = estado
         cmb_gestores.Enabled = estado
-        'cmb_empresa.Enabled = estado
-        'txt_nombre_gestor.Enabled = estado
-        'txt_nombre_comercial_gestor.Enabled = estado
-        'txt_direccion_gestor.Enabled = estado
-
-        'txt_nit_gestor.Enabled = estado
-        'txt_telefono_gestor.Enabled = estado
         txt_usuario.Enabled = estado
     End Sub
 
@@ -104,15 +76,7 @@
 
 
     Private Sub limpiar()
-        'txt_nombre_gestor.Text = ""
-        'txt_direccion_gestor.Text = ""
-        'cmb_empresa.SelectedIndex = 0
-        'cmb_tipos.SelectedIndex = 0
-        'txt_nombre_comercial_gestor.Text = ""
-        'txt_id_usuario.Text = "1"
-        'txt_nit_gestor.Text = ""
-        'txt_telefono_gestor.Text = ""
-        'txt_usuario.Text = ""
+        grd_detalle.DataSource = Nothing
 
     End Sub
 
